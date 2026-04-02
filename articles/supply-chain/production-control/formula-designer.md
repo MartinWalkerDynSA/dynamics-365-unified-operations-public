@@ -1,40 +1,20 @@
 ---
-# required metadata
-
 title: Formula designer
-description: This topic explains how to use the formula designer to analyze and maintain formulas in a tree view.
-author: cvocph 
-manager: AnnBe
+description: Learn how to use the formula designer to analyze and maintain formulas in a tree view with an outline on analyzing formula structure.
+author: johanhoffmann
+ms.author: johanho
+ms.topic: article 
 ms.date: 06/01/2017
-ms.topic: article
-ms.prod: 
-ms.service: dynamics-ax-applications
-ms.technology: 
-
-# optional metadata
-
+ms.custom:
+ms.reviewer: kamaybac
 ms.search.form: PlanActivity, ReqSupplyDemandSchedule
-# ROBOTS: 
-audience: Application User
-# ms.devlang: 
-ms.reviewer: josaw
-ms.search.scope: Core, Operations
-# ms.tgt_pltfrm: 
-ms.custom: 
-ms.assetid: 
-ms.search.region: Global
-ms.search.industry: 
-ms.author: conradv
-ms.search.validFrom: 2016-02-28
-ms.dyn365.ops.version: AX 7.0.0
-
 ---
 
 # Formula designer
 
 [!include [banner](../includes/banner.md)]
 
-This topic explains how to use the formula designer to analyze and maintain formulas in a tree view.
+This article explains how to use the formula designer to analyze and maintain formulas in a tree view.
 
 When you open the **Formula designer** page from the **Released products** page, the tree in the left pane shows the list of co-products and the hierarchy of ingredients for the released product. The structure is derived from the hierarchy of formulas that are active and approved for the selected item and its ingredients, the default order site of the item, and the actual date.
 
@@ -125,3 +105,6 @@ Click **Setup** to customize the information that is shown in the tree view of t
 |     BOM     | Use the check boxes to select the criteria that are shown in the tree structure. The formula designer shows the selected criteria at the bottom of both tabs. |
 |    Route    |                                           Use the check boxes to select the criteria that are shown for the routes.                                           |
 
+
+
+[!INCLUDE[footer-include](../../includes/footer-banner.md)]

@@ -1,34 +1,18 @@
 --- 
-# required metadata 
- 
 title: Create a kanban rule using a kanban line event
-description: This procedure creates a kanban rule by using the kanban line event setting to trigger pull from a process activity. 
-author: ChristianRytt
-manager: AnnBe 
+description: This procedure creates a kanban rule by using the kanban line event setting to trigger pull from a process activity, including a step-by-step process. 
+author: johanhoffmann
+ms.author: johanho
+ms.topic: how-to
 ms.date: 08/29/2018
-ms.topic: business-process 
-ms.prod:  
-ms.service: dynamics-ax-applications 
-ms.technology:  
- 
-# optional metadata 
- 
-ms.search.form: KanbanRules, LeanProductionFlowActivityLookup, SalesTableListPage, SalesCreateOrder, SalesTable   
-audience: Application User 
-# ms.devlang:  
-ms.reviewer: shylaw
-ms.search.scope: Core, Operations 
-# ms.tgt_pltfrm:  
-# ms.custom:  
-ms.search.region: Global
-ms.search.industry: Manufacturing
-ms.author: crytt
-ms.search.validFrom: 2016-06-30 
-ms.dyn365.ops.version: Version 7.0.0 
+ms.custom:
+ms.reviewer: kamaybac   
+ms.search.form: KanbanRules, LeanProductionFlowActivityLookup, SalesTableListPage, SalesCreateOrder, SalesTable
 ---
+
 # Create a kanban rule using a kanban line event
 
-[!include [task guide banner](../../includes/task-guide-banner.md)]
+[!include [banner](../../includes/banner.md)]
 
 This procedure creates a kanban rule by using the kanban line event setting to trigger pull from a process activity. The kanban rule is triggered by a kanban process activity, with a quantity equal to or greater than 25 each. The demo data company used to create this task is USMF. This task is intended for the process engineer or the value stream manager, as they prepare production of a new or modified product in a lean environment.
 
@@ -71,3 +55,6 @@ This procedure creates a kanban rule by using the kanban line event setting to t
     * Notice that a kanban for 27 was created to process the  activity based on the created kanban rule.  
     * This is the last step.  
 
+
+
+[!INCLUDE[footer-include](../../../includes/footer-banner.md)]

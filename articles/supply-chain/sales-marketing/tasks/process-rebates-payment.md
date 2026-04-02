@@ -1,36 +1,20 @@
 --- 
-# required metadata 
- 
 title: Process rebates for payment
-description: This procedure demonstrates how to convert approved and processed customer rebates to credit notes. 
-author: omulvad
-manager: AnnBe 
+description: Learn how to convert approved and processed customer rebates to credit notes, including a step-by-step process for converting rebate claims to credit notes.
+author: AditiPattanaik
+ms.author: adpattanaik
+ms.topic: how-to
 ms.date: 11/10/2016
-ms.topic: business-process 
-ms.prod:  
-ms.service: dynamics-ax-applications 
-ms.technology:  
- 
-# optional metadata 
- 
-# ms.search.form:   
-audience: Application User 
-# ms.devlang:  
-ms.reviewer: kfend
-ms.search.scope: Operations 
-# ms.tgt_pltfrm:  
-# ms.custom:  
-ms.search.region: Global
-# ms.search.industry: 
-ms.author: omulvad
-ms.search.validFrom: 2016-06-30 
-ms.dyn365.ops.version: AX 7.0.0 
+ms.custom:
+ms.reviewer: kamaybac
+ms.search.form:
 ---
+
 # Process rebates for payment
 
-[!include [task guide banner](../../includes/task-guide-banner.md)]
+[!include [banner](../../includes/banner.md)]
 
-This procedure demonstrates how to convert approved and processed customer rebates to credit notes. You can use this guide in the USMF demo company. The precondition for this guide is to have one or more rebate claims which have a status of Mark. If you’re using USMF you should run the "Generate and process customer rebates" guide before you start this guide.
+This procedure demonstrates how to convert approved and processed customer rebates to credit notes. You can use this guide in the USMF demo company. The precondition for this guide is to have one or more rebate claims which have a status of Mark. If you're using USMF you should run the "Generate and process customer rebates" guide before you start this guide.
 
 
 ## Convert rebate claims to credit note
@@ -46,7 +30,7 @@ This procedure demonstrates how to convert approved and processed customer rebat
     * Set checkmarks in the Mark field for the claims that you want to include into credit note.   
 9. Click Functions.
 10. Click Create credit note.
-    * A message appears to inform you that a journal has been posted (This is the Accounts receivable consumption journal, as specified in the Accounts receivable parameters page). This causes the real liability (credit) amount to be moved to the customer balance. This means that the customer’s account has been credited, and the Rebate accrual account has been debited.  
+    * A message appears to inform you that a journal has been posted (This is the Accounts receivable consumption journal, as specified in the Accounts receivable parameters page). This causes the real liability (credit) amount to be moved to the customer balance. This means that the customer's account has been credited, and the Rebate accrual account has been debited.  
 11. Close the page.
 12. Click Cancel.
     * This refreshes the page so that you can see the updates.  
@@ -55,3 +39,6 @@ This procedure demonstrates how to convert approved and processed customer rebat
     * Note that a transaction for negative amount, representing the total rebate amount, without invoice reference has been added to the customer balance.   
 15. Click Cancel.
 
+
+
+[!INCLUDE[footer-include](../../../includes/footer-banner.md)]

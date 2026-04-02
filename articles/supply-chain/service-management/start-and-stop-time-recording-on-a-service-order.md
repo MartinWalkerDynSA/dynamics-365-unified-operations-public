@@ -1,71 +1,43 @@
 ---
-# required metadata
-
 title: Start and stop time recording on a service order 
-description: Start and stop time recording on a service order.
-author: ShylaThompson
-manager: AnnBe
-ms.date: 05/07/2018
-ms.topic: article
-ms.prod: 
-ms.service: dynamics-ax-applications
-ms.technology: 
-
-# optional metadata
-
+description: Learn how to start and stop time recording on a service order, including step-by-step processes for starting and stopping time recording.
+author: Henrikan
+ms.author: henrikan
+ms.reviewer: kamaybac
 ms.search.form: SMAServiceOrderTable
-# ROBOTS: 
-audience: Application User
-# ms.devlang: 
-ms.reviewer: josaw
-ms.search.scope: Core, Operations
-# ms.tgt_pltfrm: 
+ms.topic: how-to
+ms.date: 07/10/2025
+ms.update-cycle: 1095-days
 ms.custom: 
-ms.assetid: 
-ms.search.region: Global
-# ms.search.industry: 
-ms.author: ShylaThompson
-ms.search.validFrom: 2016-02-28
-ms.dyn365.ops.version: AX 7.0.0
+  - bap-template
+  - evergreen
 ---
 
-# Start and stop time recording on a service order 
+# Start and stop time recording on a service order
 
 [!include [banner](../includes/banner.md)]
-
 
 Use this procedure to start and stop time recording for a service order for which a service level agreement is defined.
 
 ## Start time recording
 
-1.  Click **Service management** \> **Common** \> **Service orders** \> **Service orders**.
+1. Go to **Service management** \> **Service orders** \> **Service orders**.
 
-2.  Click the **Service order** tab. On the **Action Pane**, in the **Service level agreement** group, click **Start**.
+2. Select the **Service order** tab. On the Action Pane, in the **Service level agreement** group, select **Start**.
 
-3.  Enter the date and time that the time recording should be started.
+3. Enter the date and time that the time recording should be started.
 
 ## Stop time recording
 
-1.  Click **Service management** \> **Common** \> **Service orders** \> **Service orders**.
+1. Go to **Service management** \> **Service orders** \> **Service orders**.
 
-2.  Click the **Service order** tab. On the **Action Pane**, in the **Service level agreement** group, click **Stop**.
+2. Select the **Service order** tab. On the Action Pane, in the **Service level agreement** group, select **Stop**.
 
-3.  Enter the date and time that the time recording should be stopped.
+3. Enter the date and time that the time recording should be stopped.
 
-4.  Select **Add a revocation reason**, and select a reason code in the **Stage reason code** list to provide a reason for stopping the time recording.
-
+4. Select **Add a revocation reason**, and select a reason code in the **Stage reason code** list to provide a reason for stopping the time recording.
 
 > [!NOTE]
-> <P>If <STRONG>Reason code on exceeding time</STRONG> is selected in the <STRONG>Service management parameters</STRONG> form, you must provide a reason code before you can stop the time recording.</P>
+> If **Reason code on exceeding time** is selected on the **Service management parameters** page, you must provide a reason code before you can stop the time recording.
 
-
-
-## See also
-
-[Start SLA time recording (form)](https://technet.microsoft.com/library/hh242297\(v=ax.60\))
-
-[Stop SLA time recording (form)](https://technet.microsoft.com/library/hh242241\(v=ax.60\))
-
-  
-
-
+[!INCLUDE[footer-include](../../includes/footer-banner.md)]

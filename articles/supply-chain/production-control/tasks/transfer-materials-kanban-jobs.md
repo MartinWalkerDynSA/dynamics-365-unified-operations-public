@@ -1,34 +1,18 @@
 --- 
-# required metadata 
- 
 title: Transfer materials with kanban jobs
-description: This procedure focuses on executing a withdrawal kanban job to transfer materials. 
-author: ChristianRytt
-manager: AnnBe 
+description: Learn about executing a withdrawal kanban job to transfer materials, including processes for displaying transfer jobs and starting transfer jobs. 
+author: johanhoffmann
+ms.author: johanho
+ms.topic: how-to
 ms.date: 08/29/2018
-ms.topic: business-process 
-ms.prod:  
-ms.service: dynamics-ax-applications 
-ms.technology:  
- 
-# optional metadata 
- 
-ms.search.form: KanbanBoardTransferJob   
-audience: Application User 
-# ms.devlang:  
-ms.reviewer: shylaw
-ms.search.scope: Core, Operations 
-# ms.tgt_pltfrm:  
-# ms.custom:  
-ms.search.region: Global
-ms.search.industry: Manufacturing
-ms.author: crytt
-ms.search.validFrom: 2016-06-30 
-ms.dyn365.ops.version: Version 7.0.0 
+ms.custom:
+ms.reviewer: kamaybac  
+ms.search.form: KanbanBoardTransferJob 
 ---
+
 # Transfer materials with kanban jobs
 
-[!include [task guide banner](../../includes/task-guide-banner.md)]
+[!include [banner](../../includes/banner.md)]
 
 This procedure focuses on executing a withdrawal kanban job to transfer materials. The demo data company used to create this procedure is USMF. This procedure is intended for the warehouse worker.
 
@@ -68,3 +52,6 @@ This procedure focuses on executing a withdrawal kanban job to transfer material
 2. Click Complete.
     * This will complete the transfer of both jobs.  
 
+
+
+[!INCLUDE[footer-include](../../../includes/footer-banner.md)]

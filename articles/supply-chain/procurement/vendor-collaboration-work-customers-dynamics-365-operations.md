@@ -1,51 +1,32 @@
 ---
-# required metadata
-
 title: Vendor collaboration with customers
-description: This topic describes how you can use vendor collaboration in Microsoft Dynamics 365 for Finance and Operations, to work with POs and monitor consignment inventory.
-author: mkirknel
-manager: AnnBe
-ms.date: 06/20/2017
-ms.topic: article
-ms.prod: 
-ms.service: dynamics-ax-applications
-ms.technology: 
-
-# optional metadata
-
-ms.search.form: ConsignmentProductReceiptLines, ConsignmentVendorPortalOnHand, PurchVendorPortalConfirmedOrders, PurchVendorPortalOriginalOrder, PurchVendorPortalResponsesHistoryList, PurchVendorPortalResponsesPart
-# ROBOTS: 
-audience: Application User
-# ms.devlang: 
-ms.reviewer: josaw
-ms.search.scope: Core, Operations
-# ms.tgt_pltfrm: 
-ms.custom: 221234
-ms.assetid: 6e69fb8b-6d3a-46ef-88cf-6d01212aa7c3
-ms.search.region: Global
-# ms.search.industry: 
-ms.author: mkirknel
-ms.search.validFrom: 2016-11-30
-ms.dyn365.ops.version: Version 1611
-
+description: Learn how you can use vendor collaboration to work with POs and monitor consignment inventory, including a list of workspaces.
+author: ShriramSivasankaran
+ms.author: shriramsiv
+ms.reviewer: kamaybac
+ms.search.form: ConsignmentProductReceiptLines, ConsignmentVendorPortalOnHand, PurchVendorPortalConfirmedOrders, PurchVendorPortalOriginalOrder, PurchVendorPortalResponsesHistoryList, PurchVendorPortalResponsesPart, VendVendorProfileCard, PurchVendorPortalAllResponse, PurchVendorPortalPendingResponsesPart, PurchVendorPortalResponses, PurchVendorPortalConfirmedOpenOrdersPart
+ms.topic: how-to
+ms.date: 06/17/2025
+ms.custom: 
+  - bap-template
 ---
 
 # Vendor collaboration with customers
 
 [!include [banner](../includes/banner.md)]
 
-This topic describes how you can use vendor collaboration to work with customers in Microsoft Dynamics 365 for Finance and Operations. Vendors can complete a series of business processes from the following workspaces:
+This article describes how you can use vendor collaboration to work with customers in Microsoft Dynamics 365 Supply Chain Management. Vendors can complete a series of business processes from the following workspaces:
 
 - **Purchase order confirmation** – Monitor and respond to purchase orders (POs).
 - **Vendor bidding** – View requests for quotation (RFQs), and respond to them by entering bids.
 - **Vendor information** – View and update vendor master data.
-- **Invoicing** – Work with invoices. This topic doesn't cover the **Invoicing** workspace. For more information about this workspace, see [Vendor collaboration invoicing workspace](../../financials/accounts-payable/vendor-portal-invoicing-workspace.md).
+- **Invoicing** – Work with invoices. This article doesn't cover the **Invoicing** workspace. For more information about this workspace, see [Vendor collaboration invoicing workspace](../../finance/accounts-payable/vendor-portal-invoicing-workspace.md).
 
 Vendors can also monitor information about consignment inventory.
 
 ## Working with POs in the Purchase order confirmation workspace
 
-The **Purchase order confirmation** workspace lets you respond to the POs that have been sent to you for review. It also lets you view information about POs that are awaiting action from the customer, and POs that have been confirmed but are still open.
+The **Purchase order confirmation** workspace lets you respond to the purchase orders (POs) that have been sent to you for review. It also lets you view information about POs that are awaiting action from the customer, and POs that have been confirmed but are still open.
 
 There are three lists in the **Purchase order confirmation** workspace:
 
@@ -55,21 +36,21 @@ There are three lists in the **Purchase order confirmation** workspace:
 
 You can use the following pages to work with POs:
 
-- **Purchase orders for review** – This page contains the same information as the **Purchase orders for review** list in the workspace. See the description earlier in this topic.
+- **Purchase orders for review** – This page contains the same information as the **Purchase orders for review** list in the workspace. See the description earlier in this article.
 - **Purchase order vendor confirmation history** – This page contains all POs and all versions of POs that have been sent to the vendor. It also contains all the responses that have been returned from the vendor.
-- **Open confirmed purchase orders** This page contains the same information as the **Open confirmed purchase order** list in the workspace. See the description earlier in this topic.
-- **All confirmed purchase orders** – This page contains all the POs that have been confirmed. The POs on this page include POs where products or services have been received. You can use this list to monitor POs that you can send invoices for.
+- **Open confirmed purchase orders** This page contains the same information as the **Open confirmed purchase order** list in the workspace. See the description earlier in this article.
+- **All confirmed purchase orders** – This page contains all the POs that have been confirmed. The POs that are shown on this page include POs where products or services have been received. You can use this list to monitor POs that you can send invoices for.
 
 ### Responding to POs
 
 The POs that the customer sends you to review appear in the **Purchase order confirmation** workspace and on the **Purchase orders for review** page. After you open a PO, you can accept it, reject it, or accept it with changes. There might be attachments on the PO header or on individual lines. Additionally, you can attach information to your response on the PO header or individual lines. For example, you might suggest a substitute item for one of the lines.
 
-You can preview and print the PO as a PDF file by using the **Preview/Print** option. You can also use the **Display dimensions** action to hide or show the following dimension columns: **Site**, **Warehouse**, **Color**, **Size**, **Style**, and **Configuration**. 
+You can preview and print the PO as a PDF file by using the **Preview/Print** option. You can also use the **Display dimensions** action to hide or show the following dimension columns: **Site**, **Warehouse**, **Color**, **Size**, **Style**, and **Configuration**.
 
 If you use the **Accept with changes** option, you can accept or reject individual lines. You can also make the following changes to lines:
 
-- Change dates or quantities. To update the confirmed delivery date on all lines, use the **Update delivery date** option on the PO header.
-- Split lines for different delivery dates or quantities.
+- Change dates or quantities. To update the confirmed receipt date on all lines, use the **Update receipt date** option on the PO header.
+- Split lines for different receipt dates or quantities.
 - Substitute an item. In the **Line details** section, enter an item description and the item number in the **External** field.
 
 You can't change pricing information or charges, but you can use notes to make suggestions for these changes.
@@ -86,9 +67,9 @@ If you're using consignment inventory, you can use the vendor collaboration inte
 
 ## Working with RFQs in the Vendor bidding workspace
 
-The **Vendor bidding** workspace lets you view the RFQs that your company has been invited to respond to. You can also respond to the RFQs. 
+The **Vendor bidding** workspace lets you view the requests for quotation (RFQs) that your company has been invited to respond to. You can also respond to the RFQs.
 
-The workspace also shows all the RFQs that you've lost or won. Additionally, if the system is configured for the Public sector, the workspace shows the RFQs that are publicly available.
+The workspace also shows all the RFQs that you've lost or won. Additionally, if the system is configured for the public sector, the workspace shows the RFQs that are publicly available.
 
 ### Viewing RFQs
 
@@ -104,21 +85,24 @@ Open the **Vendor bidding** workspace to access the following information:
 
 ### Working with RFQs that are publicly available
 
-People who work in the Public sector can see open and expired RFQs that have been made available to the public.
+People who work in the public sector can see open and expired RFQs that have been made available to the public.
 
 - Select the **Open published requests for quotations** link to see a list of open RFQs that are available to the public. An open RFQ is an RFQ that hasn't yet expired. You can find the expiration date and time on the header of the RFQ.
 
     If you've been invited to bid, you can find the same RFQ on the **New bid invitations** page. Sometimes, you might want to bid on an open RFQ, but you haven't been invited to bid. In this case, you might be able to invite yourself, provided that the customer has enabled self-invitation for the RFQ case.
 
+    The **New bid invitations** page provides a filter that lets you view the open RFQs and identify those that contain lines that match your approved procurement categories.
+
 - Select the **Closed published requests for quotations** link to see a list of closed RFQs that are available to the public. A closed RFQ is an RFQ that has expired. You can find the expiration date and time on the header of the RFQ.
 
     A closed RFQ shows all vendor bids down to the line level. As bids are awarded or rejected, this information is reflected in the closed RFQ. Any attachments that are included in the bid are also available.
 
-**Note:** This functionality is only available if the Public sector cofiguration is enabled.
+> [!NOTE]
+> This functionality is available only if the public sector configuration is turned on.
 
 ### Bidding
 
-- Click **Bid** to start to bid on an RFQ.
+- Select **Bid** to start to bid on an RFQ.
 
     When the editing is enabled for bid fields on the headers and lines of an RFQ, you can enter your bid directly in the line grid. You must also consider any additional bid information that should be added in the line details.
 
@@ -129,7 +113,7 @@ People who work in the Public sector can see open and expired RFQs that have bee
 - Select **Reset from RFQ** to reset the data that you entered for a bid and revert to the original RFQ. You can reset the header or the line.
 - Select **Add alternate** or **Remove alternate** in the line grid to work with alternates.
 
-    Some RFQs allow for alternate bids. You can specify alternate bids only for lines of the **Category** type, because specific items can't be added as alternates. 
+    Some RFQs allow for alternate bids. You can specify alternate bids only for lines of the **Category** type, because specific items can't be added as alternates.
 
 - Select **RFQ attachment** or **RFQ lines attachment** to open any attachment that the customer has added to an RFQ. Select **Bid attachments** or **Bid line attachments** to upload attachments together with the bid.
 
@@ -145,6 +129,8 @@ As a vendor, you can access part of the information that the customer maintains 
 
 The accessible information is the vendor name, addresses, contact information, contact persons and their contact information, identification numbers, tax registration numbers, procurement categories that the vendor is approved to sell to the customer in, and information about certifications.
 
-## Additional resources
+## Related information
 
-[Manage vendor collaboration users](manage-vendor-collaboration-users.md)
+- [Manage vendor collaboration users](manage-vendor-collaboration-users.md)
+
+[!INCLUDE[footer-include](../../includes/footer-banner.md)]

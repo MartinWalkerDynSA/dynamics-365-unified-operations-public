@@ -1,34 +1,18 @@
 --- 
-# required metadata 
- 
 title: Create a replacement kanban rule
-description: This procedure focuses on replacing an existing kanban rule with a new kanban rule on a specific date. 
-author: ChristianRytt
-manager: AnnBe 
+description: Learn about replacing an existing kanban rule with a new kanban rule on a specific date, including a step-by-step process for creating replacement kanban rules. 
+author: johanhoffmann
+ms.author: johanho
+ms.topic: how-to
 ms.date: 08/29/2018
-ms.topic: business-process 
-ms.prod:  
-ms.service: dynamics-ax-applications 
-ms.technology:  
- 
-# optional metadata 
- 
-ms.search.form: KanbanRules, KanbanRuleDuplicate   
-audience: Application User 
-# ms.devlang:  
-ms.reviewer: shylaw
-ms.search.scope: Core, Operations 
-# ms.tgt_pltfrm:  
-# ms.custom:  
-ms.search.region: Global
-ms.search.industry: Manufacturing
-ms.author: crytt
-ms.search.validFrom: 2016-06-30 
-ms.dyn365.ops.version: Version 7.0.0 
+ms.custom:
+ms.reviewer: kamaybac  
+ms.search.form: KanbanRules, KanbanRuleDuplicate 
 ---
+
 # Create a replacement kanban rule
 
-[!include [task guide banner](../../includes/task-guide-banner.md)]
+[!include [banner](../../includes/banner.md)]
 
 This procedure focuses on replacing an existing kanban rule with a new kanban rule on a specific date. This is useful when changes in the production flow or replenishment rules need to be coordinated and scheduled. The demo data company used to create procedure is USMF. This procedure is intended for the process engineer or the value stream manager when they prepare production for a changed production flow or a new replenishment rule. This task replaces kanban rule 000022 with a new rule and increases the maximum quantity from 48 to 100 for the new rule.
 
@@ -58,3 +42,6 @@ This procedure focuses on replacing an existing kanban rule with a new kanban ru
 1. Set Maximum quantity to '100'.
     * Expand the Quantities FastTab to see the Maximum quantity field. Changing the maximum quantity to 100 will allow up to 100 kanbans to be processed.    This is the last step in this task.  
 
+
+
+[!INCLUDE[footer-include](../../../includes/footer-banner.md)]

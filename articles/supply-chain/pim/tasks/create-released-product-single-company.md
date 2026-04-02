@@ -1,34 +1,18 @@
 --- 
-# required metadata 
- 
 title: Create a released product for a single company
-description: This procedure walks through how to create a single released product in the context of a single legal unit. 
-author: ShylaThompson
-manager: AnnBe 
+description: Learn how to create a single released product in the context of a single legal unit, including a step-by-step process for creating released products. 
+author: sgmsft
+ms.author: shwgarg
+ms.topic: how-to
 ms.date: 08/29/2018
-ms.topic: business-process 
-ms.prod:  
-ms.service: dynamics-ax-applications 
-ms.technology:  
- 
-# optional metadata 
- 
-ms.search.form: EcoResProductDetailsExtended, EcoResProductCreate, UnitOfMeasureLookup, DimensionLookup   
-audience: Application User 
-# ms.devlang:  
-ms.reviewer: shylaw
-ms.search.scope: Core, Operations 
-# ms.tgt_pltfrm:  
-# ms.custom:  
-ms.search.region: Global
-# ms.search.industry: 
-ms.author: shylaw
-ms.search.validFrom: 2016-06-30 
-ms.dyn365.ops.version: Version 7.0.0 
+ms.custom: 
+ms.reviewer: kamaybac    
+ms.search.form: EcoResProductDetailsExtended, EcoResProductCreate, UnitOfMeasureLookup, DimensionLookup
 ---
+
 # Create a released product for a single company
 
-[!include [task guide banner](../../includes/task-guide-banner.md)]
+[!include [banner](../../includes/banner.md)]
 
 This procedure walks through how to create a single released product in the context of a single legal unit. After the released product is created,  it's immediately available in this unit only. You can walk through this procedure in demo data company USMF. This task is usually performed by a product designer.
 
@@ -61,11 +45,11 @@ This procedure walks through how to create a single released product in the cont
 18. In the list, find and select the desired record.
 19. In the list, click the link in the selected row.
 20. In the Purchase unit field, click the drop-down button to open the lookup.
-    * The purchase unit determines how the product is quantified when it’s purchased from a vendor.  
+    * The purchase unit determines how the product is quantified when it's purchased from a vendor.  
 21. In the list, find and select the desired record.
 22. In the list, click the link in the selected row.
 23. In the Sales unit field, click the drop-down button to open the lookup.
-    * The sales unit determines how the product is quantified when it’s sold to a customer.  
+    * The sales unit determines how the product is quantified when it's sold to a customer.  
 24. In the list, find and select the desired record.
 25. In the list, click the link in the selected row.
 26. In the BOM unit field, click the drop-down button to open the lookup.
@@ -106,3 +90,6 @@ This procedure walks through how to create a single released product in the cont
 12. In the list, find and select the desired record.
 13. In the list, click the link in the selected row.
 
+
+
+[!INCLUDE[footer-include](../../../includes/footer-banner.md)]

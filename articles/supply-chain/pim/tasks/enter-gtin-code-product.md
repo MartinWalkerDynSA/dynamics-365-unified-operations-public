@@ -1,47 +1,32 @@
 --- 
-# required metadata 
- 
 title: Enter the GTIN code for a product
-description: GTIN codes are assigned by the GS1 organization. 
-author: ShylaThompson
-manager: AnnBe 
-ms.date: 08/29/2018
-ms.topic: business-process 
-ms.prod:  
-ms.service: dynamics-ax-applications 
-ms.technology:  
- 
-# optional metadata 
- 
-ms.search.form: DefaultDashboard, EcoResProductMaintainWorkspace, EcoResProductOpenCasesFormPart, EcoResProductDetailsExtended, InventItemGTIN, UnitOfMeasureLookup   
-audience: Application User 
-# ms.devlang:  
-ms.reviewer: shylaw
-ms.search.scope: Core, Operations 
-# ms.tgt_pltfrm:  
-# ms.custom:  
-ms.search.region: Global
-# ms.search.industry: 
-ms.author: shylaw
-ms.search.validFrom: 2016-06-30 
-ms.dyn365.ops.version: Version 7.0.0 
+description: Global Trade Item Number (GTIN) codes are assigned by the GS1 organization, including a step-by-step process for assigning GTIN codes. 
+author: sgmsft
+ms.author: shwgarg
+ms.topic: how-to
+ms.date: 07/20/2023
+ms.custom:
+ms.reviewer: kamaybac   
+ms.search.form: DefaultDashboard, EcoResProductMaintainWorkspace, EcoResProductOpenCasesFormPart, EcoResProductDetailsExtended, InventItemGTIN, UnitOfMeasureLookup 
 ---
+
 # Enter the GTIN code for a product
 
-[!include [task guide banner](../../includes/task-guide-banner.md)]
+[!include [banner](../../includes/banner.md)]
 
-GTIN codes are assigned by the GS1 organization. In this example, you will enter a code for product number M0001 in demo data company USMF.
+A Global Trade Item Number (GTIN) is a unique and internationally recognized identifier for a product. GTIN codes are assigned by the GS1 organization.
 
-1. Click Released product maintenance.
-2. Click Released products.
-3. Expand the Product image FactBox.
-4. In the list, find and select the desired record.
-5. On the Action Pane, click Manage inventory.
-6. Click GTIN codes.
-7. Click New.
-8. In the list, mark the selected row.
-9. In the Unit field, enter or select a value.
-10. In the GTIN code field, select an option.
-11. In the GTIN field, type a value.
-12. Close the page.
+To assign GTIN codes to a product, follow these steps:
 
+1. Go to **Product information management \> Products \> Released products**.
+1. Select a product in the grid.
+1. On the Action Pane, open the **Manage inventory** tab and select **GTIN codes**.
+1. Use the Action Pane buttons to add or remove rows as needed.
+1. Make the following settings for a new or selected row:
+    - **Unit** – Select a unit of measure.
+    - **GTIN code** – Select the GTIN standard you're using.
+    - **GTIN** – Enter the GTIN code for the product.
+    - *Other dimensions* – Enter values in the other dimension columns as needed. To control which dimensions are shown, select **Display dimensions** on the Action Pane.
+1. On the Action Pane, select **Save**.
+
+[!INCLUDE[footer-include](../../../includes/footer-banner.md)]

@@ -1,33 +1,13 @@
 ---
-# required metadata
-
 title: Reuse product configurations
-description: You can specify that you want to automatically reuse an existing configuration for a product. Then, when a user has completed a configuration session, the system verifies whether a configuration that matches the user’s selections already exists. If a matching configuration is found, the configuration ID, corresponding bill of materials (BOM), and route are reused.
-author: cvocph
-manager: AnnBe
-ms.date: 06/20/2017
+description: Learn about reusing product configurations, including outlines on requirements for reusing configurations and resetting configuration reuse.
+author: sgmsft
+ms.author: shwgarg
 ms.topic: article
-ms.prod: 
-ms.service: dynamics-ax-applications
-ms.technology: 
-
-# optional metadata
-
+ms.date: 06/20/2017
+ms.reviewer: kamaybac
 ms.search.form: PCProductConfigurationModelDetails
-# ROBOTS: 
-audience: Application User
-# ms.devlang: 
-ms.reviewer: josaw
-ms.search.scope: Core, Operations
-# ms.tgt_pltfrm: 
-ms.custom: 201813
 ms.assetid: 4985e308-7824-41fc-83fd-fd0bdae888e3
-ms.search.region: Global
-ms.search.industry: Manufacturing
-ms.author: conradv
-ms.search.validFrom: 2016-02-28
-ms.dyn365.ops.version: AX 7.0.0
-
 ---
 
 # Reuse product configurations
@@ -36,8 +16,7 @@ ms.dyn365.ops.version: AX 7.0.0
 
 You can specify that you want to automatically reuse an existing configuration for a product. Then, when a user has completed a configuration session, the system verifies whether a configuration that matches the user’s selections already exists. If a matching configuration is found, the configuration ID, corresponding bill of materials (BOM), and route are reused.
 
-Requirements for reusing configurations
----------------------------------------
+## Requirements for reusing configurations
 
 To enable configurations to be reused, you must specify the following information for the components and attributes on the **Product configuration model details** page:
 
@@ -49,3 +28,6 @@ When you reset configuration reuse, previously created configurations are no lon
 
 
 
+
+
+[!INCLUDE[footer-include](../../includes/footer-banner.md)]

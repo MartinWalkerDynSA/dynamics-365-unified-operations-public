@@ -1,0 +1,122 @@
+---
+title: Progressive withholding tax for Japan
+description: Learn about progressive withholding tax in Japan, including prerequisites, an outline on tax calculations, and an example.
+author: epodkolzina
+ms.author: epodkolzina
+ms.topic: how-to
+ms.custom: 
+  - bap-template
+ms.date: 12/08/2025
+ms.reviewer: johnmichalak
+ms.search.region: Japan
+ms.search.validFrom: 2016-11-30
+ms.search.form: TaxWithholdGroup, TaxWithholdTable, TaxWithholdTrans
+ms.dyn365.ops.version: Version 1611
+ms.assetid: 5ee3e381-31c4-48ac-9488-0eb1bc524cf5
+---
+
+# Progressive withholding tax for Japan
+
+[!include [banner](../../includes/banner.md)]
+
+This article provides information about progressive withholding tax in Japan. Per the legal requirement in Japan, the tax percentage changes, depending on the interval in proportion to the invoice amount. The tax ratio also changes, based on the payment amount.
+
+## Tax calculation
+
+- **Percentage of net amount** – The **Percentage of net amount** method is the default value in the **Origin** field. The withholding tax is calculated as a percentage of the purchase amount, excluding any other sales taxes.
+- **Percentage of gross amount** – The withholding tax is calculated as a percentage of the gross purchase amount, including any other sales taxes.
+
+You can set up a withholding tax code so that it's calculated based on a whole amount or an interval amount. Use the **Calculation method** field on the **Calculation** FastTab of the **Withholding tax codes** page to select how a withholding tax code is calculated.
+
+- **Whole amount** – The tax rate applies to the whole taxable amount.
+- **Interval** – The taxable amount is divided into parts, each of which falls in a range that has a specific withholding tax rate. The part of the amount that falls in a given interval is taxed according to the tax rate for that interval. The withholding tax is the sum of the tax amounts that are calculated for each amount interval.
+
+> [!NOTE]
+> You can't attach withholding tax codes of different calculation methods in a single withholding tax group.
+
+## Prerequisites
+
+| Task                                                                                  | 
+|---------------------------------------------------------------------------------------|
+| Set up withholding tax codes and withholding tax groups.                              |  
+| Create a new payment journal, settle open transactions, and post the payment journal. |   
+
+1. On the **Withholding tax codes** page, create withholding tax codes that have the following information:
+   - Origin and calculation method on the **Calculation** FastTab
+   - Limits (taxable amount interval) and values on the **Values** page
+1. On the **Withholding tax groups** page, create withholding tax groups, and add the relevant withholding tax codes on the **Setup** FastTab. You can calculate and post withholding tax on either the **Payment journal** page in Accounts payable or the **General journal** page in General ledger. The default withholding tax group for the vendor is shown in the **Withholding tax group** field.
+1. On the **Payment journal** page, select a journal or select **New** to create a journal, then select **Lines**.
+1. Enter a payment date, and select the vendor account that is set up to calculate withholding tax. By default, the **Withholding tax group** field shows the withholding tax group for the vendor. You can select a different group. If no withholding tax should be calculated for the line, you can delete the field value.
+1. Select **Functions**, then select **Settlement**. Select the **Mark** option for the open invoices to pay.
+1. Verify the Infolog information about the calculated withholding tax, then close the Infolog.
+1. Optional: Select the **Withholding tax** tab for each selected line to change or delete the calculated withholding tax. You can also create lines and enter the information.
+1. Close the **Settle open transactions** page. The payment amount on the journal line is reduced by the withholding tax amount.
+1. Validate and post the payment journal.
+
+## Example of gross amount
+
+In this example, you calculate withholding tax by using an **Origin of percentage** value of **Gross amount** and a **Calculation method** value of **Interval**. Set up the tax rates as follows.
+
+| Minimum and maximum limit (Taxable amount interval) | Value (Tax rate) |
+|-----------------------------------------------------|------------------|
+| 0.00 to 1,000.00                                    | 10 percent       |
+| 1,001.00 to 2,000.00                                | 15 percent       |
+| 2,001.00 to 0.00                                    | 20 percent       |
+
+Payment amount: 11,000.00, which includes 10-percent sales tax (that is, 1,000) **Full payment – 11,000.00** Calculation:
+
+| Taxable amount interval | Tax rate   | Payment amount split, based on the tax interval | Withholding tax |
+|-------------------------|------------|-------------------------------------------------|-----------------|
+| 0–1,000                 | 10 percent | 1,000.00                                        | 100.00          |
+| 1,001–2,000             | 15 percent | 1,000.00                                        | 150.00          |
+| 2,001–0                 | 20 percent | 9,000.00                                        | 1,800.00        |
+|                         |            | **Total WHT amount**                            | **2,050.00**    |
+
+**Partial payment – 6,000.00** Calculation:
+
+| Taxable amount interval | Tax rate   | Payment amount split, based on the tax interval | Withholding tax |
+|-------------------------|------------|-------------------------------------------------|-----------------|
+| 0–1,000                 | 10 percent | 1,000.00                                        | 100.00          |
+| 1,001–2,000             | 15 percent | 1,000.00                                        | 150.00          |
+| 2,001–0                 | 20 percent | 4,000.00                                        | 800.00          |
+|                         |            | **Total WHT amount**                            | **1,050.00**    |
+
+**Balance payment – 5,000.00** Calculation:
+
+| Taxable amount interval | Tax rate   | Payment amount split, based on the tax interval | Withholding tax |
+|-------------------------|------------|-------------------------------------------------|-----------------|
+| 0–1,000                 | 10 percent | 1,000.00                                        | 100.00          |
+| 1,001–2,000             | 15 percent | 1,000.00                                        | 150.00          |
+| 2,001–0                 | 20 percent | 3,000.00                                        | 600.00          |
+|                         |            | **Total WHT amount**                            | **850.00**      |
+
+## Example of net amount
+
+In this example, the system calculates withholding tax by using an **Origin of percentage** value of **Net amount** and a **Calculation method** value of **Interval**. The payment amount is 11,000.00, which includes 10-percent sales tax (that is, 1,000) **Full payment – 11,000.00** Base for withholding tax calculation, excluding tax = 10,000.00 Calculation:
+
+| Taxable amount interval | Tax rate   | Payment amount split based on the tax interval | Withholding tax |
+|-------------------------|------------|------------------------------------------------|-----------------|
+| 0–1,000                 | 10 percent | 1,000.00                                       | 100.00          |
+| 1,001–2,000             | 15 percent | 1,000.00                                       | 150.00          |
+| 2,001–0                 | 20 percent | 8,000.00                                       | 1,600.00        |
+|                         |            | **Total WHT amount**                           | **1,850.00**    |
+
+**Partial payment – 6,000.00** Base for withholding tax calculation, excluding tax = 5,455.00 Calculation:
+
+| Taxable amount interval | Tax rate   | Payment amount split, based on the tax interval | Withholding tax |
+|-------------------------|------------|-------------------------------------------------|-----------------|
+| 0–1,000                 | 10 percent | 1,000.00                                        | 100.00          |
+| 1,001–2,000             | 15 percent | 1,000.00                                        | 150.00          |
+| 2,001–0                 | 20 percent | 3,455.00                                        | 691.00          |
+|                         |            | **Total WHT amount**                            | **941.00**      |
+
+**Balance payment – 5,000.00** Base for withholding tax calculation excluding tax = 4,545.00 Calculation:
+
+| Taxable amount interval |  Tax rate  | Payment amount split, based on the tax interval |     Withholding tax     |
+|-------------------------|------------|-------------------------------------------------|-------------------------|
+|         0–1,000         | 10 percent |                    1,000.00                     |         100.00          |
+|       1,001–2,000       | 15 percent |                    1,000.00                     |         150.00          |
+|         2,001–0         | 20 percent |                    2,545.00                     |         509.00          |
+|                         |            |        <strong>Total WHT amount</strong>        | <strong>759.00</strong> |
+
+[!INCLUDE[footer-include](../../../includes/footer-banner.md)]

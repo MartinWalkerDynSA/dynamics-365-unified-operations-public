@@ -1,0 +1,187 @@
+---
+title: Client-Bank interface and reconciliation procedure
+description: Learn how to configure user settings for electronic outgoing payments created in payment journals using the Client-Bank system for Russia in Microsoft Dynamics 365 Finance.
+author: evgenypopov
+ms.author: evgenypopov
+ms.topic: how-to
+ms.custom: 
+  - bap-template
+ms.date: 01/12/2026
+ms.reviewer: johnmichalak
+ms.search.validFrom: 2019-04-01
+---
+
+# Client-Bank interface and reconciliation procedure
+
+[!include [banner](../../includes/banner.md)]
+
+This article explains how to configure user settings for electronic outgoing payments created in payment journals by using the Client-Bank system for Russia in Microsoft Dynamics 365 Finance.
+
+You can use the Client-Bank interface to automatically reconcile bank payments and statement data instead of doing a manual reconciliation. Use electronic reporting (ER) configurations to customize payment formats for a specific bank.
+
+## Setup
+
+### Import configurations
+
+Before you start using the Client-Bank functionality, import ER configurations from the global repository of the configuration service.
+
+To import configurations, follow these steps:
+
+1. In the Global repository, import the following configurations:
+
+    - Payment model mapping 1611
+    - Payment model mapping to destination RU
+    - Bank statement (RU)
+    - Payment order (RU)
+
+    For more information, see [Import configurations from GR](../../../fin-ops-core/dev-itpro/analytics/er-download-configurations-global-repo.md).
+
+1. In Dynamics 365 Finance, go to **Workspaces** \> **Electronic reporting**.
+1. In the **Configurations** section, select **Reporting configurations**.
+1. On the Action Pane, select **Edit**.
+1. In the navigation list, in the **Payment model** section, set the main payment model as the default payment model. For example, select **Payment model mapping 1611**.
+1. On the **Configurations** page, set the **Default for model mapping** option to **Yes**.
+1. On the Action Pane, select **Save**.
+
+### Set up kinds of documents
+
+To set up kinds of documents, follow these steps:
+
+1. In Dynamics 365 Finance, go to **Cash and bank management** \> **Setup** \> **Payment order setup** \> **Kinds of document**.
+1. On the Action Pane, select **New**.
+1. In the **The code of document kind** field, enter a unique two-digit code.
+1. In the **Description** field, enter a description of the document.
+1. In the **Document type** field, select one of the following values:
+
+    - Pay document
+    - Memorial order
+    - Currency transfer
+    - Currency sale
+    - Currency purchase
+
+    :::image type="content" source="../media/a553a2c0e5cbc3e70cbe2cd20f9e7b70.png" alt-text="Screenshot of kinds of document set up on the Document type page.":::
+
+### Set up methods of payment for export
+
+To set up a matching format to export a payment and the specified payment method, follow these steps:
+
+1. In Dynamics 365 Finance, go to **Accounts payable** \> **Payment setup** \> **Methods of payment**.
+1. On the Action Pane, select **New**, and enter information about the new method of payment.
+1. In the **Payment status** field, select **Sent**.
+1. In the **Payment type** field, select **Electronic payment**.
+1. On the **General** FastTab, in the **Posting** section, in the **Account type** field, select **Bank**.
+1. In the **Payment account** field, select the account that you set earlier.
+1. On the **File formats** FastTab, in the **File formats** section, in the **Export format** field, select the custom export format.
+
+    > [!NOTE]
+    > If the list for the **Export format** field is empty, select **Setup** on the **File formats** FastTab. Select available formats, and add them to the **Selected** column. On the Action Pane, select **Save**. Close the page, and then add a value to the **Export format** field.
+
+1. In the **Generic electronic Export format** field, set the **Enable** option to **Yes**.
+1. In the **Export format configuration** field, select the custom export format.
+1. In the **Client-bank** section, set the **Enable** option to **Yes**.
+1. In the **Export format** field, select the export format.
+
+### Set up the exchange interface
+
+The Client-Bank functionality uses text format for export payments. You can customize the electronic format. For more information, see [Formula designer in electronic reporting (ER)](../../../fin-ops-core/dev-itpro/analytics/general-electronic-reporting-formula-designer.md).
+
+By default, all downloaded payments are stored in the **Downloads** folder. For information about how to select a different location, see [Electronic reporting (ER) destinations](../../../fin-ops-core/dev-itpro/analytics/electronic-reporting-destinations.md).
+
+## Operations in the Client-Bank functionality for export
+
+### Create outgoing payments before export
+
+Outgoing payments can be payments to vendors, or the purchase, sale, or transfer of currency and cash-bank operations.
+
+To create and set up outgoing payments, follow these steps:
+
+1. In Dynamics 365 Finance, go to **Accounts payable** \> **Payments** \> **Vendor payment journal** for payments to vendors.
+1. Create and set up **Vendor payment journal**. For more information, see [Set up and process payment orders for Russia](rus-payment-order-settings-processing.md#create-payment-order-lines).
+1. On the Action Pane, select **Lines**.
+1. On the **List** tab, set the following fields:
+
+    - In the **Date** field, select an operation date.
+    - In the **Account** field, select a counteragent account.
+    - In the **Debit** field, enter the amount of the payment.
+    - In the **Currency** field, select the currency payment code.
+    - In the **Offset account type** field, select **Bank**.
+
+1. On the **Payment** tab, set the following fields:
+
+    - In the **Document type** section, in the **The code of document kind** field, select the code that you created earlier.
+    - In the **Method of payment** field, select the payment method that corresponds to the payment. To successfully export a payment to the Client-Bank system, use the payment method that you set up earlier. The **Payment status**, **Offset account type**, and **Offset account** fields are automatically set if you set them when you created the method of payment.
+
+        > [!NOTE]
+        > Set the **Offset account type** field to **Bank**.
+
+    - To set the parameters of the currency contract that the currency is sold or purchased for, enter or select a value in the **Payment specification**, **Payment ID**, and **Vendor account** fields.
+
+1. On the **Bank** tab, set the following fields:
+
+    - **For currency transactions:** In the **Bank** section, in the **Bank transaction type** field, select a value.
+    - **For non-currency transactions:** In the **Print payment order** section, in the **Payment documented on** field, select a counteragent account. For currency transactions, a transit account is used.
+
+1. On the Action Pane, select **Save**.
+
+### Export payments to the Client-Bank system
+
+To export payments to the Client-Bank system, follow these steps:
+
+1. In Dynamics 365 Finance, go to **Accounts payable** > **Payments** > **Vendor payment journal**.
+1. Select the necessary lines.
+
+    > [!NOTE]
+    > The system creates a separate export file for each bank account. If an error occurs, the system processes lines for the next bank account.
+
+1. On the Action Pane, select **Generate payments**.
+1. In the **Generate payments** dialog, select **Payment method**.
+1. Set **Method of payment** and **Bank account** fields as you set them earlier.
+1. In the **File name** field, enter or select a value.
+
+    :::image type="content" source="../media/98738a614030a0a814a8a380a6741d77.png" alt-text="Screenshot of settings in the Generate payments dialog.":::
+
+1. Select **OK**, and then select **OK** again. The payment order is created.
+
+### Cancel payment export
+
+To cancel a payment export, follow these steps:
+
+1. In Dynamics 365 Finance, go to **Cash and bank management** \> **Periodic tasks** \> **Third party bank** \> **Exported payments**.
+
+    You can view all exported payments or payments that you canceled for export.
+
+    On the **Overview** tab, you can view the following fields and field values:
+
+    - **Document type** – The value of the **The code of document kind** field from the payment journal.
+    - **Account type** – The value is **Vendor**.
+    - **Payment order number** – The value of the **Check number** field from the vendor payment journal.
+    - **Payment order date** – The value of the **Date** field from the payment journal.
+    - **Counteragent** – The value of the **Account** field from the payment journal.
+    - **Amount in transaction currency** – The value of the **Debit** field from the payment journal.
+    - **Currency**, **Method of payment**, and **Bank account** – The values from the corresponding payment journal lines.
+    - **Payment order status** – This value is **Created** for exported payments or **Rejected** for canceled exported payments.
+
+    :::image type="content" source="../media/326aac792acd49f2929b0752fc8501df.png" alt-text="Screenshot of exported payments on the Overview tab of the Exported payments page.":::
+
+    On the **General** tab, in the **File** section, in the **Date and time** field, you can view the date and time when the payment was exported.
+
+1. Select a payment line. On the Action Pane, on the **Exported payments** tab, select **Void payment order**. The value of the **Payment order status** field changes to **Rejected**.
+1. To open the source line in the unposted payment journal, on the Action Pane, on the **Exported payments** tab, select **Journal line**.
+
+### Registry of payment orders
+
+To view the registry of payment orders, in Dynamics 365 Finance, go to **Accounts payable** \> **Inquiries and reports** \> **Payment** \> **Payment order register**. The page shows the payment documents that you sent in electronic format or on paper. For general information about the **Registry of payment orders** page, see [Set up and process payment orders for Russia](rus-payment-order-settings-processing.md#review-registry-of-payment-orders).
+
+> [!NOTE]
+> Currency transactions don't appear on the **Registry of payment orders** page.
+
+:::image type="content" source="../media/6b61456744fff219f17d49ae14f5b633.png" alt-text="Screenshot of payment documents on the Overview tab of the Registry of payment orders page.":::
+
+For payments that you export to the Client-Bank system, set the following fields on the **General** tab in the **Client-Bank** section:
+
+- Set the **Electronic payment** option to **Yes**.
+- Set the **Date and time** field to the date and time when you export the payment.
+
+:::image type="content" source="../media/d00a29d8ca1163cc8bbf98471d5a3162.png" alt-text="Screenshot of fields on the General tab of the Registry of payment orders page.":::
+
+[!INCLUDE[footer-include](../../../includes/footer-banner.md)]

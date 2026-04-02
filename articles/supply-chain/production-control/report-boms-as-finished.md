@@ -1,33 +1,13 @@
 ---
-# required metadata
-
 title: Report BOMs as finished
-description: This article provides information about reporting BOMs as finished.
+description: Learn about reporting BOMs as finished, including outlines on reporting as finished pages and BOMs that have multiple levels.
 author: johanhoffmann
-manager: AnnBe
-ms.date: 06/20/2017
-ms.topic: article
-ms.prod: 
-ms.service: dynamics-ax-applications
-ms.technology: 
-
-# optional metadata
-
-ms.search.form: BOMReportFinish, BOMReportFinishMax
-# ROBOTS: 
-audience: Application User
-# ms.devlang: 
-ms.reviewer: josaw
-ms.search.scope: Core, Operations
-# ms.tgt_pltfrm: 
-ms.custom: 53251
-ms.assetid: 510d05a3-0073-438d-b0c4-b6a6df1882ea
-ms.search.region: Global
-ms.search.industry: Manufacturing
 ms.author: johanho
-ms.search.validFrom: 2016-02-28
-ms.dyn365.ops.version: AX 7.0.0
-
+ms.topic: article
+ms.date: 06/20/2017
+ms.reviewer: kamaybac
+ms.search.form: BOMReportFinish, BOMReportFinishMax, BOMSetupReportFinish
+ms.assetid: 510d05a3-0073-438d-b0c4-b6a6df1882ea
 ---
 
 # Report BOMs as finished
@@ -93,3 +73,6 @@ In this case, the two on-hand pieces of item number COMP are considered. However
 
 
 
+
+
+[!INCLUDE[footer-include](../../includes/footer-banner.md)]

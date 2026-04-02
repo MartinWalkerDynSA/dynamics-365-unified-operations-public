@@ -1,39 +1,21 @@
 ---
-# required metadata
-
 title: Set up a warehouse by using a warehouse configuration template
-description: This topic explains how to set up a warehouse by using a warehouse configuration template.
-author: perlynne
-manager: AnnBe
-ms.date: 11/16/2017
-ms.topic: article
-ms.prod:
-ms.service: dynamics-ax-applications
-ms.technology:
-
-# optional metadata
+description: Learn how to set up a warehouse by using a warehouse configuration template, including scenarios where configuration templates can be helpful.
+author: banluo-ms
+ms.author: banluo
+ms.reviewer: kamaybac
 ms.search.form: DataManagementWorkspace, DMFQuickImportExportEnhanced, DMFDefinitionGroupTemplate, DMFEntityTemplateDefinitionLoadDialog
-# ROBOTS:
-audience: Application User
-# ms.devlang:
-ms.reviewer: josaw
-ms.search.scope: Core, Operations
-# ms.tgt_pltfrm:
+ms.topic: how-to
+ms.date: 02/11/2025
 ms.custom: 
-ms.assetid: 
-ms.search.region: Global
-ms.search.industry: Distribution
-ms.author: perlynne
-ms.search.validFrom: 2017-12-31
-ms.dyn365.ops.version: 7.3
-
+  - bap-template
 ---
 
 # Set up a warehouse by using a warehouse configuration template
 
 [!include [banner](../includes/banner.md)]
 
-This topic explains how to set up a warehouse by using a warehouse configuration template. There are several predefined configuration templates that you can use. For information about how to use these templates, see [Configuration data templates](../../dev-itpro/data-entities/configuration-data-templates.md).
+This article explains how to set up a warehouse by using a warehouse configuration template. There are several predefined configuration templates that you can use. For information about how to use these templates, see [Configuration data templates](../../fin-ops-core/dev-itpro/data-entities/configuration-data-templates.md).
 
 ## Scenarios where configuration templates can be helpful
 
@@ -44,7 +26,7 @@ Configuration templates can be helpful in many scenarios. Here are some examples
 - You want to quickly prepare for a demo of the warehouse functionality.
 - You want existing items and warehouses to use the functionality in Warehouse management instead of the functionality in Inventory management.
 
-This topic focuses on the first of these scenarios. It shows how you can use a configuration template to copy a configuration setup from a test environment to a production environment.
+This article focuses on the first of these scenarios. It shows how you can use a configuration template to copy a configuration setup from a test environment to a production environment.
 
 ## Copy a configuration setup from a test environment to a production environment
 
@@ -53,7 +35,7 @@ For this scenario, the configuration setup for a warehouse and some transaction 
 > [!NOTE]
 > It's important that you include other related setup data when you copy a configuration setup. For example, you want to set up products by copying the setup from a test environment. However, you can't set up a fixed picking location for a product before that product is created. Although individual configuration templates don't support this type of dependency, there are default data templates that support it. You can easily include these default data templates in a configuration process.
 
-### Export a default warehouse template 
+### Export a default warehouse template
 
 1. Open the **Data management** workspace.
 
@@ -87,17 +69,19 @@ You can download a zip file for the data package. This file contains all the dat
 1. In the destination environment, make sure that you're in the company that you want to import the warehouse data into.
 
     > [!NOTE]
-    > Before you do the import, you should identify any data dependencies. For example, the **Warehouse management** template includes a data entity that is named **Warehouse disposition codes**. This entity contains data that is related to the **Disposition codes** setup page (**Warehouse management** > **Setup** > **Mobile device** > **Disposition codes**). If an existing setup already handles the return process for sales orders, the **Return disposition code** field contains a value. The disposition code in this field is related to the **Disposition code** data entity, which is part of the **Sales and marketing** template. If the data from the **Disposition code** data entity isn't imported before the data from the **Warehouse disposition codes** field, the import will fail.
+    > Before you do the import, you should identify any data dependencies. For example, the **Warehouse management** template includes a data entity that is named **Warehouse disposition codes**. This entity contains data that is related to the **Disposition codes** setup page (**Warehouse management** \> **Setup** \> **Mobile device** \> **Disposition codes**). If an existing setup already handles the return process for sales orders, the **Return disposition code** field contains a value. The disposition code in this field is related to the **Disposition code** data entity, which is part of the **Sales and marketing** template. If the data from the **Disposition code** data entity isn't imported before the data from the **Warehouse disposition codes** field, the import will fail.
 
 2. In the **Data management** workspace, select **Import**.
 3. Create a new import project.
 4. Select **+ Add file**, and upload the zip file for the data package.
 5. Select **Import**. In the **Enhanced** view, you can use the **Filter** option to quickly get an overview of issues that might occur during the import.
 
-The **View execution** log provides detailed information about each data entity that is imported. You can use the staging data view to quickly get to the target data. In this way, you can see what the imported data looks like on the related pages in the application. When you use the default data templates, the import sequence for each data entity works in the predefined manner, to help guarantee that all dependent data is imported first. If custom data entities are part of the project, you must make sure that the correct sequence is defined. For more information, see [Configuration data templates](../../dev-itpro/data-entities/configuration-data-templates.md).
+The **View execution** log provides detailed information about each data entity that is imported. You can use the staging data view to quickly get to the target data. In this way, you can see what the imported data looks like on the related pages in the application. When you use the default data templates, the import sequence for each data entity works in the predefined manner, to help guarantee that all dependent data is imported first. If custom data entities are part of the project, you must make sure that the correct sequence is defined. Learn more in [Configuration data templates](../../fin-ops-core/dev-itpro/data-entities/configuration-data-templates.md).
 
-To learn more about how to use warehouse template to copy the configuration of a warehouse from one company to a new company within the same instance, see this 3-minute video on YouTube: [Use warehouse template to copy configuration in Microsoft Dynamics 365 for Finance and Operations](https://www.youtube.com/watch?v=K2WIfFlqJYs).
+To learn more about how to use warehouse template to copy the configuration of a warehouse from one company to a new company within the same instance, see this 3-minute video on YouTube about [how to use warehouse template to copy the configuration for finance and operations](https://www.youtube.com/watch?v=K2WIfFlqJYs).
 
-## Related topic
+## Related article
 
-[Configuration data templates](../../dev-itpro/data-entities/configuration-data-templates.md)
+[Configuration data templates](../../fin-ops-core/dev-itpro/data-entities/configuration-data-templates.md)
+
+[!INCLUDE[footer-include](../../includes/footer-banner.md)]

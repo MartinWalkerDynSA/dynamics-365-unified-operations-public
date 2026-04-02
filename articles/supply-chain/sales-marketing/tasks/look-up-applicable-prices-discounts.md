@@ -1,34 +1,18 @@
 --- 
-# required metadata 
- 
 title: Look up applicable prices and discounts
-description: This procedure shows how to find the price and/or discount for a product which is currently valid for a specific customer, without creating a sales order. 
-author: omulvad
-manager: AnnBe 
+description: Learn how to find the price and/or discount for a product which is currently valid for a specific customer, without creating a sales order.
+author: AditiPattanaik
+ms.author: adpattanaik
+ms.topic: how-to
 ms.date: 11/10/2016
-ms.topic: business-process 
-ms.prod:  
-ms.service: dynamics-ax-applications 
-ms.technology:  
- 
-# optional metadata 
- 
-# ms.search.form:   
-audience: Application User 
-# ms.devlang:  
-ms.reviewer: kfend
-ms.search.scope: Operations 
-# ms.tgt_pltfrm:  
-# ms.custom:  
-ms.search.region: Global
-# ms.search.industry: 
-ms.author: omulvad
-ms.search.validFrom: 2016-06-30 
-ms.dyn365.ops.version: AX 7.0.0 
+ms.custom:
+ms.reviewer: kamaybac
+ms.search.form:
 ---
+
 # Look up applicable prices and discounts
 
-[!include [task guide banner](../../includes/task-guide-banner.md)]
+[!include [banner](../../includes/banner.md)]
 
 This procedure shows how to find the price and/or discount for a product which is currently valid for a specific customer, without creating a sales order. The procedure walks through a specific example, and you need follow the example using the USMF demo company in order to select the necessary values.
 
@@ -53,7 +37,7 @@ This procedure shows how to find the price and/or discount for a product which i
 10. Close the page.
 
 ## Find the applicable discount
-    * Make sure the Customer account field contains customer number US-001   
+Make sure the Customer account field contains customer number US-001   
 1. In the Item number field, type 'T0012'.
     * Make sure the Quantity field is set to 1.  
     * The following pricing details shown for product T0012 come from one or more trade agreements: The unit price is 1,000 CAD and the discount percentage is 5.  
@@ -64,3 +48,6 @@ This procedure shows how to find the price and/or discount for a product which i
     * There are two line discount agreements for product T0012, specifying a 5 percent discount for an order line quantity from 1 to 10, and 7 percent discount for order quantities above 10. Note that the discounts are applied to a group of products, in this example, Group code 01, of which product T0012 is a member.  
 4. Close the page.
 
+
+
+[!INCLUDE[footer-include](../../../includes/footer-banner.md)]

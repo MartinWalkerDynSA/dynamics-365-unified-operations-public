@@ -1,33 +1,16 @@
 ---
-# required metadata
-
 title: Create a service template group 
-description: You can use service template groups to sort and filter service templates.
-author: ShylaThompson
-manager: AnnBe
-ms.date: 02/20/2018
-ms.topic: article
-ms.prod: 
-ms.service: dynamics-ax-applications
-ms.technology: 
-
-# optional metadata
-
+description: Learn how you can use service template groups to sort and filter service templates, including a step-by-step process for creating service template groups.
+author: Henrikan
+ms.author: henrikan
+ms.reviewer: kamaybac
 ms.search.form: smatemplategroup
-# ROBOTS: 
-audience: Application User
-# ms.devlang: 
-ms.reviewer: josaw
-ms.search.scope: Core, Operations
-# ms.tgt_pltfrm: 
+ms.topic: how-to
+ms.date: 07/10/2025
+ms.update-cycle: 1095-days
 ms.custom: 
-ms.assetid: 
-ms.search.region: Global
-# ms.search.industry: 
-ms.author: ShylaThompson
-ms.search.validFrom: 2016-02-28
-ms.dyn365.ops.version: AX 7.0.0
-
+  - bap-template
+  - evergreen
 ---
 
 # Create a service template group  
@@ -36,11 +19,10 @@ ms.dyn365.ops.version: AX 7.0.0
 
 You can use service template groups to sort and filter service templates.
 
-1. Click **Service management** \> **Setup** \> **Service agreements** \> **Service template groups**.
+1. Go to **Service management** \> **Setup** \> **Service agreements** \> **Service template groups**.
 2. Create a new service template group.
 3. Enter the group ID, a description, and a parent service template group, if there is one.
 4. Save the service template group.
-5. Set the **Tree control** slider to **Yes** to open the tree view and view the service template groups either as a hierarchy in a tree view or as an overview.
+5. Set the **Tree control** slider to *Yes* to open the tree view and view the service template groups either as a hierarchy in a tree view or as an overview.
 
-
-
+[!INCLUDE[footer-include](../../includes/footer-banner.md)]

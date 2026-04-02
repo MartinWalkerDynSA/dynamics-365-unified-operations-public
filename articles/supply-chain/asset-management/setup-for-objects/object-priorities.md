@@ -1,44 +1,24 @@
 ---
-# required metadata
-
 title: Asset service levels
-description: This topic explains asset service levels in Asset Management.
-author: josaw1
-manager: AnnBe
-ms.date: 06/26/2019
+description: Learn about asset service levels in Asset Management, including examples and a step-by-step process on setting up asset service levels.
+author: jodahlMSFT
+ms.author: jodahl
 ms.topic: article
-ms.prod: 
-ms.service: dynamics-ax-applications
-ms.technology: 
-
-# optional metadata
-
-ms.search.form: CatProcureCatalogEdit, CatProcureCatalogListPage
-# ROBOTS: 
-audience: Application User
-# ms.devlang: 
-ms.reviewer: josaw
-ms.search.scope: Core, Operations
-# ms.tgt_pltfrm: 
-ms.custom: 2214
+ms.date: 06/26/2019
+ms.reviewer: kamaybac
+ms.search.form: 
 ms.assetid: 2f3e0441-414d-402b-b28b-7ab0d650d658
-ms.search.region: Global
-# ms.search.industry: 
-ms.author: mkirknel
-ms.search.validFrom: 2016-02-28
-ms.dyn365.ops.version: AX 7.0.0
-
 ---
 
 # Asset service levels
 
 [!include [banner](../../includes/banner.md)]
 
-[!include [banner](../../includes/preview-banner.md)]
+ 
 
-This topic explains asset service levels in Asset Management. Asset service levels are related to assets, and are transferred to maintenance requests and work orders. They are used to calculate the priority of work orders during work order scheduling. Asset service levels can be changed, if changes are required.
+This article explains asset service levels in Asset Management. Asset service levels are related to assets, and are transferred to maintenance requests and work orders. They are used to calculate the priority of work orders during work order scheduling. Asset service levels can be changed, if changes are required.
 
-For more information about the setup that is related to the calculation of rating scores for work order scheduling, see [Asset management parameters](../setup-for-objects/enterprise-asset-management-parameters.md). You must set up at least one default record for the asset service level. This default record is used if no other match is found during work order scheduling.
+For more information about the setup that is related to the calculation of rating scores for work order scheduling, see [Asset Management parameters](../setup-for-objects/enterprise-asset-management-parameters.md). You must set up at least one default record for the asset service level. This default record is used if no other match is found during work order scheduling.
 
 **Example 1:** The default service level that is used if no other match is found. In this record, you select only a service level.
 
@@ -58,3 +38,6 @@ For more information about the setup that is related to the calculation of ratin
 
 > [!NOTE]
 > If you change an asset service level record on the **Asset service levels** page after you've already used it on a work order, the service level on maintenance requests and work orders isn't updated accordingly.
+
+
+[!INCLUDE[footer-include](../../../includes/footer-banner.md)]

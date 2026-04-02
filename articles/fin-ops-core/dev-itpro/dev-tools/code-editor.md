@@ -1,0 +1,43 @@
+---
+title: Code editor features
+description: Learn about the features of the code editor for Visual Studio, including an overview of the element designer of the code editor.
+author: josaw1
+ms.author: josaw
+ms.topic: article
+ms.date: 02/26/2026
+ms.reviewer: johnmichalak
+audience: Developer
+ms.search.region: Global
+ms.search.validFrom: 2016-02-28
+ms.dyn365.ops.version: AX 7.0.0
+ms.assetid: 87d75162-a9dd-43d2-a316-833e2c799f08
+---
+
+# Code editor features
+
+[!include [banner](../includes/banner.md)]
+
+This article describes the code editor for Visual Studio.
+
+## Code editor
+
+Use the code editor in Microsoft Visual Studio to write the X++ code for your applications. The X++ language is fully integrated into the Visual Studio environment. As you write your X++ code, you see the familiar features of the Visual Studio Code editor. For example, IntelliSense is displayed to help you write the code. You can also navigate to methods and classes in the code editor by using the navigation drop-down menus at the top of the code editor window.
+
+:::image type="content" source="./media/31_devotoolsconcept.png" alt-text="Screenshot of the code editor with the FMVehicle class open.":::
+
+Other features, such as collapsible sections, are also available.
+
+### Opening the element designer
+
+You can open the element designer that corresponds to the current X++ source code by right-clicking in the code editor and then selecting **Open Designer**.
+
+:::image type="content" source="./media/opendesigner.jpg" alt-text="Screenshot of the context menu with the Open Designer option in the code editor.":::
+
+## Additional resources
+
+[Develop and customize home page](developer-home-page.md)
+
+[Development tools in Visual Studio](development-tools-overview.md)
+
+
+[!INCLUDE[footer-include](../../../includes/footer-banner.md)]

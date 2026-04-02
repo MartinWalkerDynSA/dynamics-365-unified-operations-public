@@ -1,43 +1,22 @@
 ---
-# required metadata
-
 title: Product-related translations FAQ
-description: This topic describes how to manage translations for products, product dimension values, and product attributes. 
-author: cvocph
-manager: AnnBe
-ms.date: 11/03/2017
-ms.topic: article
-ms.prod: 
-ms.service: dynamics-ax-applications
-ms.technology: 
-
-# optional metadata
-
-ms.search.form: SysTranslationDetail, SysTranslationLanguage, SysTranslationList
-# ROBOTS: 
-audience: Application User
-# ms.devlang: 
-ms.reviewer: josaw
-ms.search.scope: Core, Operations
-# ms.tgt_pltfrm: 
-ms.custom: 201853
+description: Learn how to manage translations for products, product dimension values, and product attributes with outlines on translating data and information. 
+author: sgmsft
+ms.author: shwgarg
+ms.topic: faq
+ms.date: 08/06/2020
+ms.reviewer: kamaybac
+ms.search.form: SysTranslationDetail, SysTranslationLanguage, SysTranslationList, EcoResProductListPage, EcoResProductVariants, EcoResProductDetailsExtended, EcoResProductCreate, EcoResProductDetails, RetailSizeGroupTable, RetailStyleGroupTable, RetailColorGroupTable, PCTranslationLanguageLookup, EcoResProductCategory
 ms.assetid: c0286bba-f54b-42de-904c-81fd796bdd1d
-ms.search.region: global
-ms.search.industry: Product information
-ms.author: conradv
-ms.search.validFrom: 2016-02-28
-ms.dyn365.ops.version: AX 7.0.0
-
 ---
 
 # Product-related translations FAQ
 
 [!include [banner](../includes/banner.md)]
 
-This topic describes how to manage translations for products, product dimension values, and product attributes. 
+This article describes how to manage translations for products, product dimension values, and product attributes. 
 
-What product-related data can be translated?
---------------------------------------------
+## What product-related data can be translated?
 
 You can create translations for the following product-related information:
 -   Names and descriptions of products.
@@ -51,20 +30,20 @@ You can view translations of product-related information in any external source 
 
 ## How do I create translations for product-related information?
 To create translations for a product, follow these steps:
-1.  Click **Product information management** &gt; **Common** &gt; **Released products**.
+1.  Click **Product information management** &gt; **Products** &gt; **Released products**.
 2.  Select a product, and on the Action Pane, in the **Languages** group, click **Translations**.
 3.  In the **Text translation** page, in the **Language** field, select a language. To add more languages, expand the **Language** field, and then click **OK**.
 4.  In the **Translated text** group, enter translations in the **Description** and **Product name** fields.
 
 To create translations for product attributes, follow these steps:
-1.  Click **Product information management** &gt; **Common** &gt; **Released products**.
+1.  Click **Product information management** &gt; **Products** &gt; **Released products**.
 2.  Under **Setup**, click **Attributes**, and then click **Attributes**.
 3.  In the **Attributes** page, click **Translate**.
 4.  In the **Text translation** page, in the **Language** field, select a language. To add more languages, expand the **Language** field, and then click **OK**.
 5.  In the **Translated text** group, enter translations in the **Description**, **Friendly name**, and **Help text** fields.
 
 To create translations for product dimension values, follow these steps:
-1.  Click **Product information management** &gt; **Common** &gt; **Released products**.
+1.  Click **Product information management** &gt; **Products** &gt; **Released products**.
 2.  Select a product, and then click **Product dimensions**.
 3.  Select one of the links for the product dimensions: **Configurations**, **Sizes**, **Colors**, or **Style**.
 4.  Select a dimension value and then click **Translate**.
@@ -97,7 +76,7 @@ A customer wants to buy some small, red T-shirts and the name of the T-shirt mus
 <tbody>
 <tr class="odd">
 <td>To set the preferred language of a customer, follow these steps:
-<ol><br/><li>Click <strong>Sales and marketing</strong> &gt; <strong>Common</strong> &gt; <strong>Customers</strong> &gt; <strong>All</strong> <strong>customers</strong>.</li>
+<ol><li>Click <strong>Sales and marketing</strong> &gt; <strong>Common</strong> &gt; <strong>Customers</strong> &gt; <strong>All</strong> <strong>customers</strong>.</li>
 <li>Double-click a customer to open the <strong>Customers</strong> page. On the <strong>General</strong> tab, in the <strong>Language</strong> field, select the <strong>language</strong>.</li>
 </ol></td>
 </tr>
@@ -132,3 +111,6 @@ Translations of product-related information can be managed at any time. When tra
 
 
 
+
+
+[!INCLUDE[footer-include](../../includes/footer-banner.md)]

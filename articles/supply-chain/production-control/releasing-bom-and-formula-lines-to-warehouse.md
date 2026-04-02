@@ -1,41 +1,22 @@
 ---
-# required metadata
-
 title: Release BOM and formula lines to the warehouse
-description: This topic describes the process for releasing raw material for BOM lines and formula lines to the warehouse.
+description: Learn about the process for releasing raw material for BOM lines and formula lines to the warehouse with an outline on methods for releasing BOM and formula lines.
 author: johanhoffmann
-manager: AnnBe
-ms.date: 10/30/2017
-ms.topic: article
-ms.prod: 
-ms.service: dynamics-ax-applications
-ms.technology: 
-
-# optional metadata
-
-ms.search.form: SysOperationTemplateForm  
-# ROBOTS: 
-audience: Application User
-# ms.devlang: 
-ms.reviewer: josaw
-ms.search.scope: Core, Operations
-# ms.tgt_pltfrm: 
-ms.custom: 1705903
-ms.search.region: Global
-# ms.search.industry: 
 ms.author: johanho
-ms.search.validFrom: 2017-12-31
-ms.dyn365.ops.version: 7.3
+ms.topic: article
+ms.date: 10/30/2017
+ms.reviewer: kamaybac
+ms.search.form: SysOperationTemplateForm, ProdParmReleaseToWarehouse, WHSReleaseToWarehouseProdBOM
 ---
 
 # Release BOM and formula lines to the warehouse
 
 [!include [banner](../includes/banner.md)]
 
-This topic describes the process for releasing raw material for bill of materials (BOM) lines and formula lines to the warehouse. When you release a BOM or formula line to the warehouse, the system first determines whether material is already available at the production input location on the shop floor where the material will be consumed for the production process.
+This article describes the process for releasing raw material for bill of materials (BOM) lines and formula lines to the warehouse. When you release a BOM or formula line to the warehouse, the system first determines whether material is already available at the production input location on the shop floor where the material will be consumed for the production process.
 
 - If the material is available at the production input location, it's picked from that location immediately after the signal is given for the release of material to the warehouse.
-- If the material isn't available at the production input location, the material release indicates that material must be moved from locations in the warehouse to the production input location. The material is moved via warehouse work for raw material picking. Therefore, warehouse processes for raw material picking must be configured. For more information, see [Replenishment](../warehousing/replenishment.md) and [Control warehouse work by using work templates and location directives](../warehousing/control-warehouse-location-directives.md).
+- If the material isn't available at the production input location, the material release indicates that material must be moved from locations in the warehouse to the production input location. The material is moved via warehouse work for raw material picking. Therefore, warehouse processes for raw material picking must be configured. Learn more in [Replenishment overview](../warehousing/replenishment.md) and [Control warehouse work by using work templates and location directives](../warehousing/control-warehouse-location-directives.md).
 
 ## Methods for releasing BOM and formula lines
 
@@ -69,7 +50,7 @@ In the query for the **Automatic release of BOM and formula lines** batch job, y
 
 The following illustration shows a production order that has two jobs, 10 and 20, that cover the assembly and packing for the production order. Each job is set up to consume a quantity of material. In this illustration, the release time fence that is indicated by the green arrow below the time line equals the number of days that has been specified in the **(LessThanDate())** criterion. For example, **(LessThanDate(2))** indicates that the job should look for unreleased quantities only within a time fence of two days.
 
-![Example of a production order that has two batch jobs](media/bach-job-setup.PNG)
+![Example of a production order that has two batch jobs.](media/bach-job-setup.PNG)
 
 ## Releasing material per operation number or in proportion to the amount of finished goods
 
@@ -86,10 +67,10 @@ To control the operations that material should be released to, use the **Release
 
 The following illustration shows a production order that has two operations, 10 and 20. In this example, if you limit the release to operation 10, only material M9203 will be released.
 
-![Example of the release of material per operation number](media/two-operations.PNG)
+![Example of the release of material per operation number.](media/two-operations.PNG)
 
-For a quick demonstration of how to release material in proportion to the amount of finished goods, watch this short YouTube video:
-[Enhancements to the production order release process in Dynamics 365 for Finance and Operations](https://www.youtube.com/watch?v=Rm3ojAz6Zu0)
+For a quick demonstration of how to release material in proportion to the amount of finished goods, watch this short YouTube video about 
+[enhancements to the production order release process](https://www.youtube.com/watch?v=Rm3ojAz6Zu0).
 
 ### Release material in proportion to the amount of finished goods
 
@@ -104,3 +85,6 @@ You can release raw material for a partial quantity of finished goods or in a sp
     The units that are available are defined in the unit sequence group ID of the finished good.
 
     For example, a finished good has the following unit conversion between pounds (lbs.) and pallet (PL): 1 PL = 100 lbs. To create a production order for 10,000 lbs. of the finished good, you can release raw materials for the number of pallets that you plan to produce. Select **PL** as the unit, and then select a corresponding number in the **Quantity** field.
+
+
+[!INCLUDE[footer-include](../../includes/footer-banner.md)]

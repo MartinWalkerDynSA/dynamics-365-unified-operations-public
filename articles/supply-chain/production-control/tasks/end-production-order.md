@@ -1,34 +1,18 @@
 ---
-# required metadata
-
 title: End a production order
-description: This procedure shows how to end a production order.
+description: Learn how to end a production order, including a step-by-step process for ending production orders using the USMF demo data company.
 author: johanhoffmann
-manager: AnnBe
-ms.date: 11/11/2016
-ms.topic: business-process
-ms.prod:  
-ms.service: dynamics-ax-applications
-ms.technology:  
-
-# optional metadata
-
-# ms.search.form:   
-audience: Application User
-# ms.devlang:  
-ms.reviewer: josaw
-ms.search.scope: Operations
-# ms.tgt_pltfrm:  
-# ms.custom:  
-ms.search.region: Global
-ms.search.industry: Manufacturing
 ms.author: johanho
-ms.search.validFrom: 2016-06-30
-ms.dyn365.ops.version: AX 7.0.0
+ms.topic: how-to
+ms.date: 11/11/2016
+ms.custom:
+ms.reviewer: kamaybac 
+ms.search.form:
 ---
+
 # End a production order
 
-[!include [task guide banner](../../includes/task-guide-banner.md)]
+[!include [banner](../../includes/banner.md)]
 
 This procedure shows how to end a production order. The demo data company used to create this procedure is USMF. This is the final procedure out of seven which explains the production order lifecycle.
 
@@ -49,3 +33,6 @@ This procedure shows how to end a production order. The demo data company used t
 1. On the Action Pane, click Manage costs.
 2. Click View cost comparison.
     * After you have ended the production order, you can compare the estimated cost price against the realized cost price to get an overview of the production variances.  
+
+
+[!INCLUDE[footer-include](../../../includes/footer-banner.md)]

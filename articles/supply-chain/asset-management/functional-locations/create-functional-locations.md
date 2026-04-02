@@ -1,42 +1,22 @@
 ---
-# required metadata
-
 title: Create functional locations
-description: This topic explains how to create a functional location in Asset Management.
-author: josaw1
-manager: AnnBe
+description: Learn how to create a functional location in Asset Management, including an outline and step-by-step process on creating a default functional location.
+author: jodahlMSFT
+ms.author: jodahl
+ms.topic: how-to
 ms.date: 06/25/2019
-ms.topic: article
-ms.prod: 
-ms.service: dynamics-ax-applications
-ms.technology: 
-
-# optional metadata
-
-ms.search.form: CatProcureCatalogEdit, CatProcureCatalogListPage
-# ROBOTS: 
-audience: Application User
-# ms.devlang: 
-ms.reviewer: josaw
-ms.search.scope: Core, Operations
-# ms.tgt_pltfrm: 
-ms.custom: 2214
+ms.reviewer: kamaybac
+ms.search.form: EntAssetFunctionalLocationCopyStructure, EntAssetFunctionalLocationCreate
 ms.assetid: 2f3e0441-414d-402b-b28b-7ab0d650d658
-ms.search.region: Global
-# ms.search.industry: 
-ms.author: mkirknel
-ms.search.validFrom: 2016-02-28
-ms.dyn365.ops.version: AX 7.0.0
-
 ---
 
 # Create functional locations
 
 [!include [banner](../../includes/banner.md)]
 
-[!include [banner](../../includes/preview-banner.md)]
+ 
 
-This topic explains how to create a functional location in Asset Management.
+This article explains how to create a functional location in Asset Management.
 
 When you create a functional location structure, be aware once you have created a functional location, you cannot move it from the original location. This means that you should carefully consider the structure of your functional locations before you start creating them in Asset Management. If you regret a functional location, you can delete it, provided that it has not yet been taken into use.
 
@@ -49,7 +29,7 @@ To be able to work with functional locations, you start by creating two "categor
 
 When you use functional locations, start by creating one default location to be used when you create new assets. This functional location is the one you select in **Asset management** > **Setup** > **Asset management parameters** > **Assets** link > **Default functional location** field. The default functional location can be used when you create new assets, and you have not yet set up a functional location structure for those assets.
 
-1. Select **Asset management** > **Common** > **Functional locations** > **All Functional locations**.  
+1. Select **Asset management** > **Functional locations** > **All Functional locations**.  
 2. In **All functional locations**, select **New**.
 3. Insert an ID in the **Functional location** field, for example, "0000" or "Default", to indicate that this is a special functional location.
 4. Insert name for the default functional location in the **Name** field.
@@ -61,7 +41,7 @@ When you use functional locations, start by creating one default location to be 
 
 The following procedure describes how you create the functional locations required for maintenance management in your company.
 
-1. Select **Asset management** > **Common** > **Functional locations** > **All Functional locations**. You can create a functional location from grid view or details view.
+1. Select **Asset management** > **Functional locations** > **All Functional locations**. You can create a functional location from grid view or details view.
 2. Select the **New** button.
 3. Insert an ID in the **Functional location** field.
 4. Insert a name for the functional location in the **Name** field.
@@ -139,3 +119,6 @@ A functional location with related sub locations can be deleted if no assets hav
 
 >[!NOTE]
 >If you cannot delete a functional location, instead you can handle deletion by setting up a functional location lifecycle state for this purpose. For example, you can set up a "Scrapped" or "Deleted" stage, which should not be an active stage, in the **Functional location lifecycle states** form.
+
+
+[!INCLUDE[footer-include](../../../includes/footer-banner.md)]

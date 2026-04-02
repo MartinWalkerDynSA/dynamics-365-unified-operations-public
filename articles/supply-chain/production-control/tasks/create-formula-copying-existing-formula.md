@@ -1,34 +1,18 @@
 --- 
-# required metadata 
- 
 title: Create a formula by copying from an existing formula
-description: This procedure shows how to quickly create a new formula by copying from an existing formula. 
-author: ShylaThompson
-manager: AnnBe 
+description: Learn how to quickly create a new formula by copying from an existing formula, including processes for creating new formulas and copying from existing formulas.
+author: johanhoffmann
+ms.author: johanho
+ms.topic: how-to
 ms.date: 08/29/2018
-ms.topic: business-process 
-ms.prod:  
-ms.service: dynamics-ax-applications 
-ms.technology:  
- 
-# optional metadata 
- 
-ms.search.form: BOMTable, BOMRouteCopyDialog, HcmWorkerLookUp   
-audience: Application User 
-# ms.devlang:  
-ms.reviewer: shylaw
-ms.search.scope: Core, Operations 
-# ms.tgt_pltfrm:  
-# ms.custom:  
-ms.search.region: Global
-ms.search.industry: Manufacturing
-ms.author: shylaw
-ms.search.validFrom: 2016-06-30 
-ms.dyn365.ops.version: Version 7.0.0 
+ms.custom:
+ms.reviewer: kamaybac   
+ms.search.form: BOMTable, BOMRouteCopyDialog, HcmWorkerLookUp 
 ---
+
 # Create a formula by copying from an existing formula
 
-[!include [task guide banner](../../includes/task-guide-banner.md)]
+[!include [banner](../../includes/banner.md)]
 
 This procedure shows how to quickly create a new formula by copying from an existing formula. You can use the demo data companies USMF, USP2, or USPI to create this procedure.
 
@@ -59,3 +43,6 @@ This procedure shows how to quickly create a new formula by copying from an exis
 3. Click OK.
 4. Close the page.
 
+
+
+[!INCLUDE[footer-include](../../../includes/footer-banner.md)]

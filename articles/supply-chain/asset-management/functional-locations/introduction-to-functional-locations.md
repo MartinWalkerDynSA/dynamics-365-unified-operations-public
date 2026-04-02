@@ -1,42 +1,24 @@
 ---
-# required metadata
-
 title: Introduction to functional locations
-description: This topic provides an overview of functional locations in Asset Management.
-author: josaw1
-manager: AnnBe
+description: Learn about functional locations in Asset Management, including outlines on the functional, process-related, and spatial functional locations.
+author: jodahlMSFT
+ms.author: jodahl
+ms.topic: concept-article
 ms.date: 06/25/2019
-ms.topic: article
-ms.prod: 
-ms.service: dynamics-ax-applications
-ms.technology: 
-
-# optional metadata
-
-ms.search.form: CatProcureCatalogEdit, CatProcureCatalogListPage
-# ROBOTS: 
-audience: Application User
-# ms.devlang: 
-ms.reviewer: josaw
-ms.search.scope: Core, Operations
-# ms.tgt_pltfrm: 
-ms.custom: 2214
+ms.custom:
+ms.reviewer: kamaybac
+ms.collection: get-started
+ms.search.form: EntAssetFunctionalLocationEditSubLocations, EntAssetFunctionalLocationLookup, EntAssetFunctionalLocationRename, EntAssetFunctionalLocation
 ms.assetid: 2f3e0441-414d-402b-b28b-7ab0d650d658
-ms.search.region: Global
-# ms.search.industry: 
-ms.author: mkirknel
-ms.search.validFrom: 2016-02-28
-ms.dyn365.ops.version: AX 7.0.0
-
 ---
 
 # Introduction to functional locations
 
 [!include [banner](../../includes/banner.md)]
 
-[!include [banner](../../includes/preview-banner.md)]
+ 
 
-This topic provides an overview of functional locations in Asset Management. Functional locations are elements of a technical structure, such as the functional units in a system. Functional locations are created hierarchically, and you install assets on them. The setup of functional locations in your company depends on the company's requirements.
+This article provides an overview of functional locations in Asset Management. Functional locations are elements of a technical structure, such as the functional units in a system. Functional locations are created hierarchically, and you install assets on them. The setup of functional locations in your company depends on the company's requirements.
 
 Here are some examples of how you can use functional locations:
 
@@ -61,11 +43,11 @@ Functional locations provide traceability of assets in relation to requests, wor
 
 Functional locations are **not** flexible. Therefore, after you set up a functional location hierarchy, you can't move locations around in it. 
 
-After you create a functional location hierarchy, the next step is to install assets on it. For more information, see [Install assets on functional locations](../functional-locations/install-objects-on-functional-locations.md).
+After you create a functional location hierarchy, the next step is to install assets on it. Learn more in [Install assets on functional locations](../functional-locations/install-objects-on-functional-locations.md).
 
 ## All functional locations
 
-Select **Asset management** \> **Common** \> **Functional locations** \> **All functional locations** to open the **All functional locations** list page. This page shows all functional locations and some of the information that is related to each. To view only active functional locations, select **Active functional locations**. To view only the functional locations that you're related to as a worker, select **My active functional locations**. (This relation is set up on the **Workers** page. For more information, see [Maintenance workers and worker groups](../setup-for-objects/workers-and-worker-groups.md).)
+Select **Asset management** \> **Functional locations** \> **All functional locations** to open the **All functional locations** list page. This page shows all functional locations and some of the information that is related to each. To view only active functional locations, select **Active functional locations**. To view only the functional locations that you're related to as a worker, select **My active functional locations**. (This relation is set up on the **Workers** page. Learn more in [Maintenance workers and worker groups](../setup-for-objects/workers-and-worker-groups.md).)
 
 On the **All functional locations** list page, select a link in the **Functional location** column to view the details of the selected record. To edit the functional location, select the **Edit** button. The details view shows detailed information that is related to the location. It also includes a **Related information** pane on the right. This pane shows the functional location hierarchy. You can expand and collapse the **Related information** pane.
 
@@ -88,3 +70,6 @@ The buttons on the Action Pane are organized on tabs. The following table briefl
 | Faults                              | Open the **Asset faults** page, where you can view a list of asset fault registrations that are related to the selected functional location. |
 | Update functional location state    | Update the stage of the selected functional location.                                                                                        |
 | Lifecycle state log                 | View a log that shows the stages of the selected functional location.                                                                        |
+
+
+[!INCLUDE[footer-include](../../../includes/footer-banner.md)]

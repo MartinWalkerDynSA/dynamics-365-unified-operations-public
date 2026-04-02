@@ -1,36 +1,20 @@
 --- 
-# required metadata 
- 
 title: Add variant products to purchase orders using variant weights
-description: This procedure walks through the steps for using variant weights to auto populate purchase order lines for each variant of a product. 
-author: ShylaThompson
-manager: AnnBe 
+description: Learn about the steps for using variant weights to auto populate purchase order lines for each variant of a product, including a step-by-step process. 
+author: sgmsft
+ms.author: shwgarg
+ms.topic: how-to
 ms.date: 11/14/2016
-ms.topic: business-process 
-ms.prod:  
-ms.service: dynamics-ax-applications 
-ms.technology:  
- 
-# optional metadata 
- 
-# ms.search.form:   
-audience: Application User 
-# ms.devlang:  
-ms.reviewer: josaw
-ms.search.scope: Operations 
-# ms.tgt_pltfrm:  
-# ms.custom:  
-ms.search.region: Global
-# ms.search.industry: 
-ms.author: shylaw
-ms.search.validFrom: 2016-06-30 
-ms.dyn365.ops.version: AX 7.0.0 
+ms.custom:
+ms.reviewer: kamaybac  
+ms.search.form: PurchTable, PurchTablePart
 ---
+
 # Add variant products to purchase orders using variant weights
 
-[!include [task guide banner](../../includes/task-guide-banner.md)]
+[!include [banner](../../includes/banner.md)]
 
-This procedure walks through the steps for using variant weights to auto populate purchase order lines for each variant of a product. When you select the quantity of the product you want to purchase, purchase order lines are created for all the variants of the product with suggested quantities based on the weights configured on the product variants. This procedure doesn’t include steps to configure weight values on product dimensions and product variants. This procedure uses the USRT company in demo data.
+This procedure walks through the steps for using variant weights to auto populate purchase order lines for each variant of a product. When you select the quantity of the product you want to purchase, purchase order lines are created for all the variants of the product with suggested quantities based on the weights configured on the product variants. This procedure doesn't include steps to configure weight values on product dimensions and product variants. This procedure uses the USRT company in demo data.
 
 1. Go to Accounts payable > Purchase orders > All purchase orders.
 2. Click New.
@@ -51,3 +35,6 @@ This procedure walks through the steps for using variant weights to auto populat
 17. Set Quantity to '1000'.
 18. Click Save.
 
+
+
+[!INCLUDE[footer-include](../../../includes/footer-banner.md)]

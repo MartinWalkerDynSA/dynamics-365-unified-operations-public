@@ -1,58 +1,31 @@
 ---
-# required metadata
-
 title: Prioritize service orders   
-description: Prioritize service orders.
-author: ShylaThompson
-manager: AnnBe
-ms.date: 05/01/2018
-ms.topic: article
-ms.prod: 
-ms.service: dynamics-ax-applications
-ms.technology: 
-
-# optional metadata
-
+description: Learn how to prioritize service orders. Includes a step-by-step process for saving and prioritizing service orders.
+author: Henrikan
+ms.author: henrikan
+ms.reviewer: kamaybac
 ms.search.form: SMADispatchBoard
-# ROBOTS: 
-audience: Application User
-# ms.devlang: 
-ms.reviewer: josaw
-ms.search.scope: Core, Operations
-# ms.tgt_pltfrm: 
-ms.custom: 
-ms.assetid: 
-ms.search.region: Global
-# ms.search.industry: 
-ms.author: ShylaThompson
-ms.search.validFrom: 2016-02-28
-ms.dyn365.ops.version: AX 7.0.0
+ms.topic: how-to
+ms.date: 09/02/2025
+ms.custom:
+  - bap-template
 ---
 
-
-# Prioritize service orders 
+# Prioritize service orders
 
 [!include [banner](../includes/banner.md)]
 
+1. Go to **Service management** \> **Perform periodic tasks** \> **Dispatch board**.
+1. On the Action Pane, select **Adjust view settings**.
+1. Use the **Adjust view settings** dialog to select the date range and other options for the service activities you want to see. Then select **OK**.
+1. Expand each dispatch team list.
+1. Select the color-coded graphic that represents a service activity.
+1. Open the **All**, **Team**, **Undispatched**, or **Related** tab and change the selection in the **Priority** field.
+1. Select **Save**.
 
-1.  Click **Service management** \> **Periodic** \> **Dispatch board**.
+## Related information
 
-2.  Click **Advanced** to display the Gantt chart at the top of the form and the tabs in the lower pane.
+- [Dispatch board](dispatch-board.md)
+- [View the status of service orders](view-the-status-of-service-orders.md)
 
-3.  Expand each dispatch team list.
-
-4.  Select the color-coded graphic that represents a service activity.
-
-5.  On the **All** tab, **Team** tab, **Undispatched** tab, or **Related** tab, change the selection in the **Priority** field.
-
-6.  Click **Save**.
-
-## See also
-
-[Dispatch board](dispatch-board.md)
-
-[View the status of service orders](view-the-status-of-service-orders.md)
-
-  
-
-
+[!INCLUDE[footer-include](../../includes/footer-banner.md)]

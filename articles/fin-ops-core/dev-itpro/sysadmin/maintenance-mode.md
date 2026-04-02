@@ -1,0 +1,134 @@
+---
+title: Maintenance mode
+description: Learn about maintenance mode, which is a system-wide setting that lets system administrators make system changes that can affect system functionality.
+author: laneswenka
+ms.author: laswenka
+ms.topic: article
+ms.date: 03/13/2026
+ms.reviewer: johnmichalak
+audience: IT Pro
+ms.search.region: Global
+ms.search.validFrom: 2016-02-28
+ms.search.form: SysConfiguration
+ms.dyn365.ops.version: AX 7.0.0
+ms.assetid: c11a35e8-40bb-4005-adf3-cfd998a418fc
+---
+
+# Maintenance mode
+
+[!include [banner](../includes/banner.md)]
+
+This article provides information about maintenance mode in finance and operations apps. When you turn on maintenance mode, it provides a safe way for system administrators to make system changes that might affect system functionality. For example, you can enable or disable configuration keys. While maintenance mode is on, only system administrators and users who have the **Maintenance mode user** role can sign in to the system. By default, maintenance mode is turned off. When maintenance mode is off, you can't edit the **License configuration** page.
+
+> [!NOTE]
+> After enabling maintenance mode on an environment, only one interactive AOS and one non-interactive AOS (batch AOS) is available for use.
+
+## Turn maintenance mode on and off on sandbox and production environments through Lifecycle Services
+
+You can now turn maintenance mode on and off directly through Microsoft Dynamics 365 Lifecycle Services on your sandbox and production environments.
+
+To turn maintenance mode on and off directly through Lifecycle Services, follow these steps:
+
+1. Go to the environment details page. On the **Maintain** menu, select **Enable Maintenance Mode**.
+1. In the slider, set **Turn maintenance mode on** for the environment and select **Confirm**.
+1. A servicing operation begins and your system  goes into maintenance mode.
+1. On completion, the environment state is **In Maintenance**. At this point, only the system administrator has access to the environment.
+1. After you're done making system-wide changes, you can turn off maintenance mode by selecting **Disable Maintenance Mode** under the **Maintain** menu.
+1. A servicing operation starts and takes your environment out of maintenance mode. You can see the progress of the operation in the environment details page.
+1. When complete, your environment goes back to the **Deployed** state. Now all users can sign in to the environment.
+1. You can check the environment history page to see when the maintenance mode was turned on or turned off. To get to the environment history page, select **History** and **Environment changes** on the environment details page.
+
+Turning maintenance mode on and off for your sandbox and production environment is similar to a servicing operation. If turning maintenance mode on or off fails, you see options such as **Resume**, **Rollback**, and **Abort**. You can also **download the logs** to troubleshoot why the operation failed.
+
+## Turn maintenance mode on and off in DevTest/Demo environments hosted in customer's subscription
+
+1. Establish an RDP connection to the developer machine.
+1. On the developer machine, sign in to SQL Server by using the credentials for the axdbadmin user from Lifecycle Services. Then switch to the AXDB database, and run the following command.
+
+    ```Console
+    update SQLSYSTEMVARIABLES SET VALUE = 1 where PARM = 'CONFIGURATIONMODE'
+    ```
+
+1. Restart the **World Wide Web Publishing Service** to reset IIS.
+1. After the service restarts, the system is in maintenance mode.
+1. When you complete your maintenance mode activities, repeat steps 2 and 3, but set the value to 0 in step 2.
+
+## Turn maintenance mode on and off for VHD-based environments hosted by customers
+
+Turn on maintenance mode locally by running the following command.
+
+> [!NOTE]
+> On some virtual machines (VMs), the exact location of the Deployment.Setup.exe tool might differ. Check `AosServiceWebRoot\bin`.
+
+```Console
+J:\AosService\PackagesLocalDirectory\Bin\Microsoft.Dynamics.AX.Deployment.Setup.exe --metadatadir J:\AosService\PackagesLocalDirectory --bindir J:\AosService\PackagesLocalDirectory\Bin --sqlserver . --sqldatabase axdb --sqluser axdbadmin --sqlpwd ********* --setupmode maintenancemode --isinmaintenancemode true
+```
+
+After running the command, restart the **World Wide Web Publishing Service** to reset IIS. The system is in maintenance mode.  
+
+The following table describes the parameters that are used in this command.
+
+| Parameter name              | Description  |
+|-----------------------------|------|
+| `--setupmode maintenancemode` | Use this parameter to inform the setup tool that the system is put into or taken out of maintenance mode.    |
+| `--metadatadir`               | Use this parameter to specify the metadata directory. Use the default packages directory.              |
+| `--bindir`                    | Use this parameter to specify the binaries directory. Use the default packages directory.              |
+| `--sqlserver`                 | Use this parameter to specify the Microsoft SQL Server. For one-box environments, use a period (**.**).           |
+| `--sqluser`                   | Use this parameter to specify the SQL Server user. Use **AOSUser**.                                    |
+| `--sqlpwd`                    | Use this parameter to specify the SQL Server password.                                                            |
+| `--isinmaintenancemode`       | Use this parameter to turn configuration mode on or off. Use **true** to turn it on and **false** to turn it off. |
+
+## Turn maintenance mode on and off in Finance + Operations (on-premises) environments
+
+Ensure you have at least version 2.18.2 of the infrastructure scripts. For more information about obtaining the scripts, see [Obtain the infrastructure scripts for your Finance + Operations (on-premises) deployment](../deployment/obtain-infrascripts-onprem.md).
+
+1. To enable maintenance mode, run the following script from any node in your Service Fabric cluster.
+
+```powershell
+.\Set-MaintenanceMode.ps1 -ConfigurationFilePath .\ConfigTemplate.xml -Enable
+```
+
+> [!IMPORTANT]
+> The script restarts all of your Application Object Server (AOS) instances.
+
+1. After your AOS instances are running again, the system is in maintenance mode.
+1. When you complete your maintenance mode activities, run the following script from any node in your Service Fabric cluster.
+
+```powershell
+.\Set-MaintenanceMode.ps1 -ConfigurationFilePath .\ConfigTemplate.xml -Disable
+```
+
+## Turn maintenance mode on and off in Unified developer experience for finance and operations apps environments through the Power Platform admin center
+
+> [!IMPORTANT]  
+> If your environment is connected to Lifecycle Services, follow the steps in [Turn maintenance mode on and off on sandbox and production environments through Lifecycle Services](#turn-maintenance-mode-on-and-off-on-sandbox-and-production-environments-through-lifecycle-services).
+
+1. Go to your environment in the Power Platform admin center.  
+2. Edit the environment details.  
+3. Enable **Administration mode**.  
+4. After the service is restarted and the environment is ready, the system is in maintenance mode. At this point, only system administrators can access the environment.  
+5. When you complete your maintenance mode activities, repeat steps 1 and 2, but disable **Administration mode** in step 3.  
+
+> [!NOTE]  
+> Enabling Administration mode in the Power Platform admin center has the same effect as turning on maintenance mode in Lifecycle Services.
+
+## Enable or disable configuration keys
+
+When you restart the instance of Application Object Server (AOS), the system enters maintenance mode. You can then enable configuration keys, as shown in the following screenshot.
+
+:::image type="content" source="./media/license-configuration-page-when-not-in-maintenance-mode.png" alt-text="Screenshot of the License configuration page when not in maintenance mode.":::
+
+If you try to access the system while it's in maintenance mode but you're not a system administrator or a user with the **Maintenance mode user** role, you might receive an error message.
+
+You can turn off maintenance mode by running the following command.
+
+```Console
+J:\AosService\PackagesLocalDirectory\Bin\Microsoft.Dynamics.AX.Deployment.Setup.exe --metadatadir J:\AosService\PackagesLocalDirectory --bindir J:\AosService\PackagesLocalDirectory\Bin --sqlserver . --sqldatabase axdb --sqluser axdbadmin --sqlpwd ********* --setupmode maintenancemode --isinmaintenancemode false
+```
+
+After running the command, restart the **World Wide Web Publishing Service** to reset IIS. The system exits maintenance mode.  
+
+> [!NOTE]
+> If you use a Tier-1 (cloud-hosted) environment, you must do a full database synchronization (DBSync) and use Microsoft Visual Studio to complete the maintenance mode.
+
+[!INCLUDE[footer-include](../../../includes/footer-banner.md)]

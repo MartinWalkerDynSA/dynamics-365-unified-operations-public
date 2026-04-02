@@ -1,0 +1,135 @@
+---
+title: What are the prerequisites to installing Business performance analytics
+description: This article describes how to complete the prerequisites for Business performance analytics, including outlines on availability, and systema and version requirements.
+author: damienmaspero
+ms.author: damienma
+ms.topic: article
+ms.date: 03/31/2026
+
+ms.custom:
+ms.reviewer: twheeloc 
+audience: Application User
+---
+
+# Prerequisites for installing Business performance analytics
+
+## Before you install
+
+Business performance analytics is generally available in public cloud the following countries and regions: APAC, Australia, Canada, EMEA, India, Japan, North America, Norway, South Africa, South America, Switzerland, United Arab Emirates, and United Kingdom.
+
+> [!NOTE]
+> Business performance analytics is currently unavailable in France due to regulatory limitations. The initial release is only available in English (EN-US). Additional language support will be introduced in future release waves. You can stay informed through our monthly customer advisory board (<https://aka.ms/BPACAB>).
+
+### System requirements
+
+To preview business performance analytics, you need a tier 2 environment (multibox). For more information about environments, see [Environment planning](../../fin-ops-core/fin-ops/imp-lifecycle/environment-planning.md).
+
+### Version requirements
+
+Business performance analytics requires Dynamics 365 Finance version 10.0.45 (Application version 10.0.2345.96) or later.
+
+### What are the prerequisites for installing Business performance analytics
+
+Before installing Business performance analytics, complete the following prerequisites:
+
+- Set up required privileges in Power Platform and Dynamics 365 Finance
+- Configure Microsoft Power Platform
+- Configure the Microsoft Entra tenant
+- Move data from a production environment to a sandbox environment (if needed)
+- Confirm the Power App users are enabled in Dynamics 365 Finance
+- Configure Dynamics 365 Finance
+- Configure Power Platform Admin Center
+- Enable the Tabular Data Stream endpoint in Power Platform Admin Center
+
+#### Required privileges
+
+- In Power Platform:
+
+  - The **System Administrator** and **System Customizer** roles in [Power Platform admin center](https://admin.powerplatform.microsoft.com/). Follow these steps to confirm that you have these privileges:
+
+   1. In the Power Platform Admin Center, go to **Environments**.
+   2. Select the relevant environment.
+   3. In the **Access** section, select users.
+   4. Select **Installing user** > **Roles**. Confirm the necessary privileges.
+
+- In Microsoft Dynamics 365 Finance:
+
+  - The **System administrator** role in Microsoft Dynamics 365 Finance. Follow these steps to confirm that you have these privileges:
+
+   1. In Dynamics 365 Finance, go to **System administration**.
+   2. Select **Users** > **Users**.
+   3. Select **Installing user** > **Roles**. Confirm the necessary permissions.
+
+- In Microsoft Dynamics Lifecycle Services:
+
+  - The **Organization Admin** role to create environments. Additionally, the **Project owner** or **Environment manager** role must be assigned to the user in the **Project security** role field in Lifecycle Services.
+
+#### Configure Microsoft Power Platform
+
+To configure Microsoft Power Platform for Business performance analytics, follow these steps:
+
+1. Sign in to [Lifecycle Services](https://lcs.dynamics.com/).
+2. Go to the details page of the implementation project that's used to manage the Dynamics 365 Finance environment.
+3. Select **Full details** for the environment that you want to use for the setup.
+4. Confirm that the Microsoft Power Platform Integration is shown. If Microsoft Power Platform is set up, the name of the Microsoft Power Platform environment that's linked to the Dynamics 365 Finance environment is listed and shows a status of **Power Platform environment setup is complete**. If Microsoft Power Platform isn't set up, select **Setup**, and follow the prompts. After the setup is successfully completed, the name of the Microsoft Power Platform environment that's linked to the Dynamics 365 Finance environment is listed.
+5. If you set up the integration for an existing Microsoft Power Platform environment, confirm that the linked environment isn't in a disabled state. For more information, see [Enable Power Platform integration](../../fin-ops-core/dev-itpro/power-platform/enable-power-platform-integration.md). For more information, go to [Power Platform admin center](https://admin.powerplatform.microsoft.com/).
+
+#### Configure the Microsoft Entra tenant
+
+You must configure Microsoft Entra so that it can be used with Microsoft Power Platform. Complete the following setup:
+
+1. In the Azure portal, go to the <a href="https://ms.portal.azure.com/#view/Microsoft_Microsoft Entra ID_IAM/LicensesMenuBlade/~/Products">license assignment page</a>. Sign in by using the credentials of the tenant administrator.
+2. Apply a Dynamics 365 Finance or equivalent license to the user who's installing Business performance analytics. For more information, see [Assign or remove licenses](/azure/active-directory/fundamentals/license-users-groups).
+
+#### Move data from a production environment to a sandbox environment (if needed)
+
+To move data from your production environment to a sandbox environment, follow the instructions in [Data movement](../../fin-ops-core/dev-itpro/database/dbmovement-operations.md). This data is loaded into Business performance analytics and is a prerequisite for the installation of Business performance analytics.
+
+#### Power App users
+
+Before you can install Business performance analytics, confirm the users are enabled in Dynamics 365 Finance.
+
+1. In Dynamics 365 Finance, go to **System Administration** > **Users**.
+2. In filters, add **IsMicrosoftAccount Isexactly true**.
+3. Select the **PowerplatformApp** user.
+4. Select **Edit**, and then select **Enabled**.
+5. Select **Save**.
+
+### Required configurations in Dynamics 365 Finance
+
+Before you install Business performance analytics, set up the following configurations in Dynamics 365 Finance:
+
+1. Turn on maintenance mode by using Lifecycle Services. Maintenance mode lets you make system changes that might affect system functionality, such as enabling or disabling configuration keys.
+
+    1. Sign in to [Lifecycle Services](https://lcs.dynamics.com/) by using your credentials.
+    2. Select the environment where you want to enable maintenance mode.
+    3. Select the environment name to open the environment details page.
+    4. In the **Maintenance** section, select **Maintain** > **Enable maintenance mode**.
+    5. Confirm that you want to enable maintenance mode. The environment restarts in maintenance mode.
+
+2. In Dynamics 365 Finance, follow these steps:
+
+    1. Go to **System administration** > **License configuration**.
+    2. Confirm that **SQL row version change tracking (preview)** is enabled. If it isn't, select the checkbox.
+    3. Confirm that the following checkboxes and sub-checkboxes are enabled:
+
+        - **General ledger** – Budget, Reversing entries, Sales tax
+        - **Fixed assets**
+        - **Bank** – Check, Deposit slip, Negotiable instrument - Bill of exchange
+        - **Trade** – Charges, Invoice matching, Return orders, Delivery date control, Warehouse and Transportation management - Material handling equipment interface
+        - **Trade agreements** – Price/discount
+        - **Project**
+        - **Procurement 1** – Purchase requisition
+        - **Service management**
+
+3. When you finish, disable maintenance mode.
+
+#### Required configurations in Power Platform Admin Center
+
+1. Go to <https://admin.powerplatform.microsoft.com/>.
+2. Select **Environments**.
+3. Select the environment where you installed business performance analytics.
+4. In Power Platform Admin Center, select **Resources** and then select **Dynamics 365 installed apps**.
+5. Find **Finance and Operations Virtual Entity** and check if any updates are available.
+6. If an update is available, update the application. (Only required if you're installing Business performance analytics on existing environments).
+7. Ensure the Tabular Data Stream endpoint is enabled for the environment. Business performance analytics requires the Tabular Data Stream endpoint to be turned on. For more information, see [Manage feature settings](/power-platform/admin/control-tds-settings).

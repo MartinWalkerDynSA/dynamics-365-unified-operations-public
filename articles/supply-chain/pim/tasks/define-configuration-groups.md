@@ -1,45 +1,32 @@
---- 
-# required metadata 
- 
-title: Define configuration groups
-description: This procedure shows how to define product configuration groups by creating two groups in the demo data company USMF Company. 
-author: ShylaThompson
-manager: AnnBe 
-ms.date: 08/29/2018
-ms.topic: business-process 
-ms.prod:  
-ms.service: dynamics-ax-applications 
-ms.technology:  
- 
-# optional metadata 
- 
-ms.search.form: ConfigGroup   
-audience: Application User 
-# ms.devlang:  
-ms.reviewer: shylaw
-ms.search.scope: Core, Operations 
-# ms.tgt_pltfrm:  
-# ms.custom:  
-ms.search.region: Global
-# ms.search.industry: 
-ms.author: shylaw
-ms.search.validFrom: 2016-06-30 
-ms.dyn365.ops.version: Version 7.0.0 
 ---
+title: Define configuration groups
+description: Learn how to define product configuration groups by creating two groups in the demo data company USMF Company, including a step-by-step process. 
+author: sgmsft
+ms.author: shwgarg
+ms.topic: how-to
+ms.date: 11/10/2022
+ms.custom: bap-template
+ms.reviewer: kamaybac
+ms.search.form: ConfigGroup
+---
+
 # Define configuration groups
 
-[!include [task guide banner](../../includes/task-guide-banner.md)]
+[!include [banner](../../includes/banner.md)]
 
-This procedure shows how to define product configuration groups by creating two groups in the demo data company USMF Company. This is the fourth procedure out of eight which explains how to build combinations for dimension-based configuration.
+This procedure shows how to define product configuration groups.
 
-1. Go to Product information management > Setup > Bills of materials and formulas > Configuration groups.
-2. Click New.
-3. In the Configuration group field, type a value.
+This is the fourth procedure [of an eight-procedure sequence](../dimension-based-product-configuration.md#sequence) that explains how to build combinations for dimension-based configuration. You should do all eight procedures, in order, because each new procedure builds on data created by the previous procedures. To work through this sequence by using the sample records and values that are specified here, you must be on a system where the standard [demo data](../../../fin-ops-core/fin-ops/get-started/demo-data.md) is installed, and you must select the *USMF* legal entity before you begin.
+
+1. Go to **Product information management \> Setup \> Bills of materials and formulas \> Configuration groups**.
+2. Select **New**.
+3. In the **Configuration group** field, type a value.
     * Type a name for the configuration group that will be used for the bill of material lines.  
-4. In the Name field, type a value.
-5. Click New.
-6. In the Configuration group field, type a value.
+4. In the **Name** field, type a value.
+5. Select **New**.
+6. In the **Configuration group** field, type a value.
     * Type a name for the configuration group that will be used for the bill of material lines.  
-7. In the Name field, type a value.
+7. In the **Name** field, type a value.
 8. Close the page.
 
+[!INCLUDE[footer-include](../../../includes/footer-banner.md)]

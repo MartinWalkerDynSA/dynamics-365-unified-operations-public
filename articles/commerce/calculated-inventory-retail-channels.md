@@ -1,0 +1,37 @@
+---
+title: Calculate inventory availability for retail channels
+description: Learn how a company can use Microsoft Dynamics 365 Commerce to view estimated on-hand availability for products in the online and store channels.
+author: hhainesms
+ms.date: 01/15/2026
+ms.topic: how-to
+ms.reviewer: v-griffinc
+ms.search.region: Global
+ms.author: chuzheng
+ms.search.validFrom: 2020-02-11
+ms.custom: 
+  - bap-template
+---
+# Calculate inventory availability for retail channels
+
+[!include [banner](../includes/banner.md)]
+
+This article describes how a company can use Microsoft Dynamics 365 Commerce to view estimated on-hand availability for products in the online and store channels.
+
+## Accuracy of inventory availability
+
+Commerce uses multiple servers and databases to ensure scalability and performance. The available inventory values that the point of sale (POS) application, the e-commerce inventory availability application programming interfaces (APIs), and the on-hand inventory pages in Commerce headquarters provide might not be 100 percent accurate in real time. If transactions for products in the online or store channel aren't yet synced to headquarters, the on-hand inventory pages in headquarters might not show an accurate real-time inventory value for those products. Conversely, if you configure your company so that users in headquarters or other integrated applications can sell, receive, return, or otherwise adjust inventory out of a store or online warehouse, the POS or online channel might not have all the information that it needs to show accurate real-time values for items.
+
+All on-hand availability data that the application provides during the operational day is an estimated value. Therefore, if you try to compare the on-hand inventory information that the application provides with actual physical inventory on the shelves, or if you try to compare the on-hand values shown in POS with the on-hand data that you find for the same warehouse in headquarters, the values might differ. This difference during the operational day is expected and shouldn't be considered an issue. If you want to audit data and make sure that the values provided in POS, APIs, and headquarters match the actual physical units that you find on your store or warehouse shelves, the best time to do it is after channel operations stop for the day and all transactions are correctly synced between headquarters and the channels.
+
+## Channel-side inventory calculation
+
+The channel-side inventory calculation is a mechanism that takes the last-known channel inventory data in headquarters as a baseline, and then factors in additional inventory changes that occurred on the channel side that aren't included in that baseline to calculate a near-real-time estimated on-hand inventory.
+
+The following inventory changes are currently considered in the channel-side inventory calculation logic:
+
+- Inventory sold through cash-and-carry orders in store
+- Inventory sold through customer orders in store or online channel
+- Inventory returned to store
+- Inventory fulfilled (pick, pack, ship) from store warehouse
+
+[!INCLUDE[footer-include](../includes/footer-banner.md)]

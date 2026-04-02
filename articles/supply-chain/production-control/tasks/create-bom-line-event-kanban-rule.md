@@ -1,34 +1,18 @@
 --- 
-# required metadata 
- 
 title: Create a BOM line event kanban rule
-description: This task focuses on the setup needed to create an event kanban rule to ensure supply for production BOM lines in a mixed lean and classic production environment. 
-author: ChristianRytt
-manager: AnnBe 
+description: Learn about the setup needed to create an event kanban rule to ensure supply for production BOM lines in a mixed lean and classic production environment.
+author: johanhoffmann
+ms.author: johanho
+ms.topic: how-to
 ms.date: 08/29/2018
-ms.topic: business-process 
-ms.prod:  
-ms.service: dynamics-ax-applications 
-ms.technology:  
- 
-# optional metadata 
- 
-ms.search.form: KanbanRules, LeanProductionFlowActivityLookup, InventItemIdLookupSimple, ProdTableListPage, ProdTableCreate, InventItemIdLookupPurchase, ProdTable, ProdBOM, ProdParmCostEstimation   
-audience: Application User 
-# ms.devlang:  
-ms.reviewer: shylaw
-ms.search.scope: Core, Operations 
-# ms.tgt_pltfrm:  
-# ms.custom:  
-ms.search.region: Global
-ms.search.industry: Manufacturing
-ms.author: crytt
-ms.search.validFrom: 2016-06-30 
-ms.dyn365.ops.version: Version 7.0.0 
+ms.custom:
+ms.reviewer: kamaybac 
+ms.search.form: KanbanRules, LeanProductionFlowActivityLookup, InventItemIdLookupSimple, ProdTableListPage, ProdTableCreate, InventItemIdLookupPurchase, ProdTable, ProdBOM, ProdParmCostEstimation
 ---
+
 # Create a BOM line event kanban rule
 
-[!include [task guide banner](../../includes/task-guide-banner.md)]
+[!include [banner](../../includes/banner.md)]
 
 This task focuses on the setup needed to create an event kanban rule to ensure supply for production BOM lines in a mixed lean and classic production environment. The demo data company used to create this task is USMF. This task is intended for the process engineer or the value stream manager, as they prepare production of a new or modified product.
 
@@ -85,3 +69,6 @@ This task focuses on the setup needed to create an event kanban rule to ensure s
     * Notice the kanban created to supply M0001 for the estimated production order.  
     * This is the last step!  
 
+
+
+[!INCLUDE[footer-include](../../../includes/footer-banner.md)]

@@ -1,0 +1,77 @@
+---
+# required metadata
+
+title: Compensation fixed plan table entity
+description: This article provides details and an example query for the Compensation fixed plan table entity in Microsoft Dynamics 365 Human Resources.
+author: avanish2821
+ms.date: 03/25/2026
+ms.topic: article
+
+# optional metadata
+
+# ms.search.form: 
+audience: Application User
+# ms.devlang: 
+# ms.tgt_pltfrm: 
+ms.custom: 
+ms.assetid: 
+ms.search.region: Global
+# ms.search.industry: 
+ms.author: twheeloc
+ms.search.validFrom: 2021-04-07
+ms.dyn365.ops.version: Human Resources
+---
+
+# Compensation fixed plan table entity
+
+> [!NOTE]
+> The functionality that's noted in this article is available as of Microsoft Dynamics 365 Human Resources version 10.0.39.
+
+This article describes the HcmEmploymentEmployeeEntity entity for Dynamics 365 Human Resources.
+
+## Description
+
+This entity provides information about employee employment.
+
+## Properties
+
+| Property | Physical name | Type | Use | Description |
+|---|---|---|---|---|
+| ControlPoint | mshr\_ControlPoint | String | Read-only | Reference point setups. |
+| Currency | mshr\_Currency | String | Read-only | Currency details. |
+| Description | mshr\_Description | String | Read-only | The description of the fixed compensation plans. |
+| EnableRecommendation | mshr\_RecommendationAllowed | Enum | Read-only | A value that indicates whether recommendations are allowed. |
+| GridId | mshr\_CompensationStructure | String | Read-only | The compensation grid value. |
+| HireRule | mshr\_HireRule | Enum | Read-only | The hire rule set. |
+| MarketPriceIndicator | mshr\_MarketPriceIndicator | Enum | Read-only | The market price indicator set. |
+| PayFrequencyId | mshr\_PayFrequency | String | Read-only | Pay rate conversion details. |
+| PlanId | mshr\_Plan | String | Read-only | The name of the compensation plan. |
+| Tolerance | mshr\_OutOfRangeTolerance | Enum | Read-only | Out-of-range tolerance details. |
+| Type | mshr\_Type | Enum | Read-only | Type details. |
+| ValidTo | mshr\_ExpirationDate | Date time offset | Read-only | The expiration date of the compensation plan. |
+| ValidFrom | mshr\_EffectiveDate | Date time offset | Read-only | The effective date of the compensation plan. |
+| RefPointSetupId | mshr\_RefPointSetupId | String | Read-only | The ID of the reference point setup. |
+
+## Example query for the Employment employee detail entity
+
+**Request**
+
+Entity name: mshr\_hcmemploymentemployeeentities
+
+```http
+GET [OrganizatonURI]/api/data/v9.1/mshr_hcmemploymentemployeeentities_
+```
+
+**Response**
+
+```json
+{  
+    "mshr_probationperiod": "2017-11-19T08:00:00Z",  
+    "mshr_validfrom": "2012-09-28T17:11:47Z",  
+    "mshr_validto": "2154-12-31T23:59:59Z",  
+    "mshr_employmentstartdate": "2011-11-19T08:00:00Z",  
+    "mshr_employmentenddate": "2154-12-31T23:59:59Z",  
+    "mshr_legalentityid": "USRT",  
+    "mshr_personnelnumber": "000171",  
+}
+```

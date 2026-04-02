@@ -1,0 +1,60 @@
+---
+title: Power BI content home page
+description: Learn about PowerBI.com solutions that are available and points you to resources where you can learn more about the solutions.
+author: johnmichalak
+ms.author: johnmichalak
+ms.topic: article
+ms.date: 01/12/2026
+ms.reviewer: johnmichalak
+ms.collection: get-started
+audience: IT Pro
+ms.search.region: Global
+ms.search.validFrom: 2016-11-30
+ms.search.form: PowerBIPbixDeployForm
+ms.dyn365.ops.version: Version 1611
+ms.assetid: 0095a7cf-8cc9-41f6-bf00-b59868fa6ea2
+---
+
+# Power BI content home page
+
+[!include [banner](../includes/banner.md)]
+
+The following PowerBI.com solutions are available for application environments.
+
+## PowerBI.com solutions available from Lifecycle Services
+
+The Shared assets library of LCS provides the following PowerBI.com solutions. Check the version information in the Shared assets library to download the correct version for your environment.
+
+> [!NOTE]
+> Most of the PowerBI.com solutions in the following list are embedded in analytical workspaces in recent versions. By using analytical workspaces, you don't need to download these solutions from the Shared assets library in LCS. The topics in this list indicate where these PowerBI.com solutions are embedded where applicable.
+
+- [Actual vs budget](ledger-budgets-power-bi.md)
+- [Cash overview](../../../finance/cash-bank-management/Cash-Overview-Power-BI-content.md)
+- [Compensation and benefits](compensation-and-benefits-analysis-power-bi-content-pack.md)
+- [Cost accounting analysis](cost-accounting-analysis-content-pack.md)
+- [Credit and collections management](../../../finance/accounts-receivable/credit-collections-power-bi.md)
+- [Employee competencies and development](employee-competencies-and-development-analysis-power-bi-content-pack.md)
+- [Financial performance](financial-performance-power-bi-content-pack.md)
+- [Fixed asset management](../../../finance/fixed-assets/Fixed-asset-management-workspace.md)
+- [Organizational training](organizational-training-analysis-power-bi-content-pack.md)
+- [Practice manager](practice-manager-power-bi.md)
+- [Production performance](production-performance-power-bi.md)
+- [Purchase spend analysis](purchase-content-pack-for-power-bi.md)
+- [Recruiting](recruiting-analysis-power-bi-content-pack.md)
+- [Sales and profitability performance](sales-profitability-performance-content-pack.md)
+- [Vendor payments](../../../finance/accounts-payable/Vendor-payments-workspace.md)
+- [Warehouse performance](warehouse-power-bi-content.md)
+- [Workforce metrics](workforce-analysis-power-bi-content-pack.md)
+
+## PowerBI.com solutions available from Marketplace
+
+The following PowerBI.com solutions are available from [Microsoft Marketplace](https://marketplace.microsoft.com).
+
+> [!NOTE]
+> These solutions are deprecated as documented in [Power BI content packs available on Marketplace](../migration-upgrade/deprecated-features.md#power-bi-content-packs-available-on-marketplace).
+
+- Cost management
+- [Financial performance](financial-performance-power-bi-content-pack.md)
+- [Retail channel performance](retail-channel-performance-dashboard-power-bi-data.md)
+
+[!INCLUDE[footer-include](../../../includes/footer-banner.md)]

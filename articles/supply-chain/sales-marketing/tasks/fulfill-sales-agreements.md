@@ -1,34 +1,18 @@
 --- 
-# required metadata 
- 
 title: Fulfill sales agreements
-description: This procedure shows you how to fulfill a sales agreement by associating sales orders with it. 
-author: omulvad
-manager: AnnBe 
+description: Learn how to fulfill a sales agreement by associating sales orders with it, including a step-by-step process for releasing sales orders from agreements.
+author: AditiPattanaik
+ms.author: adpattanaik
+ms.topic: how-to
 ms.date: 08/29/2018
-ms.topic: business-process 
-ms.prod:  
-ms.service: dynamics-ax-applications 
-ms.technology:  
- 
-# optional metadata 
- 
-ms.search.form: SalesAgreementListPage, SalesAgreement, SalesAgreementGenerateReleaseOrder, SalesTableListPage, SalesTable, AgreementLine, SalesCreateOrder,  SalesEditLines   
-audience: Application User 
-# ms.devlang:  
-ms.reviewer: kfend
-ms.search.scope: Core, Operations 
-# ms.tgt_pltfrm:  
-# ms.custom:  
-ms.search.region: Global
-# ms.search.industry: 
-ms.author: omulvad
-ms.search.validFrom: 2016-06-30 
-ms.dyn365.ops.version: Version 7.0.0 
+ms.custom:
+ms.reviewer: kamaybac   
+ms.search.form: SalesAgreementListPage, SalesAgreement, SalesAgreementGenerateReleaseOrder, SalesTableListPage, SalesTable, AgreementLine, SalesCreateOrder,  SalesEditLines, SalesAgreementHistory 
 ---
+
 # Fulfill sales agreements
 
-[!include [task guide banner](../../includes/task-guide-banner.md)]
+[!include [banner](../../includes/banner.md)]
 
 This procedure shows you how to fulfill a sales agreement by associating sales orders with it. You can run this procedure in demo data company USMF or on your own data. Before starting this guide, make sure you have an effective sales agreement of type "Product value commitment". Alternatively, you can run the task guide called "Create sales agreements".  
 
@@ -93,3 +77,6 @@ This procedure shows you how to fulfill a sales agreement by associating sales o
 23. Click Attached sales agreement.
 24. Click the Fulfillment tab.
 
+
+
+[!INCLUDE[footer-include](../../../includes/footer-banner.md)]

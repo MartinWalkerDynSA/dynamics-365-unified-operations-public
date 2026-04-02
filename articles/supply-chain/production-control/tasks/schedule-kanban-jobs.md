@@ -1,34 +1,18 @@
 --- 
-# required metadata 
- 
 title: Schedule kanban jobs
-description: This procedure focuses on scheduling process kanban jobs for a specific work cell. 
-author: ChristianRytt
-manager: AnnBe 
+description: Learn about scheduling process kanban jobs for a specific work cell, including a step-by-step process for selecting kanban jobs for work cells. 
+author: johanhoffmann
+ms.author: johanho
+ms.topic: how-to
 ms.date: 08/29/2018
-ms.topic: business-process 
-ms.prod:  
-ms.service: dynamics-ax-applications 
-ms.technology:  
- 
-# optional metadata 
- 
-ms.search.form: KanbanJobSchedulingListPage, KanbanPeriodCapacityPart, SysLookupMultiSelectGrid, KanbanBoardScheduleJobForward   
-audience: Application User 
-# ms.devlang:  
-ms.reviewer: shylaw
-ms.search.scope: Core, Operations 
-# ms.tgt_pltfrm:  
-# ms.custom:  
-ms.search.region: Global
-# ms.search.industry: 
-ms.author: crytt
-ms.search.validFrom: 2016-06-30 
-ms.dyn365.ops.version: Version 7.0.0 
+ms.custom:
+ms.reviewer: kamaybac   
+ms.search.form: KanbanJobSchedulingListPage, KanbanPeriodCapacityPart, SysLookupMultiSelectGrid, KanbanBoardScheduleJobForward
 ---
+
 # Schedule kanban jobs
 
-[!include [task guide banner](../../includes/task-guide-banner.md)]
+[!include [banner](../../includes/banner.md)]
 
 This procedure focuses on scheduling process kanban jobs for a specific work cell. The procedure "Prepare a process kanban job when materials are not available" is a prerequisite for creating this procedure. The demo data company used to create this procedure is USMF. This task is intended for the shop floor supervisor and production planner working with kanbans.
 
@@ -65,3 +49,6 @@ This procedure focuses on scheduling process kanban jobs for a specific work cel
     * Notice that both jobs are added to the desired period.  
     * In the Period capacity section, you can see the load for each period. The Consumption field shows the scheduled consumption in this period. If the scheduled consumption is higher than the available capacity in this period, the overloaded consumption will be selected.  
 
+
+
+[!INCLUDE[footer-include](../../../includes/footer-banner.md)]

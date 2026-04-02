@@ -1,36 +1,20 @@
 --- 
-# required metadata 
- 
 title: Validate a production flow and version
-description: This procedure shows how to create a new production flow and a first version for lean manufacturing. 
-author: ChristianRytt
-manager: AnnBe 
+description: Learn how to create a new production flow and a first version for lean manufacturing, including a step-by-step process for creating production flows. 
+author: johanhoffmann
+ms.author: johanho
+ms.topic: how-to
 ms.date: 08/29/2018
-ms.topic: business-process 
-ms.prod:  
-ms.service: dynamics-ax-applications 
-ms.technology:  
- 
-# optional metadata 
- 
-ms.search.form: LeanProductionFlow   
-audience: Application User 
-# ms.devlang:  
-ms.reviewer: shylaw
-ms.search.scope: Core, Operations 
-# ms.tgt_pltfrm:  
-# ms.custom:  
-ms.search.region: Global
-ms.search.industry: Manufacturing
-ms.author: crytt
-ms.search.validFrom: 2016-06-30 
-ms.dyn365.ops.version: Version 7.0.0 
+ms.custom:
+ms.reviewer: kamaybac   
+ms.search.form: LeanProductionFlow
 ---
+
 # Validate a production flow and version
 
-[!include [task guide banner](../../includes/task-guide-banner.md)]
+[!include [banner](../../includes/banner.md)]
 
-This procedure shows how to create a new production flow and a first version for lean manufacturing. Prerequisites: The production parameters for Lean manufacturing and the units of measure for class time must be defined. You need to define a Value stream and a Production group. Refer to the white papers on Lean manufacturing to familiarize yourself with the concepts of production flows and activities. This procedure refers to the legal entity USMF in demo data. However, assuming that the legal entity is configured for Lean manufacturing, other legal entities can be used.
+This procedure shows how to create a new production flow and a first version for lean manufacturing. Prerequisites: The production parameters for Lean manufacturing and the units of measure for class time must be defined. You need to define a Value stream and a Production group. This procedure refers to the legal entity USMF in demo data. However, assuming that the legal entity is configured for Lean manufacturing, other legal entities can be used.
 
 
 ## Create a production flow
@@ -66,3 +50,6 @@ This procedure shows how to create a new production flow and a first version for
     * The period for actual cycle time is the number of days that jobs are aggregated from the actual minute backwards to calculate the actual cycle time. The value can be changed at any time and is only used for the calculation of the actual cycle times.  
 13. Click Save.
 
+
+
+[!INCLUDE[footer-include](../../../includes/footer-banner.md)]

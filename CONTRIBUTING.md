@@ -2,11 +2,12 @@
 Welcome! Thank you for your interest in contributing to Microsoft Dynamics 365 documentation. 
 
 In this topic you'll find the basic process for adding or updating content for:
-- Dynamics 365 for Finance and Operations
-- Dynamics 365 for Retail
-- Dynamics 365 for Talent
+- Dynamics 365 Finance
+- Dynamics 365 Supply Chain Management
+- Dynamics 365 Commerce
+- Dynamics 365 Talent
 
-This documentation is published [here](https://docs.microsoft.com/en-us/dynamics365/unified-operations/fin-and-ops/index).
+This documentation is published [here](https://learn.microsoft.com/dynamics365/unified-operations/fin-and-ops/index).
 
 ## Table of contents 
 
@@ -30,35 +31,36 @@ If you're unfamiliar with Git, you might want to review some Git terminology in 
 
 The GitHub UI supports the creation of new files and dragging and dropping images. However, when you work in the UI, managing branches can be confusing so we recommend that you install the tools and learn the commands for creating and managing topics. 
 
-* [Creating files on Github](https://github.com/blog/1327-creating-files-on-github)
+* [Creating files on GitHub](https://github.com/blog/1327-creating-files-on-github)
 * [Upload files to your repositories](https://github.com/blog/2105-upload-files-to-your-repositories)
 
 ## Ways to contribute
 In this topic you'll find the basic process for adding or updating content for:
-- Dynamics 365 for Finance and Operations
-- Dynamics 365 for Retail
-- Dynamics 365 for Talent
+- Finance 
+- Supply Chain Management
+- Commerce
+- Talent
 
 You can submit minor changes or larger submissions as follows:
 
-* **Minor changes** - You can easily contribute minor updates by clicking the **Edit** button in the topic that you want to modify.
+* **Minor changes** - You can easily contribute minor updates by selecting the **Edit** button in the topic that you want to modify.
 
 * **Larger submissions** - If you're making substantial changes to an existing topic, adding or changing images, or contributing a new topic, you need to fork the **MicrosoftDocs/Dynamics-365-Operations** repository, use GitHub or install your favorite Markdown editor, and learn some Git commands.
 
 ### Minor changes
 If you only need to make textual updates to an existing topic, you can use GitHub's web-based Markdown editor to submit your changes. 
 
-1. Click **Edit** in the topic that you want to modify. The GitHub version of the topic will open.
+1. Select **Edit** in the topic that you want to modify. The GitHub version of the topic will open.
 
-2. Click the edit (pencil) icon. 
+2. Select the edit (pencil) icon. 
 
 3. Edit the topic, as needed using Markdown.
 
-4. Click the **Propose file change** button.
+4. Select the **Propose file change** button.
 
 5. Click the **Create pull request** button to submit your changes.
  
-Minor corrections or clarifications that you submit are covered by the [docs.microsoft.com Terms of Use](https://docs.microsoft.com/legal/termsofuse).
+Minor corrections or clarifications that you submit are covered by the [learn.microsoft.com Terms of Use](https://learn.microsoft.com/legal/termsofuse).
 
 ### Larger submissions
 For the following sorts of work, we strongly recommend that you install and learn to use Git and GitHub tools:
@@ -87,13 +89,13 @@ If you're making substantial changes to an existing topic, adding or changing im
 
 5. If needed, make any necessary updates to your branch. Your pull request will be merged into the master branch after it has been reviewed and your changes are approved.
 
-On a certain cadence, we push all commits from the master branch into the live branch, after which you'll be able to see your contribution live at https://docs.microsoft.com/en-us/dynamics365/.
+On a certain cadence, we push all commits from the master branch into the live branch, after which you'll be able to see your contribution live at [Microsoft Dynamics 365 documentation](https://learn.microsoft.com/dynamics365)/.
 
 ## Contributing to samples
 If you have sample code, include the code as inline code blocks in your topic. There are currently no sample code repositories available for public contributions.
 
 ## Contributor License Agreement
-If you submit a pull request with new or significant changes to documentation, you will need to submit an online Contributor License Agreement (CLA) if you are not an employee of Microsoft. You will need complete the online form before your pull request can be accepted. You must sign the CLA before your pull request is merged. This is a one-time requirement for projects on the Dynamics 365 documentation site. You can read more about [Contributor License Agreements (CLA)](http://en.wikipedia.org/wiki/Contributor_License_Agreement) on Wikipedia.
+If you submit a pull request with new or significant changes to documentation, you will need to submit an online Contributor License Agreement (CLA) if you are not an employee of Microsoft. You will need complete the online form before your pull request can be accepted. You must sign the CLA before your pull request is merged. This is a one-time requirement for projects on the Dynamics 365 documentation site. You can read more about [Contributor License Agreements (CLA)](https://en.wikipedia.org/wiki/Contributor_License_Agreement) on Wikipedia.
 
 ## Do's and don'ts
 Here are some guiding rules that you should keep in mind when you're contributing to the documentation.

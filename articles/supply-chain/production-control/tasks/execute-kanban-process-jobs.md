@@ -1,34 +1,18 @@
 --- 
-# required metadata 
- 
 title: Execute kanban process jobs
-description: This procedure focuses on executing kanban process jobs. 
-author: ChristianRytt
-manager: AnnBe 
+description: Learn about executing kanban process jobs, including step-by-step processes for selecting kanban jobs and completing jobs with expected quantities. 
+author: johanhoffmann
+ms.author: johanho
+ms.topic: how-to
 ms.date: 08/29/2018
-ms.topic: business-process 
-ms.prod:  
-ms.service: dynamics-ax-applications 
-ms.technology:  
- 
-# optional metadata 
- 
-ms.search.form: KanbanBoardWorkCell, KanbanJobStatusUpdate   
-audience: Application User 
-# ms.devlang:  
-ms.reviewer: shylaw
-ms.search.scope: Core, Operations 
-# ms.tgt_pltfrm:  
-# ms.custom:  
-ms.search.region: Global
-ms.search.industry: Manufacturing
-ms.author: crytt
-ms.search.validFrom: 2016-06-30 
-ms.dyn365.ops.version: Version 7.0.0 
+ms.custom: 
+ms.reviewer: kamaybac   
+ms.search.form: KanbanBoardWorkCell, KanbanJobStatusUpdate
 ---
+
 # Execute kanban process jobs
 
-[!include [task guide banner](../../includes/task-guide-banner.md)]
+[!include [banner](../../includes/banner.md)]
 
 This procedure focuses on executing kanban process jobs. The first job is completed with the expected quantity and has no errors. The second job is completed with errors. The demo data company used to create this procedure is USMF. This procedure is intended for the machine operator.
 
@@ -59,3 +43,6 @@ This procedure focuses on executing kanban process jobs. The first job is comple
 6. In the Good quantity field, enter a number.
 7. Click OK.
 
+
+
+[!INCLUDE[footer-include](../../../includes/footer-banner.md)]

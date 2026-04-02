@@ -1,42 +1,20 @@
 ---
-# required metadata
-
 title: Expression constraints and table constraints in product configuration models
-description: This topic describes the use of expression constraints and table constraints. Constraints control the attribute values that you can select when you configure products for a sales order, sales quotation, purchase order, or production order. You can use expression constraints or table constraints, depending on how you prefer to build the constraints. 
-author: cvocph
-manager: AnnBe
-ms.date: 06/20/2017
+description: Learn about the use of expression constraints and table constraints. You can use expression constraints or table constraints, depending on preferences.
+author: sgmsft
+ms.author: shwgarg
 ms.topic: article
-ms.prod: 
-ms.service: dynamics-ax-applications
-ms.technology: 
-
-# optional metadata
-
+ms.date: 06/20/2017
+ms.reviewer: kamaybac
 ms.search.form: PCGlobalTableConstraintEdit, PCProductConfigurationModelDetails, PCTableConstraintAttachAttributeTree, PCTableConstraintDefinition
-# ROBOTS: 
-audience: Application User
-# ms.devlang: 
-ms.reviewer: josaw
-ms.search.scope: Core, Operations
-# ms.tgt_pltfrm: 
-ms.custom: 53111
 ms.assetid: 5c12b1f2-eb89-4648-a755-de412f2eadd6
-ms.search.region: Global
-ms.search.industry: Manufacturing
-ms.author: conradv
-ms.search.validFrom: 2016-02-28
-ms.dyn365.ops.version: AX 7.0.0
-
 ---
 
 # Expression constraints and table constraints in product configuration models
 
 [!include [banner](../includes/banner.md)]
 
-This topic describes the use of expression constraints and table constraints. Constraints control the attribute values that you can select when you configure products for a sales order, sales quotation, purchase order, or production order. You can use expression constraints or table constraints, depending on how you prefer to build the constraints. 
-
-Constraints are used to control the attribute values that you can select when you configure products for a sales order, sales quotation, purchase order, or production order. You can use expression constraints or table constraints, depending on how you prefer to build the constraints.
+This article describes the use of expression constraints and table constraints. Constraints control the attribute values that you can select when you configure products for a sales order, sales quotation, purchase order, or production order. You can use expression constraints or table constraints, depending on how you prefer to build the constraints. 
 
 ## What are expression constraints?
 Expression constraints are characterized by an expression that uses arithmetic and Boolean operators and functions. An expression constraint is written for a specific component in a product configuration model. It can't be reused by or shared with another component. However, the expression constraints for a component can reference attributes of the component's subcomponents.
@@ -64,7 +42,7 @@ The next table shows the combinations that are defined by the **Color and finish
 | Black          | Black                       |
 | Black          | Metal                       | 
 
-You can create system-defined and user-defined table constraints. For more information, see [System-defined and user-defined table constraints](system-defined-user-defined-table-constraints.md).
+You can create system-defined and user-defined table constraints. Learn more in [System-defined and user-defined table constraints](system-defined-user-defined-table-constraints.md).
 
 ## What syntax should be used to write constraints?
 You must use Optimization Modeling Language (OML) syntax when you write constraints. The system uses Microsoft Solver Foundation constraint solver to solve the constraints.
@@ -113,7 +91,7 @@ The following tables list the operators and infix notation that you can use when
 <tbody>
 <tr class="odd">
 <td>Implies</td>
-<td>This is true if the first condition is false, the second condition is true, or both.</td>
+<td>If condition a is true, then apply the contraint b.</td>
 <td>Implies[a, b], infix: a -: b</td>
 <td><ul>
 <li><strong>Operator:</strong> Implies[x != 0, y &gt;= 0]</li>
@@ -249,12 +227,14 @@ You can't use reserved keywords as solver names for attributes, components, or s
 -   Goal
 
 
-Additional resources
---------
+## Related information
 
-[Create an expression constraint (Task guide)(tasks/add-expression-constraint-product-configuration-model.md)
+[Create an expression constraint](tasks/add-expression-constraint-product-configuration-model.md)
 
-[Add a calculation to a product configuration model (Task guide)](tasks/add-calculation-product-configuration-model.md)
-
+[Add a calculation to a product configuration model](tasks/add-calculation-product-configuration-model.md)
 
 
+
+
+
+[!INCLUDE[footer-include](../../includes/footer-banner.md)]

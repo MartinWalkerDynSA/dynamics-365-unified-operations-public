@@ -1,36 +1,20 @@
 --- 
-# required metadata 
- 
 title: Create a production flow version
-description: This procedure focuses on creating a new production flow version. 
-author: cvocph
-manager: AnnBe 
+description: Learn about creating a new production flow version, including a step-by-step process for creating production flows using the USMF demo data company. 
+author: johanhoffmann
+ms.author: johanho
+ms.topic: how-to
 ms.date: 11/03/2017
-ms.topic: business-process 
-ms.prod:  
-ms.service: dynamics-ax-applications 
-ms.technology:  
- 
-# optional metadata 
- 
-# ms.search.form:   
-audience: Application User 
-# ms.devlang:  
-ms.reviewer: josaw
-ms.search.scope: Operations 
-# ms.tgt_pltfrm:  
-# ms.custom:  
-ms.search.region: Global
-ms.search.industry: Manufacturing
-ms.author: conradv
-ms.search.validFrom: 2016-06-30 
-ms.dyn365.ops.version: AX 7.0.0 
+ms.custom:
+ms.reviewer: kamaybac
+ms.search.form:
 ---
+
 # Create a production flow version
 
-[!include [task guide banner](../../includes/task-guide-banner.md)]
+[!include [banner](../../includes/banner.md)]
 
-This procedure focuses on creating a new production flow version. For this procedure, the production parameters for lean manufacturing and the units of measurement for class time must be defined. You also need to define a value stream and a production group. To learn more about production flows and activities in lean manufacturing, see the white papers on Lean manufacturing for Microsoft Dynamics AX. The demo data company used to create this procedure is USMF.
+This procedure focuses on creating a new production flow version. For this procedure, the production parameters for lean manufacturing and the units of measurement for class time must be defined. You also need to define a value stream and a production group. The demo data company used to create this procedure is USMF.
 
 
 ## Create a production flow
@@ -67,3 +51,6 @@ This procedure focuses on creating a new production flow version. For this proce
     * Enter the number of days in the Period for actual cycle time. The period for actual cycle time is the number of days that jobs are aggregated from the actual minute backwards to calculate the actual cycle time. The value can be changed at any time and is only used for the calculation of the actual cycle times.  
 13. Click Save.
 
+
+
+[!INCLUDE[footer-include](../../../includes/footer-banner.md)]

@@ -1,59 +1,36 @@
 ---
-# required metadata
-
 title: View dispatch teams  
-description: View dispatch teams.
-author: ShylaThompson
-manager: AnnBe
+description: Learn how to view dispatch teams, including a step-by-step process for grouping dispatch boards by dispatch teams and additional resources.
+author: Henrikan
+ms.author: henrikan
+ms.topic: how-to
 ms.date: 05/07/2018
-ms.topic: article
-ms.prod: 
-ms.service: dynamics-ax-applications
-ms.technology: 
-
-# optional metadata
-
+ms.custom:
+ms.reviewer: kamaybac
 ms.search.form: SMADispatchBoard
-# ROBOTS: 
-audience: Application User
-# ms.devlang: 
-ms.reviewer: josaw
-ms.search.scope: Core, Operations
-# ms.tgt_pltfrm: 
-ms.custom: 
-ms.assetid: 
-ms.search.region: Global
-# ms.search.industry: 
-ms.author: ShylaThompson
-ms.search.validFrom: 2016-02-28
-ms.dyn365.ops.version: AX 7.0.0
 ---
 
-# View dispatch teams   
+# View dispatch teams
 
 [!include [banner](../includes/banner.md)]
 
+Service orders on the **Dispatch board** page are grouped by dispatch team.
 
-Service orders in the **Dispatch board** form are grouped by dispatch team.
+1. Go to **Service management** \> **Periodic** \> **Dispatch board**.
 
-1.  Click **Service management** \> **Periodic** \> **Dispatch board**.
+1. On the Action Pane, select **Adjust view settings**.
 
-2.  Select a date range, and then click **OK**.
+1. The **Adjust view settings** dialog opens. Select a date range, and then select **OK**.
 
-3.  In the **Dispatch board** form, in the Gantt chart at the top of the form, expand a team list to review the names of the workers on the team. You can also view details about the service activities that are assigned to each worker.
+1. On the **Dispatch board** page, in the Gantt chart at the top of the page, expand a team list to review the names of the workers on the team. You can also view details about the service activities that are assigned to each worker.
 
 For information about how to assign a worker to a team, see [Set up a preferred technician](set-up-preferred-technician.md).
 
-## See also
+## Related information
 
-[Prioritize service orders](prioritize-service-orders.md)
+- [Prioritize service orders](prioritize-service-orders.md)
+- [View the status of service orders](view-the-status-of-service-orders.md)
+- [Monitor service activities](monitor-service-activities.md)
+- [Set up dispatch teams](set-up-dispatch-teams.md)
 
-[View the status of service orders](view-the-status-of-service-orders.md)
-
-[Monitor service activities](monitor-service-activities.md)
-
-[Dispatch board (form)](https://technet.microsoft.com/library/hh242789\(v=ax.60\))
-
-  
-
-
+[!INCLUDE[footer-include](../../includes/footer-banner.md)]

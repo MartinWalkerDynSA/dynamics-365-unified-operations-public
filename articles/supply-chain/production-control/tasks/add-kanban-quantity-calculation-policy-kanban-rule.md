@@ -1,34 +1,18 @@
 --- 
-# required metadata 
- 
 title: Add a kanban quantity calculation policy to a kanban rule
 description: This procedure focuses on creating a kanban quantity calculation policy and adding it to a kanban rule to optimize the kanban size and quantities. 
-author: ChristianRytt
-manager: AnnBe 
+author: johanhoffmann
+ms.author: johanho
+ms.topic: how-to
 ms.date: 08/29/2018
-ms.topic: business-process 
-ms.prod:  
-ms.service: dynamics-ax-applications 
-ms.technology:  
- 
-# optional metadata 
- 
-ms.search.form: KanbanQuantityPolicy, KanbanRules   
-audience: Application User 
-# ms.devlang:  
-ms.reviewer: shylaw
-ms.search.scope: Core, Operations 
-# ms.tgt_pltfrm:  
-# ms.custom:  
-ms.search.region: Global
-# ms.search.industry: 
-ms.author: crytt
-ms.search.validFrom: 2016-06-30 
-ms.dyn365.ops.version: Version 7.0.0 
+ms.custom:
+ms.reviewer: kamaybac
+ms.search.form: KanbanQuantityPolicy, KanbanRules, KanbanQuantityCalculation 
 ---
+
 # Add a kanban quantity calculation policy to a kanban rule
 
-[!include [task guide banner](../../includes/task-guide-banner.md)]
+[!include [banner](../../includes/banner.md)]
 
 This procedure focuses on creating a kanban quantity calculation policy and adding it to a kanban rule to optimize the kanban size and quantities. The demo data company used to create this procedure is USMF. This procedure is intended for the value stream manager. This procedure is a prerequisite for creating the procedure Calculate kanban quantity suggestions. 
 
@@ -66,3 +50,6 @@ This procedure focuses on creating a kanban quantity calculation policy and addi
 8. In the list, click the link in the selected row.
     * Select the policy Speaker2016 that you have just created in the previous sub-task.  
 
+
+
+[!INCLUDE[footer-include](../../../includes/footer-banner.md)]

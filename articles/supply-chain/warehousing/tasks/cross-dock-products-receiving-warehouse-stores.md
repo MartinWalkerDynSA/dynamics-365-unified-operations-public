@@ -1,40 +1,24 @@
 --- 
-# required metadata 
- 
 title: Cross-dock products from receiving warehouse to stores
-description: This procedure walks through the steps to create and process a Cross-dock to distribute products from the receiving location of a purchase order to one or many stores. 
-author: ShylaThompson
-manager: AnnBe 
+description: Learn how to create and process a Cross-dock to distribute products from the receiving location of a purchase order to one or many stores. 
+author: Mirzaab
+ms.author: mirzaab
+ms.topic: how-to
 ms.date: 02/17/2016
-ms.topic: business-process 
-ms.prod:  
-ms.service: dynamics-ax-applications 
-ms.technology:  
- 
-# optional metadata 
- 
-# ms.search.form:   
-audience: Application User 
-# ms.devlang:  
-ms.reviewer: josaw
-ms.search.scope: Operations 
-# ms.tgt_pltfrm:  
-# ms.custom:  
-ms.search.region: Global
-ms.search.industry: Distribution
-ms.author: shylaw
-ms.search.validFrom: 2016-06-30 
-ms.dyn365.ops.version: AX 7.0.0 
+ms.custom:
+ms.reviewer: kamaybac 
+ms.search.form: RetailBuyersPushPerPackage
 ---
+
 # Cross-dock products from receiving warehouse to stores
 
-[!include [task guide banner](../../includes/task-guide-banner.md)]
+[!include [banner](../../includes/banner.md)]
 
 This procedure walks through the steps to create and process a Cross-dock to distribute products from the receiving location of a purchase order to one or many stores. The user can define multiple configurations and have the system suggest how to distribute the products, or manually enter where the products are distributed to and how much gets distributed to each store. The procedure doesn't include setup of data that can be used in the Cross-dock, such as replenishment rules, organizational hierarchies, and store weights. The procedure uses the USRT demo company.
 
 1. Go to All purchase orders.
 2. Select a purchase order in the list and click the link to open the order.
-3. On the Action Pane, click Retail.
+3. On the Action Pane, click Retail and Commerce.
 4. Click Cross docking.
 5. Click Edit.
     * The category can be used to filter the items in the Lines section.  
@@ -51,3 +35,6 @@ This procedure walks through the steps to create and process a Cross-dock to dis
 15. In the list, find and select a warehouse that received products
 16. Click Order to view the orders that got created for the selected warehouse
 
+
+
+[!INCLUDE[footer-include](../../../includes/footer-banner.md)]

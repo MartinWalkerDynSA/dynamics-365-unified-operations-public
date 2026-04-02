@@ -1,34 +1,18 @@
 --- 
-# required metadata 
- 
 title: Define an expiry date for a production flow version
-description: To end the validity and the processing of a production flow version on a given date, or to plan replacement of an active version with a new version, you have to set an expiry date on the version. 
-author: cvocph
-manager: AnnBe 
+description: To end the validity and the processing of a production flow version on a given date, you have to set an expiry date on the version.
+author: johanhoffmann
+ms.author: johanho
+ms.topic: how-to
 ms.date: 08/29/2018
-ms.topic: business-process 
-ms.prod:  
-ms.service: dynamics-ax-applications 
-ms.technology:  
- 
-# optional metadata 
- 
-ms.search.form: LeanProductionFlow   
-audience: Application User 
-# ms.devlang:  
-ms.reviewer: shylaw
-ms.search.scope: Core, Operations 
-# ms.tgt_pltfrm:  
-# ms.custom:  
-ms.search.region: Global
-ms.search.industry: Manufacturing
-ms.author: conradv
-ms.search.validFrom: 2016-06-30 
-ms.dyn365.ops.version: Version 7.0.0 
+ms.custom:
+ms.reviewer: kamaybac   
+ms.search.form: LeanProductionFlow 
 ---
+
 # Define an expiry date for a production flow version
 
-[!include [task guide banner](../../includes/task-guide-banner.md)]
+[!include [banner](../../includes/banner.md)]
 
 To end the validity and the processing of a production flow version on a given date, or to plan replacement of an active version with a new version, you have to set an expiry date on the version. It is not necessary to deactivate the version.
 
@@ -43,3 +27,6 @@ To end the validity and the processing of a production flow version on a given d
 6. In the Expiration date field, enter a date and time.
     * For the expiration date, a new version will not start or become activated. It will also no longer be possible to create or start jobs for this production flow. You can still complete started jobs after the expiration date.  
 
+
+
+[!INCLUDE[footer-include](../../../includes/footer-banner.md)]

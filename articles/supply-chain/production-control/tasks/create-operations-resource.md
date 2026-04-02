@@ -1,34 +1,18 @@
 --- 
-# required metadata 
- 
 title: Create an operations resource
-description: An operations resource performs the activities of a project or a production process. 
-author: sorenva
-manager: AnnBe 
+description: Learn about an operations resource performs the activities of a project or a production process, including a step-by-step process using the USMF demo data company.
+author: johanhoffmann
+ms.author: johanho
+ms.topic: how-to
 ms.date: 08/29/2018
-ms.topic: business-process 
-ms.prod:  
-ms.service: dynamics-ax-applications 
-ms.technology:  
- 
-# optional metadata 
- 
-ms.search.form: WrkCtrTable   
-audience: Application User 
-# ms.devlang:  
-ms.reviewer: shylaw
-ms.search.scope: Core, Operations 
-# ms.tgt_pltfrm:  
-# ms.custom:  
-ms.search.region: Global
-ms.search.industry: Manufacturing
-ms.author: sorenand
-ms.search.validFrom: 2016-06-30 
-ms.dyn365.ops.version: Version 7.0.0 
+ms.custom:
+ms.reviewer: kamaybac     
+ms.search.form: WrkCtrTable
 ---
+
 # Create an operations resource
 
-[!include [task guide banner](../../includes/task-guide-banner.md)]
+[!include [banner](../../includes/banner.md)]
 
 An operations resource performs the activities of a project or a production process. This procedures shows you how to define an operations resource. You can walk through this procedure in demo data company USMF, or using your own data.
 
@@ -83,3 +67,6 @@ An operations resource performs the activities of a project or a production proc
 4. In the Input location field, enter or select a value.
     * Specify the warehouse location from where the operations resource is consuming materials.  
 
+
+
+[!INCLUDE[footer-include](../../../includes/footer-banner.md)]

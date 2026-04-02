@@ -1,52 +1,32 @@
 ---
-# required metadata
-
 title: Reduction days example   
-description: Reduction days example. 
-author: ShylaThompson
-manager: AnnBe
-ms.date: 05/01/2018
+description: Learn about creating a subscription transaction for a customer's maintenance subscription with a table that shows dates for subscriptions.
+author: Henrikan
+ms.author: henrikan
 ms.topic: article
-ms.prod: 
-ms.service: dynamics-ax-applications
-ms.technology: 
-
-# optional metadata
-
+ms.date: 05/01/2018
+ms.custom:
+ms.reviewer: kamaybac
 ms.search.form: SMASubscriptionTable
-# ROBOTS: 
-audience: Application User
-# ms.devlang: 
-ms.reviewer: josaw
-ms.search.scope: Core, Operations
-# ms.tgt_pltfrm: 
-ms.custom: 
-ms.assetid: 
-ms.search.region: Global
-# ms.search.industry: 
-ms.author: ShylaThompson
-ms.search.validFrom: 2016-02-28
-ms.dyn365.ops.version: AX 7.0.0
 ---
 
 
-# Reduction days example 
+# Reduction days example
 
 [!include [banner](../includes/banner.md)]
-
 
 You have created a subscription transaction for a customer's maintenance subscription, as described in the following table.
 
 <table>
 <colgroup>
-<col style="width: 12%" />
-<col style="width: 12%" />
-<col style="width: 12%" />
-<col style="width: 12%" />
-<col style="width: 12%" />
-<col style="width: 12%" />
-<col style="width: 12%" />
-<col style="width: 12%" />
+<col />
+<col />
+<col />
+<col />
+<col />
+<col />
+<col />
+<col />
 </colgroup>
 <thead>
 <tr class="header">
@@ -74,21 +54,20 @@ You have created a subscription transaction for a customer's maintenance subscri
 </tbody>
 </table>
 
-
 The customer reports that it does not need service coverage for two days (March 10 and March 11). You agree to reduce the subscription by these two days.
 
 You create a new transaction of the **Reduction days** type, as described in the following table.
 
 <table>
 <colgroup>
-<col style="width: 12%" />
-<col style="width: 12%" />
-<col style="width: 12%" />
-<col style="width: 12%" />
-<col style="width: 12%" />
-<col style="width: 12%" />
-<col style="width: 12%" />
-<col style="width: 12%" />
+<col />
+<col />
+<col />
+<col />
+<col />
+<col />
+<col />
+<col />
 </colgroup>
 <thead>
 <tr class="header">
@@ -116,13 +95,10 @@ You create a new transaction of the **Reduction days** type, as described in the
 </tbody>
 </table>
 
-
 When the transactions for March 2011 are invoiced, the sales price of EUR 200 is reduced by EUR 12.90. The chargeable amount for the subscription transaction is therefore EUR 187.10, and two transactions are invoiced at a total of EUR 187.10.
 
-## See also
+## Related information
 
-[Reduce the days on subscription fees](reduce-the-days-on-subscription-fees.md)
+- [Reduce the days on subscription fees](reduce-the-days-on-subscription-fees.md)
 
-  
-
-
+[!INCLUDE[footer-include](../../includes/footer-banner.md)]

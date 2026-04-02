@@ -1,34 +1,18 @@
 --- 
-# required metadata 
- 
 title: Add a calculation to a product configuration model
-description: This procedure shows how to add a new calculation to a product configuration model. 
-author: ShylaThompson
-manager: AnnBe 
+description: Learn how to add a new calculation to a product configuration model, including a step-by-step process for creating a calculation expression. 
+author: sgmsft
+ms.author: shwgarg
 ms.date: 08/29/2018
-ms.topic: business-process 
-ms.prod:  
-ms.service: dynamics-ax-applications 
-ms.technology:  
- 
-# optional metadata 
- 
-ms.search.form: DefaultDashboard, EcoResProductVariantMaintainWorkspace, PCProductConfigurationModelListPage, PCProductConfigurationModelDetails, PCConstraintEditor, PCRuntimeConfiguratorValidate   
-audience: Application User 
-# ms.devlang:  
-ms.reviewer: shylaw
-ms.search.scope: Core, Operations 
-# ms.tgt_pltfrm:  
-# ms.custom:  
-ms.search.region: Global
-# ms.search.industry: 
-ms.author: shylaw
-ms.search.validFrom: 2016-06-30 
-ms.dyn365.ops.version: Version 7.0.0 
+ms.topic: how-to 
+ms.custom:
+ms.reviewer: kamaybac 
+ms.search.form: DefaultDashboard, EcoResProductVariantMaintainWorkspace, PCProductConfigurationModelListPage, PCProductConfigurationModelDetails, PCConstraintEditor, PCRuntimeConfiguratorValidate
 ---
+
 # Add a calculation to a product configuration model
 
-[!include [task guide banner](../../includes/task-guide-banner.md)]
+[!include [banner](../../includes/banner.md)]
 
 This procedure shows how to add a new calculation to a product configuration model. It shows how you can create a logical expression using the "If" operator to set a speaker height to 10 for white speakers and 15 for all other cabinet finishes. The procedure uses the High end speaker component in the demo company USMF.
 
@@ -42,3 +26,6 @@ This procedure shows how to add a new calculation to a product configuration mod
 4. Click Close.
 5. Click OK.
 
+
+
+[!INCLUDE[footer-include](../../../includes/footer-banner.md)]

@@ -1,0 +1,50 @@
+---
+title: Regulatory certification information in feature titles
+description: Learn about certifications is used in the title of the feature, including tables providing formats and examples for various feature types.
+author: kfend
+ms.author: filatovm
+ms.topic: article
+ms.date: 03/06/2026
+ms.reviewer: johnmichalak
+audience: IT Pro
+ms.search.region: global
+ms.search.validFrom: 2016-02-28
+ms.dyn365.ops.version: AX 7.0.0
+ms.assetid: d0b8286a-b2c1-4fa2-905a-3383b1d34d56
+---
+
+# Regulatory certification information in feature titles
+
+[!include [banner](../includes/banner.md)]
+[!include [LCS freeze](../../../includes/lcs-freeze-banner.md)]
+
+As part of the requirements for Lifecycle Services solutions for localization and translation, localization ISV solution providers must include details about any regulatory certifications that the solution requires to be legally compliant for sale in the intended market. This article shows how to use information about certifications in the title of the feature.
+
+Regulatory certification can take various forms, from data privacy to certification of compliance with specific regulations. However, one thing that all regulatory certifications have in common is that laws and regulations of the country or region of operation require them. These certifications are enforced, and nonadherence can lead to severe consequences for an organization that does business in that country or region. When you construct the business process library, you must identify regulatory certifications as regulatory requirements in the Microsoft Dynamics Lifecycle Services Business process modeler (BPM) library through the title of the localization solution feature. The label for this title conforms to the following naming convention that indicates the country or region and certification type through prefixes, as shown in the following table.
+
+| Feature type | Format                      | Example                                  |
+|--------------|-----------------------------|------------------------------------------|
+| Regulatory   | XX-REG-Certification for xx | PT-REG-Certification for Fiscal printers |
+
+The following table explains the components of the naming convention.
+
+| Component name      |  Format | Description                                                                                                                   | Example                           |
+|---------------------|---------|-------------------------------------------------------------------------------------------------------------------------------|-----------------------------------|
+| Country/region code | XX      | The two-letter ISO country or region code (from the [ISO 3166 standard](https://www.iso.org/iso/country_names_and_code_elements)) | PT (= Portugal)                   |
+| Feature type        | REG     | The type of feature                                                                                                           | REG                               |
+| Certification name  | Text    | A short title that describes the certification and its application                                                            | Certification for Fiscal printers |
+
+In the BPM business process library, locate certifications under **APQC level 8.0 Manage Financial Resources (10009)**. 
+
+**Example**
+
+-   APQC level 8.0 Manage Financial Resources (10009)
+    -   PT-REG-Certification for Fiscal printers
+
+For more information about BPM, see [Flowcharts in Business process modeler (BPM)](../lifecycle-services/flowcharts-business-process-modeler.md).
+
+
+
+
+
+[!INCLUDE[footer-include](../../../includes/footer-banner.md)]

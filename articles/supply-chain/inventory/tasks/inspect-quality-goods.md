@@ -1,61 +1,49 @@
 --- 
-# required metadata 
- 
 title: Inspect the quality of goods
-description: This procedure shows you how to process a quality order. 
-author: perlynne
-manager: AnnBe 
-ms.date: 08/29/2018
-ms.topic: business-process 
-ms.prod:  
-ms.service: dynamics-ax-applications 
-ms.technology:  
- 
-# optional metadata 
- 
-ms.search.form: InventQualityOrderTable, InventQualityOrderLineResults, HcmWorkerLookUp   
-audience: Application User 
-# ms.devlang:  
-ms.reviewer: shylaw
-ms.search.scope: Core, Operations 
-# ms.tgt_pltfrm:  
-# ms.custom:  
-ms.search.region: Global
-ms.search.industry: Distribution
-ms.author: perlynne
-ms.search.validFrom: 2016-06-30 
-ms.dyn365.ops.version: Version 7.0.0 
+description: Learn how to process quality orders, including outlines and step-by-step processes for selecting quality orders and recording test results.
+author: johanhoffmann
+ms.author: johanho
+ms.topic: how-to
+ms.date: 03/23/2021
+ms.custom:
+ms.reviewer: kamaybac   
+ms.search.form: InventQualityOrderTable, InventQualityOrderLineResults, HcmWorkerLookUp
 ---
+
 # Inspect the quality of goods
 
-[!include [task guide banner](../../includes/task-guide-banner.md)]
+[!include [banner](../../includes/banner.md)]
 
-This procedure shows you how to process a quality order. You can run this guide in demo data company USMF. Before you start this example procedure, you need to confirm purchase order “000016” and post a product receipt. This will automatically create a quality order. Quality inspections are typically carried out by a quality clerk.
+This article describes how to process quality orders. Quality inspections are typically done by a quality clerk.
 
+If the standard [demo data](../../../fin-ops-core/fin-ops/get-started/demo-data.md) is installed, you can use it to complete the procedures in this article. To use the demo data, select the *USMF* legal entity before you begin. You must then confirm purchase order *000016* and post a product receipt. A quality order is automatically generated.
 
-## Select a quality order
-1. Go to Inventory management > Periodic tasks > Quality management > Quality orders.
-2. In the list, mark the selected row.
-    * Select the quality order that was created before you started this procedure.  
+## Step 1: Select a quality order
 
-## Record test results
-1. Click Results.
-2. Click Edit.
-3. In the Result quantity field, enter a number.
-4. In the list, mark the selected row.
-5. In the Outcome field, click the drop-down button to open the lookup.
-6. In the list, find and select the desired record.
-    * In this example the result is based on a pre-defined outcome. Normally you would record a more specific test result, for example a size or other dimension.  
-7. In the list, click the link in the selected row.
-8. Click Save.
-9. Close the page.
+To select a quality order, follow these steps:
 
-## Validate the quality order
-1. Click Validate.
-2. In the Validated by field, click the drop-down button to open the lookup.
-    * Select the user performing the inspection.  
-3. In the list, click the link in the selected row.
-4. Click Select.
-5. Click OK.
-6. Close the page.
+1. Go to **Inventory management \> Periodic tasks \> Quality management \> Quality orders**.
+1. Select the quality order that was generated before you started this procedure.
 
+## Step 2: Record test results
+
+To record test results, follow these steps:
+
+1. Select **Results**.
+1. Select **Edit**.
+1. In the **Result quantity** field, enter a number.
+1. In the **Outcome** field, select the desired record. In this example, the result is based on a predefined outcome. Usually, you will record a more specific test result, such as a size or other dimension.
+1. Select **Save**.
+1. Close the page.
+
+## Step 3: Validate the quality order
+
+To validate the quality order, follow these steps:
+
+1. Select **Validate**.
+1. In the **Validated by** field, select the user who is doing the inspection.
+1. Select **Select**.
+1. Select **OK**.
+1. Close the page.
+
+[!INCLUDE[footer-include](../../../includes/footer-banner.md)]

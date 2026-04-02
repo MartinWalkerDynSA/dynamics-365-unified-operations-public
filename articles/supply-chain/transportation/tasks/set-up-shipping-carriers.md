@@ -1,100 +1,71 @@
---- 
-# required metadata 
- 
-title: Set up shipping carriers
-description: This procedure shows how to set up a shipping carrier and define details such as service, shipment mode, transportation tender, transportation constraints, and shipping rate. 
-author: ShylaThompson
-manager: AnnBe 
-ms.date: 11/14/2016
-ms.topic: business-process 
-ms.prod:  
-ms.service: dynamics-ax-applications 
-ms.technology:  
- 
-# optional metadata 
- 
-# ms.search.form:   
-audience: Application User 
-# ms.devlang:  
-ms.reviewer: josaw
-ms.search.scope: Operations 
-# ms.tgt_pltfrm:  
-# ms.custom:  
-ms.search.region: Global
-ms.search.industry: Distribution
-ms.author: shylaw
-ms.search.validFrom: 2016-06-30 
-ms.dyn365.ops.version: AX 7.0.0 
 ---
+title: Set up shipping carriers
+description: Learn how to set up a shipping carrier and define details such as service, shipment mode, transportation tender, transportation constraints, and shipping rate.
+author: lisascholz91
+ms.author: lisascholz
+ms.reviewer: kamaybac
+ms.search.form: TMSShippingCarrierCustomerAccount,TMSCarrier
+ms.topic: how-to
+ms.date: 07/31/2025
+ms.custom:
+  - bap-template
+---
+
 # Set up shipping carriers
 
-[!include [task guide banner](../../includes/task-guide-banner.md)]
+[!include [banner](../../includes/banner.md)]
 
-This procedure shows how to set up a shipping carrier and define details such as service, shipment mode, transportation tender, transportation constraints, and shipping rate. A transportation coordinator can then assign a shipping carrier to an inbound or outbound load.
-
+This article shows how to set up a shipping carrier and define details such as service, shipment mode, transportation tender, transportation constraints, and shipping rate. A transportation coordinator can then assign a shipping carrier to an inbound or outbound load.
 
 ## Create a new shipping carrier
-1. Go to Transportation management > Setup > Carriers > Shipping carriers.
-2. Click New.
-3. In the Shipping carrier field, type a value.
-4. In the Name field, type a value.
-5. In the Mode field, click the drop-down button to open the lookup.
-6. In the list, find and select the desired record.
-7. In the list, click the link in the selected row.
+
+1. Go to **Transportation management > Setup > Carriers > Shipping carriers**.
+1. Select **New** on the Action Pane.
+1. In the **Shipping carrier** field, type a value.
+1. In the **Name** field, type a value.
+1. In the **Mode** field, select an option from the drop-down menu.
 
 ## Fill in the general information for the shipping carrier
-1. Toggle the expansion of the Overview section.
-2. Check or uncheck the Activate shipping carrier checkbox.
-3. In the Vendor field, click the drop-down button to open the lookup.
-    * Select the vendor account to assign the shipping carrier to.  
-4. In the list, find and select the desired record.
-5. In the list, click the link in the selected row.
-6. In the Transportation tender type field, select an option.
-    * Select Manual to use the Transportation Tender page, or select EDI to update the tender by using Electronic Data Interchange (EDI).  
-7. Check or uncheck the Activate carrier rating checkbox.
 
-## Create the necessary services for the shipping carrier
-1. Toggle the expansion of the Services section.
-2. Click New.
-3. In the list, mark the selected row.
-4. In the Carrier service field, type a value.
-5. In the Name field, type a value.
-6. In the Transportation method field, click the drop-down button to open the lookup.
-7. In the list, find and select the desired record.
-8. In the list, click the link in the selected row.
+1. Toggle the expansion of the **Overview** section.
+1. Check or uncheck the **Activate shipping carrier** checkbox.
+1. In the **Vendor account** field, select an option from the drop-down menu. Select the vendor account to assign the shipping carrier to.  
+1. In the **Transportation tender type** field, select an option. Select **Manual** to use the Transportation Tender page, or select **EDI** to update the tender by using Electronic Data Interchange (EDI).  
+1. Check or uncheck the **Activate carrier rating** checkbox.
+
+> [!NOTE]
+> It's possible to confirm shipment of a load that doesn't have a rating applied (for example, if no rate is assigned to it).
+
+## <a name="create-carrier-services"></a>Create the necessary services for the shipping carrier
+
+1. Toggle the expansion of the **Services** section.
+1. Select **New**.
+1. In the **Carrier service** field, type a value.
+1. In the **Name** field, type a value.
+1. In the **Load template ID** field, select a load template to associate with the service. The load template defines the maximum measurements for weight and volume of an entire load. For example, the load template might represent the size of a container or truck. Load template IDs are also specified in load building templates and when using the [load building workbench](load-building-workbench.md), which helps you apply load building strategies to create loads. As a result, the system is able to match each new load to a suitable shipping carrier service by comparing the specified load template IDs.
+1. In the **Transportation method** field, select an option from the drop-down menu.
 
 ## Set up the address for the carrier (optional)
-1. Toggle the expansion of the Addresses section.
-2. Click New.
-3. In the Name or description field, type a value.
-4. In the Country/region field, click the drop-down button to open the lookup.
-5. In the list, click the link in the selected row.
-6. In the ZIP/postal code field, click the drop-down button to open the lookup.
-7. In the list, find and select the desired record.
-8. In the list, click the link in the selected row.
-9. In the Street field, type a value.
-10. Click OK.
+
+1. Toggle the expansion of the **Addresses** section.
+1. Select **New**.
+1. In the **Name or description** field, type a value.
+1. In the **Country/region** field, select an option from the drop-down menu.
+1. In the **ZIP/postal code** field, select an option from the drop-down menu.
+1. In the **Street** field, type a value.
+1. Select **OK**.
 
 ## Set up the rating profile for the shipping carrier
-1. Toggle the expansion of the Rating profiles section.
-2. Click New.
-3. In the list, mark the selected row.
-4. In the Rating profile field, type a value.
-5. In the Name field, type a value.
-6. In the Site field, click the drop-down button to open the lookup.
-7. In the list, find and select the desired record.
-8. In the list, click the link in the selected row.
-9. In the Warehouse field, click the drop-down button to open the lookup.
-10. In the list, find and select the desired record.
-11. In the list, click the link in the selected row.
-12. In the Rate engine field, click the drop-down button to open the lookup.
-    * Select the Rate engine that is in accordance with the contract that you have with the carrier.  
-13. In the list, find and select the desired record.
-14. In the list, click the link in the selected row.
-15. In the Rate master field, click the drop-down button to open the lookup.
-16. In the list, find and select the desired record.
-17. In the list, click the link in the selected row.
-18. In the Transit time engine field, click the drop-down button to open the lookup.
-19. In the list, click the link in the selected row.
-20. Click Save.
 
+1. Toggle the expansion of the **Rating profiles** section.
+1. Select **New**.
+1. In the **Rating profile** field, type a value.
+1. In the **Name** field, type a value.
+1. In the **Site** field, select an option from the drop-down menu.
+1. In the **Warehouse** field, select an option from the drop-down menu.
+1. In the **Rate engine** field, select an option from the drop-down menu. Select the Rate engine that is in accordance with the contract that you have with the carrier.  
+1. In the **Rate master** field, select an option from the drop-down menu.
+1. In the **Transit time engine** field, select an option from the drop-down menu.
+1. Select **Save**.
+
+[!INCLUDE[footer-include](../../../includes/footer-banner.md)]

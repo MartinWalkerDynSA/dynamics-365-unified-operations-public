@@ -1,42 +1,22 @@
 ---
-# required metadata
-
 title: Install assets on functional locations
-description: This topic explains how to install assets on functional locations in Asset Management.
-author: josaw1
-manager: AnnBe
+description: Learn how to install assets on functional locations in Asset Management, including an outline and process for installing asset structures on functional locations.
+author: jodahlMSFT
+ms.author: jodahl
+ms.topic: install-set-up-deploy
 ms.date: 06/25/2019
-ms.topic: article
-ms.prod: 
-ms.service: dynamics-ax-applications
-ms.technology: 
-
-# optional metadata
-
-ms.search.form: CatProcureCatalogEdit, CatProcureCatalogListPage
-# ROBOTS: 
-audience: Application User
-# ms.devlang: 
-ms.reviewer: josaw
-ms.search.scope: Core, Operations
-# ms.tgt_pltfrm: 
-ms.custom: 2214
+ms.reviewer: kamaybac
+ms.search.form: EntAssetFunctionalLocationObjectChange, EntAssetFunctionalLocationObjectInstall, EntAssetFunctionalLocationObject
 ms.assetid: 2f3e0441-414d-402b-b28b-7ab0d650d658
-ms.search.region: Global
-# ms.search.industry: 
-ms.author: mkirknel
-ms.search.validFrom: 2016-02-28
-ms.dyn365.ops.version: AX 7.0.0
-
 ---
 
 # Install assets on functional locations
 
 [!include [banner](../../includes/banner.md)]
 
-[!include [banner](../../includes/preview-banner.md)]
+ 
 
-After you've created functional location structures, the next step is to install assets on the relevant functional locations. This topic explains how to install assets on those functional locations in Asset Management. For information about how to create assets, see [Assets](../objects/introduction-to-objects.md).
+After you've created functional location structures, the next step is to install assets on the relevant functional locations. This article explains how to install assets on those functional locations in Asset Management. For information about how to create assets, see [Introduction to assets](../objects/introduction-to-objects.md).
 
 If you've created an asset structure, the whole asset structure must be installed on a functional location. Therefore, only parent assets (top-level assets that have no parent asset) can be selected on a functional location. All related child assets (sub-assets) will also be installed on the functional location. When you install assets on a functional location, the financial dimensions of the functional location might be automatically transferred to them, depending on the setup on the functional location type that is selected for the functional location. For more information about how to set up functional location types, see [Functional location types](../setup-for-functional-locations/functional-location-types.md).
 
@@ -48,7 +28,7 @@ After you've installed assets on a functional location, you can replace a parent
 
 ## Install an asset structure on a functional location
 
-1. Select **Asset management** \> **Common** \> **Functional locations** \> **All Functional locations** or **Active functional locations**.
+1. Select **Asset management** \> **Functional locations** \> **All Functional locations** or **Active functional locations**.
 2. Select the functional location to install an asset on.
 3. Select **Install asset**.
 
@@ -80,11 +60,14 @@ You can set up functional location stages and functional location types to handl
 
 Before you can automatically create an asset on a functional location, the following setup data must be available:
 
-- Create a functional location type to handle the automatic creation of an asset. In the **Asset type** field, select an asset type. For more information, see [Functional location types](../setup-for-functional-locations/functional-location-types.md).
-- Create a functional location lifecycle state to handle the automatic creation of an asset. Set the **Create asset** option to **Yes**. For more information, see [Functional location lifecycle states](../setup-for-functional-locations/functional-location-stages.md).
+- Create a functional location type to handle the automatic creation of an asset. In the **Asset type** field, select an asset type. Learn more in [Functional location types](../setup-for-functional-locations/functional-location-types.md).
+- Create a functional location lifecycle state to handle the automatic creation of an asset. Set the **Create asset** option to **Yes**. Learn more in [Functional location lifecycle states](../setup-for-functional-locations/functional-location-stages.md).
 
 After the setup data is available, you're ready to create an asset.
 
 1. On the **All Functional locations** page, make sure that the functional location where you want the asset to be automatically created uses the functional location type that you created for this purpose.
 2. Select the functional location in the list.
 3. Select **Update functional location state**, and then select the lifecycle state that you created for this purpose. One asset is now automatically installed on the functional location. This asset has the same name as the functional location.
+
+
+[!INCLUDE[footer-include](../../../includes/footer-banner.md)]

@@ -1,34 +1,18 @@
 --- 
-# required metadata 
- 
 title: Activate a production flow version
 description: Before kanban jobs can be created and activities can be processed for a production flow version, you should activate the version. 
-author: cvocph
-manager: AnnBe 
+author: johanhoffmann
+ms.author: johanho
+ms.topic: how-to
 ms.date: 08/29/2018
-ms.topic: business-process 
-ms.prod:  
-ms.service: dynamics-ax-applications 
-ms.technology:  
- 
-# optional metadata 
- 
-ms.search.form: LeanProductionFlow   
-audience: Application User 
-# ms.devlang:  
-ms.reviewer: shylaw
-ms.search.scope: Core, Operations 
-# ms.tgt_pltfrm:  
-# ms.custom:  
-ms.search.region: Global
-ms.search.industry: Manufacturing
-ms.author: conradv
-ms.search.validFrom: 2016-06-30 
-ms.dyn365.ops.version: Version 7.0.0 
+ms.custom:
+ms.reviewer: kamaybac 
+ms.search.form: LeanProductionFlow 
 ---
+
 # Activate a production flow version
 
-[!include [task guide banner](../../includes/task-guide-banner.md)]
+[!include [banner](../../includes/banner.md)]
 
 Before kanban jobs can be created and activities can be processed for a production flow version, you should activate the version. As a best practice, activate the version before its effective start date and time expire. To complete this task, you must have a production flow version that has the Draft status in order to activate the version. 
 
@@ -43,3 +27,6 @@ Before kanban jobs can be created and activities can be processed for a producti
 5. Click Activate.
 6. Click OK.
 
+
+
+[!INCLUDE[footer-include](../../../includes/footer-banner.md)]

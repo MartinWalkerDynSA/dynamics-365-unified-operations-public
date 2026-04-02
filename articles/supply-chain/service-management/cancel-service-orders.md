@@ -1,84 +1,52 @@
 ---
-# required metadata
-
 title: Cancel service orders  
 description: You can cancel a service order or service order line from the service order itself, or you can cancel multiple service orders by running a periodic job.
-author: ShylaThompson
-manager: AnnBe
-ms.date: 05/01/2018
-ms.topic: article
-ms.prod: 
-ms.service: dynamics-ax-applications
-ms.technology: 
-
-# optional metadata
-
+author: Henrikan
+ms.author: henrikan
+ms.reviewer: kamaybac
 ms.search.form: SMAServiceOrderTable
-# ROBOTS: 
-audience: Application User
-# ms.devlang: 
-ms.reviewer: josaw
-ms.search.scope: Core, Operations
-# ms.tgt_pltfrm: 
+ms.topic: how-to
+ms.date: 01/06/2025
 ms.custom: 
-ms.assetid: 
-ms.search.region: Global
-# ms.search.industry: 
-ms.author: ShylaThompson
-ms.search.validFrom: 2016-02-28
-ms.dyn365.ops.version: AX 7.0.0
+  - bap-template
 ---
 
-# Cancel service orders   
+# Cancel service orders
 
 [!include [banner](../includes/banner.md)]
 
-
 You can cancel a service order or service order line from the service order itself, or you can cancel multiple service orders by running a periodic job.
 
-
 > [!NOTE]
-> <P>Service orders cannot be canceled if the stage of the service order does not allow cancelation, if the service order has item requirements, or if the service order has already been posted.</P>
+> Service orders cannot be canceled if the stage of the service order does not allow cancellation, if the service order has item requirements, or if the service order has already been posted.
 
+## Cancel a service order on the Service orders page
 
-## Cancel a service order in the Service orders form
-
-1.  Click **Service management** \> **Common** \> **Service orders** \> **Service orders**. Select the service order, and on the Action Pane, click **Cancel order**.
+1. Go to **Service management \> Service orders \> Service orders**.
+1. Select the service order.
+1. On the Action Pane, open the **Service order** tab and select **Cancel order**.
 
 ## Cancel a service order line
 
-1.  Click **Service management** \> **Common** \> **Service orders** \> **Service orders**. Double-click the service order that contains the line you want to cancel.
-
-2.  Select the service order line that you want to cancel, and then click **Cancel order line** to change the status of the line to **Canceled**.
-
+1. Go to **Service management \> Service orders \> Service orders**.
+1. Open the service order that contains the line you want to cancel.
+1. On the **Lines** FastTab, select the service order line that you want to cancel.
+1. On the **Lines** FastTab toolbar, select **Cancel order line** to change the status of the line to *Canceled*.
 
 > [!TIP]
-> <P>To reverse the cancellation of a service order line and change the status back to <STRONG>Created</STRONG>, click <STRONG>Revoke cancel</STRONG>.</P>
+> To reverse the cancellation of a service order line and change the status back to *Created*, select **Revoke cancel** on the toolbar.
 
+## Cancel or uncancel multiple service orders
 
-## Cancel multiple service orders
+1. Go to **Service management \> Perform periodic tasks \> Service orders \> Cancel service orders**.
+1. Make the following settings on the Parameters FastTab:
+    - **Show Infolog** – Set to *Yes* to generate an Action center message that lists the canceled or uncanceled service orders.
+    - **Revoke cancel** – Set to *No* to cancel the selected service orders (already *Canceled* orders aren't affected). Set to *Yes* to uncancel the selected service orders (*In process* orders aren't affected).
+1. Select **Filter**.
+1. In the **Inquiry** dialog, on the **Range** tab, set the criteria to select the service orders that you want to cancel or uncancel.
+1. Select **OK** to close the **Inquiry** dialog.
+1. Select **OK**.
 
-1.  Click **Service management** \> **Periodic** \> **Service orders** \> **Cancel service orders**.
+The selected service orders are either canceled or uncanceled. Uncanceled orders have their *Canceled* status reversed to *In process*.
 
-2.  Click the **Select** button.
-
-3.  In the **Inquiry** form, in the **Criteria** column, select the service orders that you want to cancel.
-
-4.  Click **OK** to close the **Inquiry** form.
-
-5.  Select the **Show Infolog** check box to generate an Infolog that lists the canceled service orders.
-
-6.  Select the **Revoke cancel** check box if you want to reverse the **Canceled** status of a service order.
-
-7.  Click **OK**.
-
-The selected service orders are either canceled or their progress status of **Canceled** has been reversed to **In process**.
-
-
-> [!NOTE]
-> <P>If you select the <STRONG>Revoke cancel</STRONG> check box, service orders with a progress status of <STRONG>Canceled</STRONG> are reversed and service orders with a progress status of <STRONG>In process</STRONG> are not canceled.</P>
-
-
-  
-
-
+[!INCLUDE[footer-include](../../includes/footer-banner.md)]

@@ -1,0 +1,67 @@
+---
+title: Dimension Expression Builder subpattern
+description: This article describes the Dimension Expression Builder subpattern, which is applied to container controls that use the Dimension Expression Builder control.  
+author: twheeloc
+ms.author: twheeloc
+ms.topic: article
+ms.custom: 
+  - bap-template
+ms.date: 03/27/2026
+ms.reviewer: johnmichalak
+ms.assetid: 6ab0f75d-3168-4dfe-b2ce-d17d3861216e
+ms.search.region: Global
+ms.search.validFrom: 2016-02-28
+ms.dyn365.ops.version: AX 7.0.0
+---
+
+# Dimension Expression Builder subpattern
+
+[!include [banner](../includes/banner.md)]
+
+This article describes the Dimension Expression Builder subpattern, which you apply to container controls that use the Dimension Expression Builder control.  
+
+## Usage
+
+Use the Dimension Expression Builder pattern when you have a group or tab page that uses the Dimension Expression Builder control.
+
+## Wireframe
+
+:::image type="content" source="media/dimensionexpressionbuilderwireframe.png" alt-text="Screenshot of wireframe for container." lightbox="./media/dimensionexpressionbuilderwireframe.png":::
+
+## Model
+
+### High-level structure
+
+TabPage | Group
+
+*TopFieldGroup (Group) \[Optional\]* – **Note:** Use a field subpattern.
+
+*DEBGroup (Group) \[0..N\]*
+
+Dimension Expression Builder
+
+*Dimension Expression Builder \[0..N\]*
+
+### Core components
+
+- Apply the Dimension Expression Builder subpattern to the TabPage or Group control.
+
+## UX guidelines
+
+None
+
+## Examples
+
+Form: **BudgetControlConfiguration (RulesDetailsCriteriaFastTabPage)** (**Budgeting** &gt; **Setup** &gt; **Budget control** &gt; **Budget control configuration**) :::image type="content" source="media/dimensionexpressionbuilderexample.png" alt-text="Screenshot of example of form." lightbox="./media/dimensionexpressionbuilderexample.png":::
+
+## Appendix
+
+### Frequently asked questions
+
+This section contains answers to frequently asked questions that are related to this guideline or pattern.
+
+### Open issues
+
+None
+
+[!INCLUDE[footer-include](../../../includes/footer-banner.md)]

@@ -1,44 +1,24 @@
 ---
-# required metadata
-
 title: Asset documents
-description: This topic explains asset documents in Asset Management.
-author: josaw1
-manager: AnnBe
-ms.date: 06/26/2019
+description: Learn about asset documents in Asset Management, including examples and a step-by-step process for creating asset document relation.
+author: jodahlMSFT
+ms.author: jodahl
 ms.topic: article
-ms.prod: 
-ms.service: dynamics-ax-applications
-ms.technology: 
-
-# optional metadata
-
-ms.search.form: CatProcureCatalogEdit, CatProcureCatalogListPage
-# ROBOTS: 
-audience: Application User
-# ms.devlang: 
-ms.reviewer: josaw
-ms.search.scope: Core, Operations
-# ms.tgt_pltfrm: 
-ms.custom: 2214
+ms.date: 06/26/2019
+ms.reviewer: kamaybac
+ms.search.form: EntAssetObjectDocument
 ms.assetid: 2f3e0441-414d-402b-b28b-7ab0d650d658
-ms.search.region: Global
-# ms.search.industry: 
-ms.author: mkirknel
-ms.search.validFrom: 2016-02-28
-ms.dyn365.ops.version: AX 7.0.0
-
 ---
 
 # Asset documents
 
 [!include [banner](../../includes/banner.md)]
 
-[!include [banner](../../includes/preview-banner.md)]
+ 
 
-This topic explains asset documents in Asset Management.
+This article explains asset documents in Asset Management.
 
-In Asset Management, you can set up documents so that they are automatically related to job types, asset manufacturers, asset types, or assets, for example. This functionality is useful when updated document versions are released. In that case, you just have to put the updated document in the standard location that you use for your Microsoft Dynamics 365 for Finance and Operations documents, and attach the document to the asset document record that you've created. The updated document can then be accessed from the **All assets**, **Active assets**, **My active assets**, **All work orders**, and **Active work order jobs** menu items. The process for attaching documents to an asset document record uses the standard document handling system in Finance and Operations.
+In Asset Management, you can set up documents so that they are automatically related to job types, asset manufacturers, asset types, or assets, for example. This functionality is useful when updated document versions are released. In that case, you just have to put the updated document in the standard location that you use for your Supply Chain Management documents, and attach the document to the asset document record that you've created. The updated document can then be accessed from the **All assets**, **Active assets**, **My active assets**, **All work orders**, and **Active work order jobs** menu items. The process for attaching documents to an asset document record uses the standard document handling system.
 
 **Example 1:** A document that is related to a job type might describe a procedure for that job type.
 
@@ -53,5 +33,8 @@ In Asset Management, you can set up documents so that they are automatically rel
     > [!NOTE]
     > When the system searches for documents that should be related to an asset or a work order, Asset Management goes through all asset document records to check for a possible match. It always checks the most specific combination first. In other words, Asset Management first checks for a match for the **Job requirement** field. If no match is found, it checks for a match for the **Job type variant** field. If no match is found, it checks for a match for the **Job type** field, and so on. As you can see in the layout of the **Asset documents** page, this behavior means that, to find the most specific combination, Asset Management checks each record from right to left for a match. Several documents might be related to an asset or a work order. You can edit the service level on a maintenance request or a work order as you require.
 
-4. Select **Attachments**. The standard **Document handling** page in Finance and Operations appears.
+4. Select **Attachments**. The standard **Document handling** page appears.
 5. Set up the documents or notes that should be attached to the asset document record. After you attach documents, the **Attachments** field shows the number of documents that are related to the record.
+
+
+[!INCLUDE[footer-include](../../../includes/footer-banner.md)]

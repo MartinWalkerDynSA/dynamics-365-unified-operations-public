@@ -1,47 +1,27 @@
 ---
-# required metadata
-
 title: Calculations for product configuration models FAQ
-description: This topic describes calculations for product configuration models and explains how to use calculations together with constraints.
-author: cvocph
-manager: AnnBe
+description: Learn about calculations for product configuration models and explains how to use calculations together with constraints.
+author: sgmsft
+ms.author: shwgarg
+ms.topic: faq
 ms.date: 11/03/2017
-ms.topic: article
-ms.prod: 
-ms.service: dynamics-ax-applications
-ms.technology: 
-
-# optional metadata
-
+ms.reviewer: kamaybac
 ms.search.form: PCConstraintEditor, PCProductConfigurationModelDetails, PCRuntimeConfigurator
-# ROBOTS: 
-audience: Application User
-# ms.devlang: 
-ms.reviewer: josaw
-ms.search.scope: Core, Operations
-# ms.tgt_pltfrm: 
-ms.custom: 19191
 ms.assetid: 8993f9a1-d1c0-49f5-afd3-5e1077ded0fe
-ms.search.region: Global
-ms.search.industry: Manufacturing
-ms.author: conradv
-ms.search.validFrom: 2016-02-28
-ms.dyn365.ops.version: AX 7.0.0
-
 ---
 
 # Calculations for product configuration models FAQ
 
 [!include [banner](../includes/banner.md)]
 
-This topic describes calculations for product configuration models and explains how to use calculations together with constraints.
+This article describes calculations for product configuration models and explains how to use calculations together with constraints.
 
 Calculations can be used for arithmetic or logical operations. They complement expression constraints in product configuration models. You can define calculations on the **Constraint-based product configuration model details** page and then build expressions for the calculations in the expression editor. For more information, see Create calculations.
 
 ## What is a calculation?
 A calculation is an element that you can use in a product configuration model. Calculations complement constraints by letting you use decimal numbers to calculate values when you configure a product. Additionally, calculations have a larger set of available operators than constraints have.  
 
-Like a constraint, a calculation is associated with a specific component in a product configuration model, and can’t be reused by or shared with another component. One important difference between calculations and constraints is that calculations are imperative (unidirectional), whereas constraints are declarative (bi-directional). For more information about constraints, see [Expression constraints and table constraints](expression-constraints-table-constraints-product-configuration-models.md).  
+Like a constraint, a calculation is associated with a specific component in a product configuration model, and can’t be reused by or shared with another component. One important difference between calculations and constraints is that calculations are imperative (unidirectional), whereas constraints are declarative (bi-directional). For more information about constraints, see [Expression constraints and table constraints in product configuration models](expression-constraints-table-constraints-product-configuration-models.md).  
 
 A calculation consists of a target attribute and a calculation expression.
 
@@ -78,9 +58,9 @@ Calculations occur when a value has been provided for all input attributes.
 You can overwrite the value that is calculated for the target attribute, unless the target attribute is set as hidden or read-only.
 
 ## How do I set a target attribute as hidden or read-only?
-To set an attribute as hidden or read-only, follow these steps.
+To set an attribute as hidden or read-only, follow these steps:
 
-1.  Click **Product information management** &gt; **Common** &gt; **Product configuration models**.
+1.  Click **Product information management** &gt; **Products** &gt; **Product configuration models**.
 2.  Select a product configuration model, and then, on the Action Pane, click **Edit**.
 3.  On the **Constraint-based product configuration model details** page, select the attribute to use as a target attribute.
 4.  On the **Attributes** FastTab, select **Hidden** or **Read-only**.
@@ -92,7 +72,7 @@ No. The values that you set when you configure a product are the values that are
 If you remove an input value in a calculation, the value of the target attribute is also removed.
 
 ## Why do I receive an error message that says that my model is in contradiction?
-This message is shown when a calculation includes an error, or when a contradiction exists in one or more constraints. For more information about contradictions in constraints, see [Expression constraints and table constraints](expression-constraints-table-constraints-product-configuration-models.md). Here are some situations where errors can occur in calculations:
+This message is shown when a calculation includes an error, or when a contradiction exists in one or more constraints. For more information about contradictions in constraints, see [Expression constraints and table constraints in product configuration models](expression-constraints-table-constraints-product-configuration-models.md). Here are some situations where errors can occur in calculations:
 
 -   A value is divided by 0 (zero).
 -   A conflict exists between the following two elements:
@@ -101,11 +81,14 @@ This message is shown when a calculation includes an error, or when a contradict
 -   The values that are returned by the calculation are outside the domain of the attribute. An example is an integer from \[1..10\] that is calculated to 0.
 
 ## Why do I receive an error message even though I successfully validated my product model?
-Calculations aren't included in the validation. You must test the product configuration model to find errors in calculations. To test a product configuration model, follow these steps.
+Calculations aren't included in the validation. You must test the product configuration model to find errors in calculations. To test a product configuration model, follow these steps:
 
-1.  Click **Product information management** &gt; **Common** &gt; **Product configuration models**.
+1.  Click **Product information management** &gt; **Products** &gt; **Product configuration models**.
 2.  Select a product configuration model, and then, on the Action Pane, in the **Run** group, click **Test**.
 
 
 
 
+
+
+[!INCLUDE[footer-include](../../includes/footer-banner.md)]

@@ -1,0 +1,28 @@
+
+- name: Dynamics 365
+  tocHref: /dynamics365/
+  topicHref: /dynamics365/index
+  items:
+  - name: Dynamics 365 Finance
+    tocHref: /dynamics365/finance/
+    topicHref: /dynamics365/finance/index
+  - name: Dynamics 365 Finance
+    tocHref: /dynamics365/fin-ops-core/
+    topicHref: /dynamics365/finance/index
+  - name: Dynamics 365 Finance
+    tocHref: /dynamics365/commerce/
+    topicHref: /dynamics365/finance/index
+  - name: Dynamics 365 Finance
+    tocHref: /dynamics365/supply-chain/
+    topicHref: /dynamics365/finance/index
+  - name: Dynamics 365 Finance
+    tocHref: /dynamics365/human-resources/
+    topicHref: /dynamics365/finance/index
+- name: Dynamics 365
+  tocHref: /power-platform/
+  topicHref: /dynamics365/index
+  items:
+    - name: Dynamics 365 Finance
+      tocHref: /power-platform/admin
+      topicHref: /dynamics365/finance/index
+

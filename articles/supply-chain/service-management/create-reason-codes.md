@@ -1,47 +1,28 @@
 ---
-# required metadata
-
 title: Create reason codes   
-description: You can create reason codes to explain why you are updating a stage of a service order. 
-author: ShylaThompson
-manager: AnnBe
-ms.date: 05/01/2018
-ms.topic: article
-ms.prod: 
-ms.service: dynamics-ax-applications
-ms.technology: 
-
-# optional metadata
-
+description: Learn how to create reason codes to explain why you're updating a stage of a service order, including a step-by-step process for saving reason codes. 
+author: Henrikan
+ms.author: henrikan
+ms.reviewer: kamaybac
 ms.search.form: SMAReasonCodeTable
-# ROBOTS: 
-audience: Application User
-# ms.devlang: 
-ms.reviewer: josaw
-ms.search.scope: Core, Operations
-# ms.tgt_pltfrm: 
+ms.topic: how-to
+ms.date: 07/10/2025
+ms.update-cycle: 1095-days
 ms.custom: 
-ms.assetid: 
-ms.search.region: Global
-# ms.search.industry: 
-ms.author: ShylaThompson
-ms.search.validFrom: 2016-02-28
-ms.dyn365.ops.version: AX 7.0.0
+  - bap-template
+  - evergreen
 ---
 
-# Create reason codes    
+# Create reason codes
 
 [!include [banner](../includes/banner.md)]
 
+1. Go to **Service management** \> **Setup** \> **Service orders** \> **Stage reason codes**.
 
-1.  Click **Service management** \> **Setup** \> **Service orders** \> **Stage reason codes**.
+1. Select **New** to create a new reason code.
 
-2.  Press CTRL+N to create a new reason code.
+1. Select **Save** to save the reason code.
 
-3.  Press CTRL+S to save the reason code.
+When you're prompted for a reason code to explain why you're updating a stage of the service order, you can select any of the reason codes that you create here.
 
-When you are prompted for a reason code to explain why you are updating a stage of the service order, you can select any of the reason codes that you create here.
-
-  
-
-
+[!INCLUDE[footer-include](../../includes/footer-banner.md)]

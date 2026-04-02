@@ -1,34 +1,18 @@
 ---
-# required metadata
-
 title: Estimate a production order
-description: You can run this procedure by using the USMF demo data company or your own data set.
+description: Learn about estimating production orders, including step-by-step processes for estimating production orders and viewing calculation details.
 author: johanhoffmann
-manager: AnnBe
-ms.date: 11/11/2016
-ms.topic: business-process
-ms.prod:  
-ms.service: dynamics-ax-applications
-ms.technology:  
-
-# optional metadata
-
-# ms.search.form:   
-audience: Application User
-# ms.devlang:  
-ms.reviewer: josaw
-ms.search.scope: Operations
-# ms.tgt_pltfrm:  
-# ms.custom:  
-ms.search.region: Global
-ms.search.industry: Manufacturing
 ms.author: johanho
-ms.search.validFrom: 2016-06-30
-ms.dyn365.ops.version: AX 7.0.0
+ms.topic: how-to
+ms.date: 11/11/2016
+ms.custom:
+ms.reviewer: kamaybac
+ms.search.form:
 ---
+
 # Estimate a production order
 
-[!include [task guide banner](../../includes/task-guide-banner.md)]
+[!include [banner](../../includes/banner.md)]
 
 You can run this procedure by using the USMF demo data company or your own data set. In both cases, you need to have an open production order that has the Created status. This is the second procedure out of seven which explains the production order lifecycle.
 
@@ -45,3 +29,6 @@ You can run this procedure by using the USMF demo data company or your own data 
 1. On the Action Pane, click Manage costs.
 2. Click View calculation details.
     * This page displays the cost breakdown. For example, you can view the total cost price per unit for the finished product in the first row. The subsequent rows contain costs according to the bill of materials, production route, and indirect costs.  
+
+
+[!INCLUDE[footer-include](../../../includes/footer-banner.md)]

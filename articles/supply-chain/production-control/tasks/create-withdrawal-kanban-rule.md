@@ -1,34 +1,18 @@
 --- 
-# required metadata 
- 
 title: Create a withdrawal kanban rule
-description: This procedure shows the setup that is needed to create a withdrawal kanban rule for transferring material in a lean environment. 
-author: ChristianRytt
-manager: AnnBe 
+description: Learn about the setup that is needed to create a withdrawal kanban rule for transferring material in a lean environment.
+author: johanhoffmann
+ms.author: johanho
+ms.topic: how-to
 ms.date: 08/29/2018
-ms.topic: business-process 
-ms.prod:  
-ms.service: dynamics-ax-applications 
-ms.technology:  
- 
-# optional metadata 
- 
-ms.search.form: KanbanRules, LeanProductionFlowActivityLookup, InventItemIdLookupSimple, UnitOfMeasureLookup, KanbanCreate   
-audience: Application User 
-# ms.devlang:  
-ms.reviewer: shylaw
-ms.search.scope: Core, Operations 
-# ms.tgt_pltfrm:  
-# ms.custom:  
-ms.search.region: Global
-ms.search.industry: Manufacturing
-ms.author: crytt
-ms.search.validFrom: 2016-06-30 
-ms.dyn365.ops.version: Version 7.0.0 
+ms.custom:
+ms.reviewer: kamaybac 
+ms.search.form: KanbanRules, LeanProductionFlowActivityLookup, InventItemIdLookupSimple, UnitOfMeasureLookup, KanbanCreate
 ---
+
 # Create a withdrawal kanban rule
 
-[!include [task guide banner](../../includes/task-guide-banner.md)]
+[!include [banner](../../includes/banner.md)]
 
 This procedure shows the setup that is needed to create a withdrawal kanban rule for transferring material in a lean environment. The demo data company used to create this procedure is USMF. This procedure is intended for the Process Engineer or the Value Stream Manager, as they prepare replenishment of new or modified material.
 
@@ -66,3 +50,6 @@ This procedure shows the setup that is needed to create a withdrawal kanban rule
     * This will create two kanbans.  
     * Note that 2 kanbans, for 5 each, was created for this withdrawal kanban rule.  This is the last step in this procedure.  
 
+
+
+[!INCLUDE[footer-include](../../../includes/footer-banner.md)]

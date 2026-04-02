@@ -1,0 +1,115 @@
+---
+title: Single-user testing using the Performance SDK and Task recorder
+description: Learn about how to do single-user testing by using Microsoft Visual Studio, the Performance SDK, and a Task recorder performance test script.
+author: josaw1
+ms.author: josaw
+ms.topic: article
+ms.date: 03/16/2026
+ms.reviewer: johnmichalak
+ms.search.region: Global
+ms.search.validFrom: 2016-02-28
+ms.dyn365.ops.version: AX 10.0.0
+ms.assetid: 7b605810-e4da-4eb8-9a26-5389f99befcf
+ms.custom: sfi-image-nochange
+---
+
+# Single-user testing by using Performance SDK and Task recorder
+
+[!include [banner](../includes/banner.md)]
+
+Use the information in this article to do single-user testing by using Visual Studio and the Performance software development kit (SDK) together with a performance test script that the Task recorder generates.
+
+> [!IMPORTANT]
+> As of September 2024, Microsoft no longer supports the Perf SDK. This deprecation follows the end of support for Visual Studio 2019, which was the last version to include web performance and load testing features.
+> + For more information, see [Microsoft will no longer ship or support the Visual Studio extensions for finance and operations apps, Power Platform tools, and Visual Studio versions prior to 2022](../../fin-ops/get-started/removed-deprecated-features-platform-updates.md#microsoft-will-no-longer-ship-or-support-the-visual-studio-extensions-for-finance-and-operations-apps-power-platform-tools-and-visual-studio-versions-prior-to-2022).
+
+## Use Task recorder to define and record an end-to-end business scenario
+
+Before you run a single-user test, work with your business team to define your end-to-end scenarios. Then use Task recorder to create a recording of the steps in each scenario. For more information about how to create a task recording, see [Task recorder resources](../user-interface/task-recorder.md). The scenarios that you should test depend on your customer's business requirements. In this article, you use the "Create and confirm a sales order" sample scenario.
+
+1. Sign in as a Sales persona.
+1. Turn on Task recorder, and create and confirm a sales order that includes the following information:
+
+   - Customer account
+   - Item number
+   - Sales quantity
+   - Site
+   - Warehouse
+   - Sales price
+
+1. When you finish, select **Save as developer recording** to download the XML file.
+
+## Configure a development environment
+
+1. Download the [selenium-dotnet-strongnamed-3.13.1.zip](https://selenium-release.storage.googleapis.com/index.html?path=3.13/) and [IEDriverServer\_Win32\_3.13.0.zip](https://selenium-release.storage.googleapis.com/index.html?path=3.13/) files.
+1. Unblock and unzip the files.
+1. In the **dist** folder, rename the .nupkg files as .zip files, and then unzip them.
+
+    | Original file name                          | New file name                             |
+    |---------------------------------------------|-------------------------------------------|
+    | Selenium.Support.StrongNamed.3.13.1.nupkg   | Selenium.Support.StrongNamed.3.13.1.zip   |
+    | Selenium.WebDriver.StrongNamed.3.13.1.nupkg | Selenium.WebDriver.StrongNamed.3.13.1.zip |
+
+1. Under your **PerfSDK** folder, create a folder named **Common\\External\\Selenium**.
+
+   :::image type="content" source="media/single-user-test-03.png" alt-text="Screenshot of the new PerfSDK folder.":::
+
+1. Copy the following files, and save them to the **Common\\External\\Selenium** folder you created in the previous step:
+
+   - IEDriverServer.exe from the unzipped IEDriverServer\_Win32\_3.13.0.zip file
+   - WebDriver.dll and WebDriver.xml from the lib\\net45 folder in the unzipped Selenium.WebDriver.StrongNamed.3.13.1.zip file
+   - WebDriver.Support.dll and WebDriver.Support.xml from the lib\\net45 folder in the unzipped Selenium.Support.StrongNamed.3.13.1.zip file
+
+## Generate a C# performance test from Task recorder
+
+When you finish recording the end-to-end scenario, generate a C# performance test script based on the task recording. 
+
+1. In a development environment, open Microsoft Visual Studio as an admin.
+1. Open the **PerfSDKSample** solution from your **PerfSDK** folder. In a tier-1 sandbox or a cloud-hosted-environment, you typically find the **PerfSDK** folder in `<Service volume>:\PerfSDK\PerfSDKLocalDirectory`.
+
+   :::image type="content" source="media\single-user-test-05.png" alt-text="Screenshot of the PerfSDK directory.":::
+
+1. Add a reference to the WebDriver.dll file in the `Common\External\Selenium` folder.
+
+   :::image type="content" source="media/single-user-test-06.png" alt-text="Screenshot of the PerfSDKSample references.":::
+
+1. On the **Dynamics 365** menu, point to **Addins**, and then select **Create C# perf test from recording**.
+1. In the **Import Task Recording** dialog box, enter the following required details:
+
+   - **Recording path** – The file location of the developer recording of your end-to-end scenario.
+   - **Project path** – The location of the PerfSDKSample project. Typically, the path is `<Your_PerfSDK_Folder>\SampleProject\PerfSDKSample\PerfSDKSample.csproj`.
+   - **PerfSDK path** – The location of PerfSDK. Typically, the path is `<ServiceVolumeDrive>\PerfSDK\PerfSDKLocalDirectory`.
+    
+1. Select **Import**. A new C# class is created under the **Generated** folder of your PerfSDKSample project.
+
+   :::image type="content" source="media/single-user-test-09.png" alt-text="Screenshot of the new C# class in the Generated folder.":::
+
+1. Build the solution.
+
+## Run single-user testing by using Test Explorer in Visual Studio
+
+1. Update the **CloudEnvironment.config** file of the PerfSDKSample project in the following ways, so that it reflects the configuration of your environment:
+
+   - Verify that the **HostName** and **SOAPHostName** match your development environment.
+   - Verify that the **UserName** for **SelfMintingAdminUser** matches the admin account of your development environment.
+   - In each **AuthenticatorConfiguration** element under the **AuthenticatorConfigurationCollection** element, replace **AadAuthenticator** with **SelfMintedTokenAuthenticator**.
+   - Comment out the **AzureActiveDirectoryConfiguration** and **KeyVaultConfigurations** elements.
+
+1. In Visual Studio, on the **Test** menu, point to **Windows**, and then select **Test Explorer**.
+1. Right-click your test case, and then select **Run selected tests**.
+
+## Tips and tricks
+
+Use the following tips and tricks for single-user testing that uses Task recorder and the Performance SDK:
+
+- Run your business end-to-end scenario first before you capture it by using Task recorder.
+- When you record your scenario by using Task recorder, enter values manually instead of selecting them in drop-down lists.
+- Replay your task recording to make sure that everything works as you expect.
+- Restart Visual Studio if you don't see your test case after the solution is built.
+
+## Troubleshooting
+
+For information about single-user or multi-user testing that uses the Performance SDK, see [Troubleshooting guide for single-user or multi-user testing with the Performance SDK](troubleshoot-perf-sdk-user-testing.md).
+
+
+[!INCLUDE[footer-include](../../../includes/footer-banner.md)]

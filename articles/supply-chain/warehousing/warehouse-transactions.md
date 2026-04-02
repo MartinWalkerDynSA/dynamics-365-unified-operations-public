@@ -1,0 +1,140 @@
+---
+title: Warehouse-specific inventory transactions
+description: Learn about warehouse-specific inventory transactions, which are database records that store information about how inventory is stored in the warehouse.
+author: Mirzaab
+ms.author: mirzaab
+ms.reviewer: kamaybac
+ms.search.form: WHSParameters, WHSWarehouseTransactions
+ms.topic: how-to
+ms.date: 11/19/2025
+ms.custom:
+  - bap-template
+---
+
+# Warehouse-specific inventory transactions
+
+[!include [banner](../includes/banner.md)]
+
+Warehouse-specific inventory transactions (referred to as *warehouse transactions* in this article) are database records that store information about how inventory is stored and moved around in the warehouse. Warehouse transaction records are highly optimized for warehouse operations.
+
+In versions of Microsoft Dynamics 365 Supply Chain Management before 10.0.32, the system used a single type of standard inventory transactions (referred to as *inventory transactions* in this article) for both warehouse operations and other types of inventory transactions. However, in newer systems, use warehouse transactions where they apply (though inventory transactions still support other functionality). For warehouse operations, warehouse transactions provide many benefits in comparison to inventory transactions. Here are some examples:
+
+- Significantly improved warehouse operation performance, especially for scenarios that include large numbers of serial or batch numbers (tracking dimensions).
+- Improved scalability that's made possible by a reduction in the number of inventory transaction records that are required to support warehouse operations. Standard inventory transactions generate many more records and can therefore cause a heavy load on the database.
+
+## How warehouse transactions compare to inventory transactions
+
+Warehouse transactions differ from inventory transactions in several ways. Here are the key differences:
+
+- Warehouse transactions can operate on items in bulk. In other words, a single warehouse transaction can reserve, issue, or receive a set of items that have different serial or batch numbers. This capability enables the system to avoid repeated validations and use efficient set-based operations. It also reduces the amount of data that the system generates. Because the item sets can be reused, the same information doesn't have to be recorded multiple times.
+- Warehouse transactions don't hold any financial or cost information. They're used only in warehouse operations, which don't have any financial impact. This change significantly reduces the number of fields, indexes, and validations that are required in the database. For warehouse operations that have a financial impact (such as counting, adjust-in, or adjust-out), the system still relies on inventory transactions.
+- Warehouse transactions are immutable. Therefore, except in a few system processes, they're never updated or deleted. This property allows for more predictable system performance, because it avoids splitting the transactions. It also allows for a more detailed audit log of what occurred in the system. The extra details can be useful during investigations.
+- Warehouse transactions are frequently archived. This feature helps keep the size of the warehouse transactions table small. It also enables the system to implement different data models for active and completed transactions. The data model for active transaction is optimized for inserts. (This optimization is critical for fast mobile device operations.) By contrast, the data model for completed transactions is optimized for queries.
+
+## Prerequisites
+
+Before you can use this feature, the following prerequisites must be in place:
+
+- You must update any customizations that rely on inventory transactions that will be replaced by warehouse transactions. Learn more in the [Audit and update your customizations to support warehouse transactions](#audit-customizations) section of this article.
+- You must be running Dynamics 365 Supply Chain Management version 10.0.32 or later.
+- If you're running Supply Chain Management version 10.0.35 or earlier, the feature that's named *Warehouse-specific inventory transactions* must be turned on in [Feature management](../../fin-ops-core/fin-ops/get-started/feature-management/feature-management-overview.md). In newer versions, this feature is fully integrated into the product, so it's either mandatory or no longer listed in [Feature management](../../fin-ops-core/fin-ops/get-started/feature-management/feature-management-overview.md).
+
+## <a name="audit-customizations"></a>Audit and update your customizations to support warehouse transactions
+
+When you enable the *Warehouse-specific inventory transactions* feature, your system changes as follows:
+
+- The system stops generating inventory transactions for warehouse operations. Instead, it uses warehouse transactions. Therefore, you must update any customizations and extensions that rely on the relevant inventory transactions for warehouse operations. This change affects only those warehouse scenarios that you configure to use warehouse transactions. Learn more in the [Choose which scenarios should use warehouse transactions](#choose-scenarios) section of this article.
+- The system stops calling several existing methods when it processes warehouse operations.
+
+When you try to enable the feature, the system checks for extensions that might break because of these changes. If it finds any issues, it sends you an error message that identifies the extension and explains how you must update it. If you receive such a message when you try to enable the feature, follow these steps:
+
+1. Contact your developer or Microsoft partner, and ask them to review the relevant extensions and make the required fixes.
+1. Declare the module that contains the problematic extension as *validated*. You can make this change by extending the `buildValidatedModuleSet()` method in the `WHSWarehouseInventoryTransactionFeatureExtensionValidator` class and adding the name of the module that contains a flagged extension into the set.
+1. Deploy the updated module. The feature validator should now allow you to activate the feature.
+
+> [!CAUTION]
+> The feature validator can't detect all possible issues. For example, it can't detect whether an extension is reading inventory transactions that are related to warehouse work. (Those inventory transactions will no longer exist after you enable the feature.)
+
+## <a name="choose-scenarios"></a>Choose which scenarios should use warehouse transactions
+
+The system lets you choose which scenarios use warehouse transactions. For example, you can use the new warehouse transactions for warehouse movements, but continue to use inventory transactions for all other operations. Therefore, organizations that use a system that was customized before enabling the *Warehouse-specific inventory transactions* feature can gradually move toward using warehouse transactions. They can start with the least customized scenarios or the scenarios where performance improvements are most required.
+
+To choose which scenarios use warehouse transactions, follow these steps:
+
+1. Go to **Warehouse management \> Setup \> Warehouse management parameters**.
+1. On the **General** tab, on the **Warehouse inventory transaction mechanism** FastTab, select the **Use warehouse inventory transactions** checkbox for each scenario where you want to use warehouse transactions. Scenarios that you leave this checkbox cleared for will continue to use inventory transactions.
+1. On the Action Pane, select **Save**.
+
+Some warehouse work types are just wrappers around other system processes (such as adjust-in/adjust-out and counting operations) and continue to use inventory transactions. Those operations change the on-hand inventory on all the inventory dimensions and therefore have a financial impact.
+
+Source document transactions still use inventory transactions (records in the `InventTrans` table) and continue to use the inventory stack. For example, in the sales picking scenario, the reservation that's related to the sales line is still represented by an inventory transaction. However, when you release a sales order to the warehouse, the work that's created uses warehouse transactions. When you complete the work, the sales line's inventory transaction is updated to *Picked* status, and all specific dimension values are assigned, just as if the work had used inventory transactions.
+
+## Review warehouse transactions
+
+The **Warehouse transactions** page shows both warehouse transactions and inventory transactions. By contrast, the **Inventory transactions** page shows only inventory transactions. Therefore, only the **Warehouse transactions** page shows all the transactions that are related to your warehouse operations. For example, in a sales picking scenario, if you want to view all transactions that are related to the sales order, you must open the **Warehouse transactions** page. It shows both the sales order inventory transactions and work-related warehouse transactions. The **Inventory transactions** page shows only the sales order transactions.
+
+The purpose of the **Warehouse transactions** page is to show all the transactions that are relevant to managing the warehouse. It doesn't show inventory transactions that are in *Ordered* or *On order* status. You can open it from several places in the system, including the **On-hand** pages and the **Warehouse inventory transactions** page.
+
+For example, to open the **Warehouse transactions** page from the **On-hand** page for a selected product, follow these steps:
+
+1. Go to **Product information management \> Products \> Released products**.
+1. Select a released product.
+1. On the Action Pane, on the **Manage inventory** tab, in the **View** group, select **On-hand inventory**.
+
+    > [!NOTE]
+    > To view *all* transactions for the selected product, you can select **Warehouse transactions** instead.
+
+1. On the **On-hand** page, select the row for the on-hand inventory that you want to inspect.
+1. On the Action Pane, select **Warehouse transactions**.
+
+The **Warehouse transactions** and **Inventory transactions** pages provide similar functionality. However, the **Warehouse transactions** page is limited to functionality that applies to warehouse operations. It lets you perform the following actions:
+
+- To choose which inventory dimensions to show, select **Display dimensions** on the Action Pane.
+- To view all transactions that have the same inventory dimensions as a selected row, select **Warehouse transactions for dimensions** on the **Inventory** tab of the Action Pane.
+- To trace inventory dimensions for a selected row, select **Trace** on the **Inventory** tab of the Action Pane to open the **Trace inventory dimensions** page.
+- To view batch attribute details for a selected row, select **Inventory batch attributes** on the **Inventory** tab of the Action Pane.
+
+## Archive warehouse transactions
+
+Because warehouse transactions and inventory transactions differ slightly in nature, the system can archive warehouse transactions more often than inventory transactions. Whenever warehouse work is completed (closed or canceled), the system archives all the related warehouse transactions. The archived warehouse transactions are still available through the user interface (UI), just as nonarchived transactions are. However, they're moved from the storage that's optimized for fast inserts (active transactions) to the storage that's optimized for queries (archived transactions). The system can detect this distinction, and it takes the archived warehouse transactions into account when, for example, on-hand recalculation consistency checks are done or the **Trace inventory dimensions** page is used.
+
+The archival procedure is implemented by the *Archive warehouse inventory transactions* process automation background process. This process is automatically registered when you enable the *Warehouse-specific inventory transactions* feature. By default, it runs every 10 minutes. However, system administrators can change the recurrence properties, based on the actual system use.
+
+To change the recurrence properties of the *Archive warehouse inventory transactions* process, follow these steps:
+
+1. Go to **System Administration \> Setup \> Process Automations**.
+1. On the **Background Processes** tab, in the grid, select the row where the **Name** field is set to *Archive warehouse inventory transactions*.
+1. Select **Edit** on the toolbar.
+1. The **Edit background process** dialog opens. Review and edit the configuration as needed and select **OK**.
+
+To review the execution history of the *Archive warehouse inventory transactions* process, follow these steps:
+
+1. Go to **System Administration \> Setup \> Process Automations**.
+1. On the **Background Processes** tab, in the grid, select the row where the **Name** field is set to *Archive warehouse inventory transactions*.
+1. Select **View most recent results** on the toolbar.
+1. The **Execution results** dialog box that appears shows a list of each process execution. Here, you can see whether each process succeeded and view its execution log.
+
+## Frequently asked questions
+
+This section provides answers to a few frequently asked questions about warehouse-specific inventory transactions.
+
+### Is Microsoft planning to decouple on-hand inventory from the InventTrans and WHSInventReserve tables?
+
+There are no current plans to decouple on-hand inventory from these tables.
+
+### What do the new transaction types represent and how are they used in the WHSInventoryTransactionTable table?
+
+The `WHSInventoryTransactionTable` table includes the following four types of transactions (as defined by `WHSInventoryTransactionTypeEnum`).
+
+- **Registered issue** – Represents an item being physically issued.
+- **Registered receipt** – Represents an item being physically received.
+- **Physical reservation** – Represents item reservations.
+- **Removed physical reservation** – Represents an explicit, separate transaction type for removing a reservation. All reservation-related transactions can be dropped during the archival process to save space, depending on your settings.
+
+### How does ItemSetId differ from a license plate, and is there any guidance on how to proceed with both going forward?
+
+`InventTrans`-based inventory wasn't designed to represent inventory operations (such as *issue*, *receipt*, and *reservation*) over a set of items. License plates (such as target license plates in warehouse work) are one example of such a *set of items*. From the perspective of the `InventTrans`-based inventory stack, a license plate is just a dimension similar to other storage dimensions in `InventDim`. The concept of item sets in the new inventory stack aims to address this gap. During initial picks, an item set is constructed, and subsequent operations (such as *put to stage*, *pick from stage*, and *put-away to bay door*) reuse that item set. This approach avoids recording redundant information about items being moved. However, license plates are still used in the new system.
+
+## Related information
+
+- For more information about this feature, consider joining the [Warehouse Inventory Transactions](https://engage.cloud.microsoft/main/org/microsoft.com/groups/eyJfdHlwZSI6Ikdyb3VwIiwiaWQiOiIyMzc4Mjc0MzI0NDgifQ) community on Microsoft Viva Engage, where you can find useful guides, get our latest updates, and post any questions you have about using warehouse transactions.

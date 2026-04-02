@@ -1,0 +1,45 @@
+---
+title: Add data sources to forms through extension
+description: Learn about how you can add new data sources to existing forms by using extensions, including a step-by-step process on adding new data sources.
+author: ivanv-microsoft
+ms.author: ivanv
+ms.topic: how-to
+ms.date: 03/27/2026
+ms.reviewer: johnmichalak
+audience: Developer
+ms.search.region: Global
+ms.search.validFrom: 2017-07-01
+ms.dyn365.ops.version: Platform update 4
+---
+
+# Add data sources to forms through extension
+
+[!include [banner](../includes/banner.md)]
+
+Often, the information stored in existing tables doesn't satisfy customer requirements. Therefore, you need to create extra tables and show data from those tables on pages.
+
+You can add new data sources to existing forms through extension. Follow these steps:
+
+1. In the extension model, create a form extension for the selected form.
+1. Right-click the form extension, and then select **New Data Source**.
+
+    :::image type="content" source="media/AddFormDataSource01.jpg" alt-text="Screenshot of adding a form data source.":::
+
+1. Specify the **Table** property and other required properties on the data source. For example, define how the data source should link with the other data sources for the form.
+1. Drag fields from the new data source into the form design, as shown in the following illustration.
+
+    :::image type="content" source="media/AddFormDataSource02.jpg" alt-text="Screenshot of adding fields from the data source to the form design.":::
+
+1. In a similar manner, you can add fields from existing data sources. For example, you might extend the table behind the form with extra fields, as shown in the following illustration.
+
+    :::image type="content" source="media/AddFormDataSource03.jpg" alt-text="Screenshot of a data source that has extra fields.":::
+
+    > [!TIP]
+    > You might need to right-click the form extension data source and then select **Restore** to make the new fields appear in the list.
+
+1. You can now view and edit the data in these new fields and tables, as shown in the following illustration.
+
+    :::image type="content" source="media/AddFormDataSource04.jpg" alt-text="Screenshot of new fields.":::
+
+
+[!INCLUDE[footer-include](../../../includes/footer-banner.md)]

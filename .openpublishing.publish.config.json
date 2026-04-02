@@ -12,6 +12,7 @@
         "Conceptual": "Content",
         "ManagedReference": "Content",
         "RestApi": "Content",
+        "LandingData": "Content",
         "ContentObject": "Toc"
       },
       "build_entry_point": "docs",
@@ -24,21 +25,25 @@
   ],
   "branches_to_filter": [],
   "git_repository_url_open_to_public_contributors": "https://github.com/MicrosoftDocs/Dynamics-365-Unified-Operations-Public",
-  "git_repository_branch_open_to_public_contributors": "live",
-  "skip_source_output_uploading": false,
-  "need_preview_pull_request": false,
-  "contribution_branch_mappings": {},
+  "git_repository_branch_open_to_public_contributors": "main",
+  "need_preview_pull_request": true,
   "dependent_repositories": [
     {
       "path_to_root": "_themes",
       "url": "https://github.com/Microsoft/templates.docs.msft",
-      "branch": "master",
+      "branch": "main",
       "branch_mapping": {}
     },
     {
       "path_to_root": "_themes.pdf",
       "url": "https://github.com/Microsoft/templates.docs.msft.pdf",
-      "branch": "master",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "shared-content",
+      "url": "https://github.com/MicrosoftDocs/powerapps-docs-pr",
+      "branch": "main",
       "branch_mapping": {}
     }
   ],
@@ -48,11 +53,15 @@
       "Pdf"
     ]
   },
-  "need_generate_pdf_url_template": true,
-  "Targets": {
-    "Pdf": {	
-      "template_folder": "_themes.pdf"	
-    }	
+  "targets": {
+    "Pdf": {
+      "template_folder": "_themes.pdf"
+    }
   },
+  "docs_build_engine": {},
+  "report_severity_level": "Verbose",
+  "skip_source_output_uploading": false,
+  "contribution_branch_mappings": {},
+  "need_generate_pdf_url_template": true,
   "need_generate_intellisense": false
 }

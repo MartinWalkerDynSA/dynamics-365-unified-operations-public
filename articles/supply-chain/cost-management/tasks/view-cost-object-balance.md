@@ -1,44 +1,28 @@
---- 
-# required metadata 
- 
-title: View cost object balance
-description: The demo data company used to create this procedure is USMF. 
-author: AndersGirke
-manager: AnnBe 
-ms.date: 08/29/2018
-ms.topic: business-process 
-ms.prod:  
-ms.service: dynamics-ax-applications 
-ms.technology:  
- 
-# optional metadata 
- 
-ms.search.form: DefaultDashboard, CostAdminWorkspace, CostLastInventoryCloseCard, CostLastBackflushCostingCard, CostStatementCacheCard, CostReleasedProductsMissingCostingDataFormPart, CostCalculationPeriodTopVariancesChartFormPart, EcoResProductDetailsExtended, InventCostOnhandItem, InventCostDimParmFixed   
-audience: Application User 
-# ms.devlang:  
-ms.reviewer: shylaw
-ms.search.scope: Core, Operations 
-# ms.tgt_pltfrm:  
-# ms.custom:  
-ms.search.region: Global
-ms.search.industry: Manufacturing
-ms.author: aevengir
-ms.search.validFrom: 2016-06-30 
-ms.dyn365.ops.version: Version 7.0.0 
 ---
+title: View cost object balance
+description: Learn how to view the cost object balance, including a step-by-step process intended for the cost controller.
+author: AndersEvenGirke
+ms.author: aevengir
+ms.reviewer: kamaybac
+ms.search.form: DefaultDashboard, CostAdminWorkspace, CostLastInventoryCloseCard, CostLastBackflushCostingCard, CostStatementCacheCard, CostReleasedProductsMissingCostingDataFormPart, CostCalculationPeriodTopVariancesChartFormPart, EcoResProductDetailsExtended, InventCostOnhandItem, InventCostDimParmFixed   
+ms.topic: how-to
+ms.date: 08/22/2025
+ms.custom:
+  - bap-template
+---
+
 # View cost object balance
 
-[!include [task guide banner](../../includes/task-guide-banner.md)]
+[!include [banner](../../includes/banner.md)]
 
-The demo data company used to create this procedure is USMF. This procedure is intended for the cost controller.
+Follow these steps to view your cost object balance. This procedure is intended for the cost controller.
 
-1. Click Cost administration.
-2. Click Released products.
-3. Use the Quick Filter to filter on the Item number field with a value of 'm0004'.
-4. On the Action Pane, click Manage costs.
-5. Click Cost objects.
-6. Click Physical quantity.
-7. Click Dimensions display.
-8. Clear the Location check box.
-9. Click OK.
+1. Go to **Cost management** \> **Workspaces** \> **Cost administration**.
+1. On the Action Pane, select **Released products**.
+1. Find and select the product you're looking for. If necessary, you can use the **Filter** field to help find it.
+1. On the Action Pane, open the **Manage costs** tab and select **Cost objects**.
+1. Find and select the cost object you're looking for.
+1. On the Action Pane, select **Physical quantity**.
+1. If you'd like to change the set of dimensions displayed, select **Dimensions display** from the Action Pane and then use the dialog to choose which dimensions to show. The **Physical quantity** grid shows a row for each unique combination of displayed dimensions, so if you show fewer dimensions, you'll probably see fewer rows, but the total quantity for all rows remains the same.
 
+[!INCLUDE[footer-include](../../../includes/footer-banner.md)]

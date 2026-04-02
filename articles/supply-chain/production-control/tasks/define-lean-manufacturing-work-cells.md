@@ -1,36 +1,20 @@
 --- 
-# required metadata 
- 
 title: Define lean manufacturing work cells
-description: A work cell is a specific form of resource groups that can be used in lean manufacturing process activities. 
-author: cvocph
-manager: AnnBe 
+description: Learn about work cells, which are a specific form of resource groups that can be used in lean manufacturing process activities.
+author: johanhoffmann
+ms.author: johanho
+ms.topic: how-to
 ms.date: 08/29/2018
-ms.topic: business-process 
-ms.prod:  
-ms.service: dynamics-ax-applications 
-ms.technology:  
- 
-# optional metadata 
- 
-ms.search.form: WrkCtrResourceGroup, InventLocationIdLookup, UnitOfMeasureLookup, DimensionLookup   
-audience: Application User 
-# ms.devlang:  
-ms.reviewer: shylaw
-ms.search.scope: Core, Operations 
-# ms.tgt_pltfrm:  
-# ms.custom:  
-ms.search.region: Global
-ms.search.industry: Manufacturing
-ms.author: conradv
-ms.search.validFrom: 2016-06-30 
-ms.dyn365.ops.version: Version 7.0.0 
+ms.custom:
+ms.reviewer: kamaybac 
+ms.search.form: WrkCtrResourceGroup, InventLocationIdLookup, UnitOfMeasureLookup, DimensionLookup
 ---
+
 # Define lean manufacturing work cells
 
-[!include [task guide banner](../../includes/task-guide-banner.md)]
+[!include [banner](../../includes/banner.md)]
 
-A work cell is a specific form of resource groups that can be used in lean manufacturing process activities. Work cells have input and output locations and a capacity definition based on a production flow model. To learn more about the basic concepts of lean manufacturing work cells and capacity calculations, see the white papers on Lean manufacturing. The demo data company used to create this procedure is USMF
+A work cell is a specific form of resource groups that can be used in lean manufacturing process activities. Work cells have input and output locations and a capacity definition based on a production flow model. The demo data company used to create this procedure is USMF
 
 
 ## Create a work cell. 
@@ -59,7 +43,7 @@ A work cell is a specific form of resource groups that can be used in lean manuf
     * In multiple activity production flows or production lines, this is often the input warehouse of the next work cell or the sales or transit warehouse where a product is typically transferred to after the production process. Remember when modeling lean manufacturing processes, transport is usually waste, as is reporting transport.  
 16. In the list, click the link in the selected row.
 17. In the Output location field, click the drop-down button to open the lookup.
-    * In a production flow with multiple process activites this if often the input location of the next work cell.  
+    * In a production flow with multiple process activities this if often the input location of the next work cell.  
 18. In the list, find and select the desired record.
 19. In the list, click the link in the selected row.
 20. Expand or collapse the Operation section.
@@ -72,7 +56,7 @@ A work cell is a specific form of resource groups that can be used in lean manuf
 25. Click Add.
 26. In the Calendar field, click the drop-down button to open the lookup.
 27. In the list, find and select the desired record.
-    * Typically work cells of a given site use the same working time calendar. If work cells can have individual working times, you might need to create a specific working time calendar for the work cell. Note that the calendar should have a standard working time defined when used for a lean work cell, because the capacity definition is usually related to the standard working time of a work day.  
+    * Typically work cells of a given site use the same [working time calendar](../../master-planning/supply-chain-calendars-master-planning.md). If work cells can have individual working times, you might need to create a specific working time calendar for the work cell. Note that the calendar should have a standard working time defined when used for a lean work cell, because the capacity definition is usually related to the standard working time of a work day.  
 28. In the list, click the link in the selected row.
 29. Expand or collapse the Work cell capacity section.
 30. Click Add.
@@ -102,3 +86,6 @@ A work cell is a specific form of resource groups that can be used in lean manuf
 ## Save
 1. Click Save.
 
+
+
+[!INCLUDE[footer-include](../../../includes/footer-banner.md)]

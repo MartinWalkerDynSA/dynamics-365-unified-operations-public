@@ -1,0 +1,42 @@
+---
+title: AX 2009 migration - Generate maps
+description: Learn about how to generate data maps to migrate data from Microsoft Dynamics AX 2009 to finance and operations.
+author: pnghub
+ms.author: johnmichalak
+ms.topic: how-to
+ms.date: 01/20/2026
+ms.reviewer: johnmichalak
+ms.update-cycle: 1095-days
+audience: Developer, IT Pro
+ms.search.region: Global
+ms.search.validFrom: 2018-06-21
+ms.dyn365.ops.version: Platform update 17
+---
+
+# AX 2009 migration – Generate maps
+
+[!include [banner](../includes/banner.md)]
+
+Before you migrate your data from Microsoft Dynamics AX 2009 to finance and operations, align your source data with your target environment. This article explains how to generate source-to-target mappings.
+
+Before you generate maps, provide the target URL, tenant URL, and service app ID to validate the connection.
+
+> [!NOTE]
+> When you create a new app under Microsoft Entra ID in the Azure portal, you have two options, **Web API** and **Native**. Select **Native**, and grant permissions to the native Microsoft Entra app.
+
+## Prerequisites
+
+Before you generate the data maps between the source and target environments, install the Data migration tool (DMT). For more information, see [AX 2009 migration - Install the Data migration tool](install-dmt.md).
+
+## Generate maps
+
+Follow these steps to generate maps for data migration.
+
+1. In AX 2009, in the navigation pane, go to **Data migration** \> **Setup** \> **Configure connections**.
+1. Review the field information to verify that it's correct, and then select **Validate**.
+1. After the validation finishes, close the form.
+1. Under **Setup**, select **Configure and generate maps**.
+1. Verify that the information in the form is correct, and then select **Validate path**.
+1. After validation finishes, select **Generate maps**.
+
+[!INCLUDE[footer-include](../../../includes/footer-banner.md)]

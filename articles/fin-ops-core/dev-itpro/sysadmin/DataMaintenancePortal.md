@@ -1,0 +1,40 @@
+---
+title: Data maintenance
+description: Learn about how to use simple scheduling processes to find and correct data inconsistencies in your environment.
+author: twheeloc
+ms.author: twheeloc
+ms.topic: article
+ms.date: 03/13/2026
+ms.custom:
+ms.reviewer: twheeloc 
+audience: IT Pro
+ms.search.region: Global
+ms.search.validFrom: 2021-03-31
+ms.search.form: DataMaintenance
+ms.dyn365.ops.version: AX 10.0.18
+---
+
+# Data maintenance
+
+[!include[banner](../includes/banner.md)]
+
+Data maintenance enables simple scheduling processes that you can run to find or correct data inconsistencies in your environment.
+
+Incorrect data can adversely affect your day-to-day, monthly, and yearly operations. Inconsistencies and errors that come from incorrect data can halt major events like year-end activities. They can even halt your daily revenue streams and affect your organization's decision-making capabilities.
+
+The *Data Maintenance Portal* is a tool that system administrators use to schedule and run various actions that directly affect the data or the system. Some actions continuously look for opportunities to fix issues, and others run on demand to enact some change on the system. Currently, there are three basic types of actions: direct, scanning, and fixing.
+
+## Types of actions
+
+- *Direct actions* run on demand only. They run tasks directly. Microsoft Support might use direct actions. They can be as simple as clearing a cache without the need for downtime or as complicated as running a reference scanner to aid the support process.
+
+- *Scanning actions* search your data a few times a day, looking for problems in the data. The problems found are reported to Microsoft. There are a number of system actions that might not yet have an automated fix but provide valuable data to Microsoft to improve the health of your data. Microsoft might reach out to you regarding problems found through this method.
+
+- *Fixing actions* run on the same cadence as a scanning action. When an opportunity is found, it schedules a fix to the data. Fixing actions are data idempotent and might not fix all of the data on the first run. Fixing actions only fix a subset of data each time they run. Over time, the data reaches a clean state without exposing a significant load on the system. This type of action might help facilitate an in-place upgrade of your system.
+
+## Control of actions
+
+To access the Data Maintenance Portal, administrators go to **System administration > Periodic tasks > Data maintenance**. On this page, administrators can see the list of available actions and the latest status of each action. Important information about the action appears in the right panel. If you can schedule the action, a **Schedule** button appears at the bottom of the page. You can run all actions on demand by selecting the **Run now** button. You can't disable or enable system actions defined by Microsoft.
+
+> [!NOTE]
+> The process automation framework handles the recurrence of data maintenance processes as background processes. Two main types of background processes exist: one for scanning for opportunities and one for running tasks. For more information, see [Process automation framework development](../process-automation/process-automation-framework.md).

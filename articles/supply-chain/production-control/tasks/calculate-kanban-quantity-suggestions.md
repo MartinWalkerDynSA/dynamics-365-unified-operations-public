@@ -1,34 +1,18 @@
 --- 
-# required metadata 
- 
 title: Calculate kanban quantity suggestions
 description: This procedure focuses on optimizing the kanban size and quantities for a specific kanban rule by using the kanban quantity calculation. 
-author: ChristianRytt
-manager: AnnBe 
+author: johanhoffmann
+ms.author: johanho
+ms.topic: how-to
 ms.date: 11/11/2016
-ms.topic: business-process 
-ms.prod:  
-ms.service: dynamics-ax-applications 
-ms.technology:  
- 
-# optional metadata 
- 
-# ms.search.form:   
-audience: Application User 
-# ms.devlang:  
-ms.reviewer: josaw
-ms.search.scope: Operations 
-# ms.tgt_pltfrm:  
-# ms.custom:  
-ms.search.region: Global
-ms.search.industry: Manufacturing
-ms.author: crytt
-ms.search.validFrom: 2016-06-30 
-ms.dyn365.ops.version: AX 7.0.0 
+ms.custom:
+ms.reviewer: kamaybac    
+ms.search.form: 
 ---
+
 # Calculate kanban quantity suggestions
 
-[!include [task guide banner](../../includes/task-guide-banner.md)]
+[!include [banner](../../includes/banner.md)]
 
 This procedure focuses on optimizing the kanban size and quantities for a specific kanban rule by using the kanban quantity calculation. The demo data company used to create this procedure is USMF. This procedure is intended for the value stream manager. It is a prerequisite that you have completed the procedure Add a new kanban quantity calculation policy to a kanban rule.
 
@@ -88,3 +72,6 @@ This procedure focuses on optimizing the kanban size and quantities for a specif
     * Notice this is the fixed kanban quantity of 4 from the kanban quantity calculation.  
 5. Click the ListPanel tab.
 
+
+
+[!INCLUDE[footer-include](../../../includes/footer-banner.md)]

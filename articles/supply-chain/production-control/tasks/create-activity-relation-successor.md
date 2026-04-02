@@ -1,34 +1,18 @@
 --- 
-# required metadata 
- 
 title: Create activity relation - Successor
-description: The flow of activities in a lean production flow is documented through activity relations. 
-author: cvocph
-manager: AnnBe 
+description: Learn about the flow of activities in a lean production flow is documented through activity relations, including a process for finding production flow versions. 
+author: johanhoffmann
+ms.author: johanho
+ms.topic: how-to
 ms.date: 08/29/2018
-ms.topic: business-process 
-ms.prod:  
-ms.service: dynamics-ax-applications 
-ms.technology:  
- 
-# optional metadata 
- 
-ms.search.form: LeanProductionFlow, PlanActivity, PlanActivityRelationNew, PlanActivityLookup, DefaultDashboard   
-audience: Application User 
-# ms.devlang:  
-ms.reviewer: shylaw
-ms.search.scope: Core, Operations 
-# ms.tgt_pltfrm:  
-# ms.custom:  
-ms.search.region: Global
-ms.search.industry: Manufacturing
-ms.author: conradv
-ms.search.validFrom: 2016-06-30 
-ms.dyn365.ops.version: Version 7.0.0 
+ms.custom:
+ms.reviewer: kamaybac   
+ms.search.form: LeanProductionFlow, PlanActivity, PlanActivityRelationNew, PlanActivityLookup, DefaultDashboard
 ---
-# Create activity relation: Successor
 
-[!include [task guide banner](../../includes/task-guide-banner.md)]
+# Create activity relation - Successor
+
+[!include [banner](../../includes/banner.md)]
 
 The flow of activities in a lean production flow is documented through activity relations. This recording shows how to create an activity relation.
 
@@ -68,3 +52,6 @@ Prerequisites:
 12. Close the page.
 13. Refresh the page.
 
+
+
+[!INCLUDE[footer-include](../../../includes/footer-banner.md)]

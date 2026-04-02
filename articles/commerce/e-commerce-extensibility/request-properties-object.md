@@ -1,0 +1,160 @@
+---
+title: Request properties object
+description: Learn about the request properties object in Microsoft Dynamics 365 Commerce.
+author: samjarawan
+ms.date: 02/05/2026
+ms.topic: how-to
+ms.reviewer: v-griffinc
+ms.search.region: Global
+ms.author: asharchw
+ms.search.validFrom: 2019-10-31
+ms.custom: 
+  - bap-template
+---
+# Request properties object
+
+[!include [banner](../includes/banner.md)]
+
+This article describes the request properties object in Microsoft Dynamics 365 Commerce.
+
+The request properties object represents an HTTP request and includes various data properties, such as the requested URL, locale, device, user, cookies, and query string parameters. To get the request information, modules can access a read-only request context object named **this.props.context**. Modules can change their behavior as needed based on this information.
+
+## Example
+
+The following example shows how to access the request properties object from within the request context.
+
+```typescript
+if (this.props.context.request.user.isAuthenticated) {
+    userName = this.props.context.request.user.signinName ? this.props.context.request.user.signinName : '';
+    firstName = this.props.context.request.user.firstName ? this.props.context.request.user.firstName : '';
+    lastName = this.props.context.request.user.lastName ? this.props.context.request.user.lastName : '';
+}
+```
+
+## General properties
+
+* **url** – The requested URL.
+* **locale** – The locale context, such as **"en-us"**.
+* **textDirection** – The text direction. The possible values are **"rtl"** and **"ltr"**.
+* **sitePath** – The full path of the site.
+* **device** – The device that the request came from.
+
+  * **Type** – The device type, such as **"pc"**.
+
+* **user** – Information about the user. The following properties are included:
+
+    * **token**
+    * **isAuthenticated**
+    * **signinURL**
+    * **signoutURL**
+    * **signUpUrl**
+    * **editProfileUrl**
+    * **signinName**
+    * **name**
+    * **firstName**
+    * **lastName**
+    * **emailAddress**
+    * **customerAccountNumber**
+
+* **query** – A list of query string parameters.
+* **cookies** – Cookie information.
+
+## Interface
+
+```typescript
+interface IParsedQSP<TValue> {
+    hasValue: boolean;
+    isTruthy: boolean;
+    value: TValue | undefined;
+}
+
+interface IRequestContextUrl {
+    serverUrl: string;
+    serverPageUrl: string;
+    requestUrl: URL;
+    staticCdnUrl: string;
+}
+
+interface IRequestContextParams {
+    mock?: string;
+    isDebug: boolean;
+    isEditor: boolean;
+    concatJs: IParsedQSP<boolean | string | number | undefined>;
+    theme: string;
+}
+
+interface IRequestContextDevice {
+    Type: string;
+}
+
+interface IRequestContextUser {
+    token: string;
+    isAuthenticated: boolean;
+    signInUrl?: string;
+    signOutUrl?: string;
+    signUpUrl?: string;
+    editProfileUrl?: string;
+    signinName?: string;
+    name?: string;
+    firstName?: string;
+    lastName?: string;
+    emailAddress?: string;
+    customerAccountNumber?: string;
+}
+
+interface IRequestContextFeatures {
+    [switchName: string]: boolean;
+}
+
+interface IRequestContextHeaders {
+    readonly [header: string]: string;
+}
+
+interface IRequestContext {
+    url: IRequestContextUrl;
+    locale: string;
+    market?: string;
+    textDirection: string;
+    sitePath?: string;
+    params: IRequestContextParams;
+    device: IRequestContextDevice;
+    user: IRequestContextUser;
+    app: IGeneric<IAny>;
+    query?: IDictionary<string>;
+    apiSettings: ICommerceApiSettings;
+    channel?: IChannelConfiguration;
+    gridSettings?: IGridSettings;
+    urlTokens: IUrlTokens;
+    operationId: string;
+    features: IRequestContextFeatures;
+    pageData: IGeneric<IAny>;
+    headers: IRequestContextHeaders;
+    cookies: ICookieContext;
+}
+```
+
+## Test a module that has an authenticated signed-in state
+
+Some modules require the **signed-in** state for testing. To create a page mock with the signed-in user state for testing modules, follow the steps in [simulate-the-signed-in-state](test-page-mock.md#simulate-the-signed-in-state).
+
+## Additional resources
+
+[App settings](app-settings.md)
+
+[Platform settings file](platform-settings.md)
+
+[Extend a module definition file](extend-module-definition.md)
+
+[Cookie API overview](cookie-api-overview.md)
+
+[Interactive components overview](interactive-components.md)
+
+[Mock the signed-in state during local development](mock-sign-in.md)
+
+[Configure module properties to be shown based on context](configure-properties-context.md)
+
+[Globalize modules by using the CultureInfoFormatter class](globalize-modules.md)
+
+[Set up Azure Key Vault for secure key management](set-up-key-vault.md)
+
+[!INCLUDE[footer-include](../../includes/footer-banner.md)]

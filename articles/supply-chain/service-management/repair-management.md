@@ -1,39 +1,21 @@
 ---
-# required metadata
-
-title: Repair management   
-description: Group problems systematically to help with the suggestion of solutions that have been successful in the past.
-author: ShylaThompson
-manager: AnnBe
-ms.date: 04/30/2018
-ms.topic: article
-ms.prod: 
-ms.service: dynamics-ax-applications
-ms.technology: 
-
-# optional metadata
-
+title: Repair management
+description: Group problems systematically to help with the suggestion of solutions that have been successful in the past. Learn about repair management.
+author: Henrikan
+ms.author: henrikan
+ms.reviewer: kamaybac
 ms.search.form: SMAConditionTable, SMASymptomArea, SMADiagnosisArea, SMAResolutionTable, SMARepairStage
-# ROBOTS: 
-audience: Application User
-# ms.devlang: 
-ms.reviewer: josaw
-ms.search.scope: Core, Operations
-# ms.tgt_pltfrm: 
+ms.topic: how-to
+ms.date: 07/10/2025
+ms.update-cycle: 1095-days
 ms.custom: 
-ms.assetid: 
-ms.search.region: Global
-# ms.search.industry: 
-ms.author: ShylaThompson
-ms.search.validFrom: 2016-02-28
-ms.dyn365.ops.version: AX 7.0.0
-
+  - bap-template
+  - evergreen
 ---
 
-# Repair management       
+# Repair management
 
 [!include [banner](../includes/banner.md)]
-
 
 For repair management you can group problems systematically. This is to help with the suggestion of solutions that have been successful in the past.
 
@@ -41,17 +23,13 @@ You set up symptoms, diagnosis, and resolution settings. All these can later be 
 
 ## Setting up repair management
 
-Use the following setup forms to enter information that will be used to specify the symptoms, the diagnosis, and the resolution, of the repair.
+Use the following setup pages to enter information that will be used to specify the symptoms, the diagnosis, and the resolution, of the repair.
 
-1.  Click **Service management** \> **Setup** \> **Repair** \> **Conditions**.
-
-2.  Click **Service management** \> **Setup** \> **Repair** \> **Symptom areas**.
-
-3.  Click **Service management** \> **Setup** \> **Repair** \> **Diagnosis areas**.
-
-4.  Click **Service management** \> **Setup** \> **Repair** \> **Resolutions**.
-
-5.  Click **Service management** \> **Setup** \> **Repair** \> **Repair stages**.
+- **Service management** \> **Setup** \> **Repair** \> **Conditions**.
+- **Service management** \> **Setup** \> **Repair** \> **Symptom areas**.
+- **Service management** \> **Setup** \> **Repair** \> **Diagnosis areas**.
+- **Service management** \> **Setup** \> **Repair** \> **Resolutions**.
+- **Service management** \> **Setup** \> **Repair** \> **Repair stages**.
 
 ## Symptoms and conditions
 
@@ -59,21 +37,19 @@ Symptoms are how the customer characterizes the problem. Symptoms include the cu
 
 You can set up symptom areas, symptom codes, and conditions. The symptom area covers the area of malfunction, and the symptom code covers the malfunction symptom. The condition describes the situation or environment that is present when the problem occurs.
 
-**Example**
+### Example
 
 A computer is brought in for repair because the hard drive fails after an extended period of use. The hard drive failure causes a blue screen error. The technician who receives the computer enters the following symptoms and conditions:
 
-1.  The symptom area is the hard drive
-
-2.  The symptom code is the blue screen error
-
-3.  The condition is that the hard drive fails after extended use
+- The symptom area is the hard drive.
+- The symptom code is the blue screen error.
+- The condition is that the hard drive fails after extended use.
 
 ## Diagnosis and resolutions
 
 The diagnosis and resolution fields are statements from the repair perspective. These are the steps that a technician went through to investigate the problem.
 
-The diagnosis area covers the operation that must occur to solve the issue. The diagnosis code is how the problem was handled, and the resolution could be that the item was repaired, replaced, or the order was canceled by the customer. For example, if the computer is repaired, the diagnosis area could be "defective part," the diagnosis code could be "new video card installed," and the resolution could be "replaced."
+The diagnosis area covers the operation that must occur to solve the issue. The diagnosis code is how the problem was handled, and the resolution could be that the item was repaired, replaced, or the order was canceled by the customer. For example, if the computer is repaired, the diagnosis area could be *defective part*, the diagnosis code could be *new video card installed*, and the resolution could be *replaced*.
 
 ## Repair stages
 
@@ -87,19 +63,13 @@ You can create repair lines for each step in the repair process.
 
 ## Create a repair line on a service order
 
-1.  Click **Service management** \> **Common** \> **Service orders** \> **Service orders**.
-
-2.  Select the service order with the service object that needs repair.
-
-3.  Click **Repair** \> **Repair lines** to open the **Repair lines** form.
-
-4.  Press CTRL+N to create a new line.
-
-5.  Select a service object. You can select any service object that has been set up with an object relation on the service order.
-
-6.  Select any of the preset symptoms, diagnosis, and execution values that are relevant in the repair line and then click the **Note** tab to create a note on the repair line, if needed.
-
-7.  Press CTRL+S to save the new repair line. The **Created date and time** field in the **General** tab of the **Repair lines** form is updated with the time of saving.
+1. Go to **Service management** \> **Service orders** \> **Service orders**.
+1. Select the service order with the service object that needs repair.
+1. Select **Repair** \> **Repair lines** to open the **Repair lines** page.
+1. Select **New** to create a new line.
+1. Select a service object. You can select any service object that has been set up with an object relation on the service order.
+1. Select any of the preset symptoms, diagnosis, and execution values that are relevant in the repair line and then select the **Note** tab to create a note on the repair line, if needed.
+1. Select **Save** to save the new repair line. The **Created date and time** field in the **General** tab of the **Repair lines** page is updated with the time of saving.
 
 ## Tracking progress and resolving a repair issue
 
@@ -109,12 +79,8 @@ When a repair issue is resolved, you can close the repair line. Set the repair s
 
 ## Close a repair line for a resolved issue
 
-1.  Open the **Repair lines** form. Follow the procedure earlier in this topic to create a repair line.
+1. Open the **Repair lines** page. Follow the procedure earlier in this article to create a repair line.
+1. Select the repair line with the repair issue that you want to close.
+1. In the **Repair stage** field, select a stage with the **Finished** property enabled.
 
-2.  Select the repair line with the repair issue that you want to close.
-
-3.  In the **Repair stage** field, select a stage with the **Finished** property enabled.
-
-  
-
-
+[!INCLUDE[footer-include](../../includes/footer-banner.md)]

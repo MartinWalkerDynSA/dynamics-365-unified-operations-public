@@ -1,34 +1,18 @@
 --- 
-# required metadata 
- 
 title: Add an existing activity to a production flow version
 description: When creating new versions of production flows, you can choose to add activities created for the older versions, to the new version. 
-author: cvocph
-manager: AnnBe 
+author: johanhoffmann
+ms.author: johanho
+ms.topic: how-to
 ms.date: 08/29/2018
-ms.topic: business-process 
-ms.prod:  
-ms.service: dynamics-ax-applications 
-ms.technology:  
- 
-# optional metadata 
- 
-ms.search.form: LeanProductionFlow, PlanActivity, PlanActivityAddExisting, PlanActivityAddExistingLookup   
-audience: Application User 
-# ms.devlang:  
-ms.reviewer: shylaw
-ms.search.scope: Core, Operations 
-# ms.tgt_pltfrm:  
-# ms.custom:  
-ms.search.region: Global
-ms.search.industry: Manufacturing
-ms.author: conradv
-ms.search.validFrom: 2016-06-30 
-ms.dyn365.ops.version: Version 7.0.0 
+ms.custom:
+ms.reviewer: kamaybac   
+ms.search.form: LeanProductionFlow, PlanActivity, PlanActivityAddExisting, PlanActivityAddExistingLookup  
 ---
+
 # Add an existing activity to a production flow version
 
-[!include [task guide banner](../../includes/task-guide-banner.md)]
+[!include [banner](../../includes/banner.md)]
 
 When creating new versions of production flows, you can choose to add activities created for the older versions, to the new version. This procedure shows how a new version is created for an existing production flow, without copying the activities. In the next step, an existing activity is added to the new version. 
 
@@ -58,3 +42,6 @@ This task requires production flow with version and activities already created.
 3. In the Activity field, enter or select a value.
 4. Click OK.
 
+
+
+[!INCLUDE[footer-include](../../../includes/footer-banner.md)]

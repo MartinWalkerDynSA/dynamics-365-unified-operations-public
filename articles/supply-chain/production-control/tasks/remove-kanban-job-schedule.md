@@ -1,34 +1,18 @@
 --- 
-# required metadata 
- 
 title: Remove a kanban job from the schedule
-description: This procedure focuses on removing a planned process kanban job from the schedule by reverting the job status to Not planned. 
-author: ChristianRytt
-manager: AnnBe 
+description: Learn about removing a planned process kanban job from the schedule by reverting the job status to Not planned, including a step-by-step process.
+author: johanhoffmann
+ms.author: johanho
+ms.topic: how-to
 ms.date: 08/29/2018
-ms.topic: business-process 
-ms.prod:  
-ms.service: dynamics-ax-applications 
-ms.technology:  
- 
-# optional metadata 
- 
-ms.search.form: KanbanJobSchedulingListPage, SysLookupMultiSelectGrid, KanbanJobStatusUpdate   
-audience: Application User 
-# ms.devlang:  
-ms.reviewer: shylaw
-ms.search.scope: Core, Operations 
-# ms.tgt_pltfrm:  
-# ms.custom:  
-ms.search.region: Global
-# ms.search.industry: 
-ms.author: crytt
-ms.search.validFrom: 2016-06-30 
-ms.dyn365.ops.version: Version 7.0.0 
+ms.custom:
+ms.reviewer: kamaybac   
+ms.search.form: KanbanJobSchedulingListPage, SysLookupMultiSelectGrid, KanbanJobStatusUpdate
 ---
+
 # Remove a kanban job from the schedule
 
-[!include [task guide banner](../../includes/task-guide-banner.md)]
+[!include [banner](../../includes/banner.md)]
 
 This procedure focuses on removing a planned process kanban job from the schedule by reverting the job status to Not planned. The demo data company used to create this procedure is USMF. This procedure is intended for the shop floor supervisor or production planner.
 
@@ -49,3 +33,6 @@ This procedure focuses on removing a planned process kanban job from the schedul
 4. Click OK.
     * This will revert the current job status from 'Planned' to 'Not planned' and remove it from the process board.   
 
+
+
+[!INCLUDE[footer-include](../../../includes/footer-banner.md)]

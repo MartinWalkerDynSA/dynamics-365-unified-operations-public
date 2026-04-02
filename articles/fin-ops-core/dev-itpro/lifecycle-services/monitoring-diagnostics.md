@@ -1,0 +1,57 @@
+---
+title: Monitoring and diagnostics tools in Lifecycle Services
+description: Learn about the tools that Microsoft Dynamics Lifecycle Services provides to help you monitor, diagnose, and analyze the health of the environments.
+author: angelmarshall
+ms.author: johnmichalak
+ms.topic: concept-article
+ms.custom: 
+  - bap-template
+ms.date: 03/06/2026
+ms.reviewer: johnmichalak
+ms.search.region: Global
+ms.search.validFrom: 2016-11-30
+ms.dyn365.ops.version: Version 1611
+ms.assetid: eb056816-ccf4-43a5-aed3-cf72543353de
+---
+
+# Monitoring and diagnostics tools in Lifecycle Services
+
+[!include [banner](../includes/banner.md)]
+[!include [Lifecycle Services deprecation](../includes/lcs-deprecation.md)]
+[!include [LCS freeze](../../../includes/lcs-freeze-banner.md)]
+
+Monitoring capabilities in Lifecycle Services are being rebuilt in [Monitoring and telemetry using Application Insights](../monitoring-telemetry/monitoring-overview.md) experiences for Finance and Operations apps. The following sections describe the available pages in Lifecycle Services monitoring. However, some capabilities begin to be disabled starting in September 2024.
+
+## Overview
+
+This tab provides a summary of the environment's health and performance. It includes general status information and shows the number of AOS and Batch servers that are receiving traffic.
+
+## Activity
+
+The Activity tab displays user and system activities. You can filter activities by user, time, and specific actions. This filtering helps you track and troubleshoot user-reported problems.
+
+### Deprecated activity logs in September 2024
+
+As part of the first wave of monitoring deprecation, the following queries are disabled because they now have feature parity in [Monitoring and telemetry using Application Insights](../monitoring-telemetry/monitoring-overview.md).
+
+* Get user sign in Events
+* Get Error Events for Form
+* Get Connection Outages
+* Get Slow Interactions
+* Get All Events for Activity
+* Get All Events for Failed Batch Job
+* Get Errors for Activity
+* Get Distinct Users
+* Get Events for User
+* Get Events for Browser Sessions
+* Get Weak Ciphers Usage
+
+## Health Metrics
+
+The Health Metrics tab offers insights into system health indicators such as CPU usage, memory usage, and error rates. You monitor key metrics to ensure optimal performance. This tab is in maintenance mode and no longer receives support.
+
+## SQL Insights
+
+SQL Insights provides advanced SQL performance analysis tools. SQL Insights helps you diagnose and troubleshoot SQL-related problems.
+
+[!INCLUDE[footer-include](../../../includes/footer-banner.md)]

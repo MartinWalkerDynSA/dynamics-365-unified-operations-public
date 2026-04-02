@@ -1,0 +1,380 @@
+---
+title: Fiscal registration service integration sample for the Czech Republic
+description: This article provides an overview of the fiscal integration sample for the Czech Republic in Microsoft Dynamics 365 Commerce.
+author: EvgenyPopovMBS
+ms.date: 02/26/2026
+ms.topic: overview
+ms.reviewer: v-griffinc
+ms.search.region: Global
+ms.author: anupamar
+ms.search.validFrom: 2019-04-01
+ms.custom: 
+  - bap-template
+---
+# Fiscal registration service integration sample for the Czech Republic
+
+[!include [banner](../../../finance/includes/banner.md)]
+
+This article provides an overview of the fiscal integration sample for the Czech Republic in Microsoft Dynamics 365 Commerce.
+
+To meet local fiscal requirements for cash registers in the Czech Republic, the Dynamics 365 Commerce functionality for the Czech Republic includes a sample integration of the point of sale (POS) with an external fiscal registration service. The sample extends the [fiscal integration functionality](fiscal-integration-for-retail-channel.md). It's based on the [EFR (Electronic Fiscal Register)](https://efsta.org/sicherheitsloesungen/) solution from [EFSTA](https://efsta.org/) and enables communication with the EFR service via the HTTPS protocol. The EFR service ensures Electronic Registration of Sales (Elektronická evidence tržeb \[EET\]). In other words, it ensures online transmission of the sales data to a fiscal web service of tax authorities. The EFR service can be hosted on either the Commerce Hardware station or a separate machine that the Hardware station can connect to. The sample is provided as source code and is part of the Commerce software development kit (SDK).
+
+Microsoft doesn't release any hardware, software, or documentation from EFSTA. For information about how to get the EFR solution and operate it, contact [EFSTA](https://efsta.org/kontakt/).
+
+## Scenarios
+
+The fiscal registration service integration sample for the Czech Republic covers the following scenarios.
+
+- Registration of cash transactions in the fiscal registration service.
+
+    - Send detailed transaction data to the fiscal registration service. This data includes sales line information, and information about discounts, payments, and taxes. The fiscal registration service further sends the data to the web service of tax authorities and receives a confirmation from it that includes the fiscal identification code of the transaction.
+    - Capture a response from the fiscal registration service. This response includes fiscal data such as the fiscal identification code and the security code of the transaction, and other related data.
+    - Print the fiscal data for a registered transaction on the receipt.
+
+- Registration of gift card operations and customer deposits in the fiscal registration service.
+
+    - Issue or add money to a gift card.
+    - Register a customer account deposit.
+    - Create a customer order and register a deposit for the order.
+    - Edit a customer order and override the deposit for the order.
+    - Cancel a customer order and refund the deposit for the order.
+
+- Error handling, such as the following options.
+
+    - Retry fiscal registration if a retry is possible, such as if the fiscal registration service isn't available, isn't ready, or isn't responding.
+    - Defer fiscal registration.
+    - Skip fiscal registration, or mark the transaction as registered, and include info codes to capture the reason for the failure and additional information.
+    - Check the availability of the fiscal registration service before a new sales transaction is opened or a sales transaction is finalized.
+
+### Gift cards
+
+The fiscal registration service integration sample implements the following rules related to gift cards.
+
+- Sales lines that relate to the *Issue gift card* or *Add to gift card* operations in a sales transaction are marked with a special attribute when you register the transaction in the fiscal registration service.
+- A payment by gift card is a regular payment and is marked with a special attribute when you register the transaction in the fiscal registration service.
+
+### Customer account deposits and customer order deposits
+
+The fiscal registration service integration sample implements the following rules related to customer account deposits and customer order deposits.
+
+- A transaction that is related to a customer account deposit or a customer order deposit is registered in the fiscal registration service as a single line transaction and is marked with a special attribute. The deposit VAT group is specified in this line.
+- When a hybrid customer order is created, that is, a customer order that contains products that can be carried out of the store by the customer, as well as products that will be picked up or shipped later, the transaction registered in the fiscal registration service contains lines for the products that are carried out, as well as a line for the order deposit.
+- A payment from a customer account is considered a regular payment and marked with a special attribute when the transaction is registered in the fiscal registration service.
+- The customer order deposit amount that is applied to a customer order pickup operation is considered a regular payment and marked with a special attribute when the transaction is registered in the fiscal registration service.
+
+### Offline registration
+
+If the fiscal registration service fails to transmit transaction data to the fiscal web service of tax authorities (for example, due to the response timeout) and to receive a confirmation from the web-service (that is, the fiscal identification code of the transaction), it generates a local signature for the transaction and includes it and a special error code in the response. The fiscal registration service resends transactions in original order in background as soon as the network connection is restored.
+
+### Limitations of the sample
+
+The fiscal registration service supports only scenarios where sales tax is included in the price. Therefore, you must set the **Price include sales tax** option to **Yes** for both stores and customers.
+
+## Set up Commerce for the Czech Republic
+
+This section describes the Commerce settings that are specific to and recommended for the Czech Republic. For more information, see [Commerce home page](../../welcome.md).
+
+To use the Czech-specific functionality, specify the following settings.
+
+- In the primary address of the legal entity, set the **Country/region** field to **CZE** (Czech Republic).
+- In the POS functionality profile of every store that is located in the Czech Republic, set the **ISO code** field to **CZ** (Czech Republic).
+
+Also specify the following settings for the Czech Republic. Run appropriate distribution jobs after you complete the setup.
+
+### Set up VAT per Czech Republic requirements
+
+
+Create sales tax codes, sales tax groups, and item sales tax groups. Set up sales tax information for products and services. For more information about how to set up and use sales tax features, see [Sales tax overview](../../../finance/general-ledger/indirect-taxes-overview.md).
+
+### Set up stores
+
+On the **All stores** page, update the store details. Set the following parameters.
+
+- In the **Sales tax group** field, specify the sales tax group that should be used for sales to the default customer.
+- Set the **Prices include sales tax** option to **Yes**.
+- Set the **Name** field to the company name. This change helps guarantee that the company name appears on a sales receipt. Alternatively, you can add the company name to the sales receipt layout as free-form text.
+- Set the **Tax identification number (TIN)** field to the company identification number. This change helps guarantee that the company identification number appears on a sales receipt. Alternatively, you can add the company identification number to the sales receipt layout as free-form text.
+
+### Set up functionality profiles
+
+Set up POS functionality profiles.
+
+- On the **Receipt numbering** FastTab, set up receipt numbering by creating or updating records for the **Sale**, **Sales order**, and **Return** receipt transaction types.
+
+### Set up registration numbers
+
+To set up registration numbers, follow these steps:
+
+1. In Commerce headquarters, go to **Organization administration \> Global address book \> Registration types \> Registration types**. Create a new registration type. Specify the **Country/region** field to **CZE** (Czech Republic) and make it restricted to Organization.
+1. Go to **Organization administration \> Global address book \> Registration types \> Registration categories**. Create a new registration category. Select the registration type from the previous step and set the **Registration category** to **Business Premise ID**.
+1. Go to **Organization administration \> Organizations \> Operating units**. For each store located in the Czech Republic, select the unit related to the store. On the **Address** FastTab, expand the **More options** drop-down list and select **Advanced**. 
+1. On the opened **Manage addresses** page, specify the following settings:
+
+    - On the **Address** FastTab, set the **Country/region** field to **CZE**.
+    - On the **Registration ID** FastTab, create a new record. Select the registration type created earlier and set the registration number.
+
+### Configure custom fields so that they can be used in receipt formats for sales receipts
+
+You can configure the language text and custom fields that are used in the POS receipt formats. The default company of the user who creates the receipt setup should be the same legal entity where the language text setup is created. Alternatively, the same language texts should be created in both the user's default company and the legal entity of the store that the setup is created for.
+
+On the **Language text** page, add the following records for the labels of the custom fields for receipt layouts. The **Language ID**, **Text ID**, and **Text** values that are shown in the table are examples. You can change them to meet your requirements. However, the **Text ID** values that you use must be unique and be 900001 or higher.
+
+Add the following POS labels to the **POS** section of **Language text** from the table:
+
+| Language ID | Text ID | Text                   |
+|-------------|---------|------------------------|
+| en-US       | 900001  | ID provozovny/pokladny |
+| en-US       | 900002  | BKP                    |
+| en-US       | 900003  | PKP                    |
+| en-US       | 900004  | FIK                    |
+| en-US       | 900005  | Info                   |
+| en-US       | 900006  | Sequence number        |
+
+On the **Custom fields** page, add the following records for the custom fields for receipt layouts. The **Caption text ID** values must correspond to the **Text ID** values that you specified on the **Language text** page:
+
+| Name                 | Type    | Caption text ID |
+|----------------------|---------|-----------------|
+| TLT                  | Receipt | 900001          |
+| SEC                  | Receipt | 900002          |
+| SIGN                 | Receipt | 900003          |
+| FISCAL               | Receipt | 900004          |
+| INFO                 | Receipt | 900005          |
+| CONTINUOUSNUMBER     | Receipt | 900006          |
+
+> [!NOTE]
+> It's important that you specify correct custom field names, as listed in the preceding table. An incorrect custom field name causes missing data in receipts.
+
+### Configure receipt formats
+
+For each required receipt format, change the value of the **Print behavior** field to **Always print**.
+
+In the Receipt format designer, add the following custom fields to the appropriate receipt sections. The field names correspond to the language texts that you defined in the previous section.
+
+- **Header:** Add the following fields.
+
+    - **Store name** and **Tax Identification Number**: these fields are used to print the company name and identity number on receipts. Alternatively, you can add the company name and identity number to the layout as free-form text.
+    - **Store address**, **Date**, **Time 24H**, **Receipt Number**, and **Register number**.
+    - **Sequence number**: this field identifies the number of the cash transaction in the fiscal registration service.
+
+- **Lines:** Add the following fields.
+
+    - **Item name**
+    - **Qty**
+    - **Total price with tax**
+
+- **Footer:** Add the following fields.
+
+    - Payment fields, so that the payment amounts for each payment method are printed. For example, add the **Tender name** and **Tender amount** fields to one line of the layout.
+    - **ID provozovny/pokladny:** this field prints the identifiers of the business premises and the cash register.
+    - **BKP:** this field prints the taxpayer's security code that the fiscal registration service assigns.
+    - **FIK:** this field prints the fiscal identification code of the transaction that the web-service of tax authorities assigns in case of successful online registration.
+    - **PKP:** this field prints the taxpayer's signature code that the fiscal registration service generates in case of offline registration.
+    - **Info:** this field prints the additional information from the fiscal registration service.
+
+For more information about how to work with receipt formats, see [Set up and design receipt formats](../../receipt-templates-printing.md).
+
+## Set up fiscal integration for the Czech Republic
+
+The fiscal registration service integration sample for the Czech Republic is based on the [fiscal integration functionality](fiscal-integration-for-retail-channel.md) and is part of the Commerce SDK. The sample is located in the **src\\FiscalIntegration\\Efr** folder of the [Dynamics 365 Commerce Solutions](https://github.com/microsoft/Dynamics365Commerce.Solutions/) repository. The [sample](fiscal-integration-for-retail-channel.md#fiscal-registration-process-and-fiscal-integration-samples-for-fiscal-devices-and-services) consists of a fiscal document provider, which is an extension of the Commerce runtime (CRT), and a fiscal connector, which is an extension of Commerce Hardware Station. For more information about how to use the Commerce SDK, see [Download Commerce SDK samples and reference packages from GitHub and NuGet](../../dev-itpro/retail-sdk/sdk-github.md) and [Set up a build pipeline for the independent-packaging SDK](../../dev-itpro/build-pipeline.md).
+
+> [!NOTE]
+> The fiscal registration service integration sample for the Czech Republic is available in the Commerce SDK as of Commerce version 10.0.29. In Commerce version 10.0.28 or earlier, you must use the previous version of the Retail SDK on a developer virtual machine (VM) in Microsoft Dynamics Lifecycle Services (LCS). For more information, see [Deployment guidelines for the fiscal integration sample for the Czech Republic (legacy)](emea-cze-fi-sample-sdk.md).
+
+Complete the fiscal integration setup steps as described in [Set up the fiscal integration for Commerce channels](setting-up-fiscal-integration-for-retail-channel.md):
+
+1. [Set up a fiscal registration process](setting-up-fiscal-integration-for-retail-channel.md#set-up-a-fiscal-registration-process). Also, make a note of the settings for the fiscal registration process that are [specific to this fiscal registration service integration sample](#set-up-the-registration-process).
+1. [Set error handling settings](setting-up-fiscal-integration-for-retail-channel.md#set-error-handling-settings).
+1. [Enable manual execution of deferred fiscal registration](setting-up-fiscal-integration-for-retail-channel.md#enable-manual-execution-of-deferred-fiscal-registration).
+1. [Configure channel components](#configure-channel-components).
+
+### Set up the registration process
+
+To enable the registration process, follow these steps to set up Commerce headquarters. For more information, see [Set up the fiscal integration for Commerce channels](setting-up-fiscal-integration-for-retail-channel.md#set-up-a-fiscal-registration-process).
+
+1. Download configuration files for the fiscal document provider and the fiscal connector:
+
+    1. Open the [Dynamics 365 Commerce Solutions](https://github.com/microsoft/Dynamics365Commerce.Solutions/) repository.
+    1. Select the correct release branch version according to your SDK or application version.
+    1. Open **src \> FiscalIntegration \> Efr**.
+    1. Download the fiscal document provider configuration file at **Configurations \> DocumentProviders \> DocumentProviderFiscalEFRSampleCzech.xml**.
+    1. Download the fiscal connector configuration file at **Configurations \> Connectors \> ConnectorEFRSample.xml**.
+
+    > [!NOTE]
+    > In Commerce version 10.0.28 or earlier, you must use the previous version of the Retail SDK on a developer VM in LCS. The configuration files for this fiscal integration sample are located in the following folders of the Retail SDK on a developer VM in LCS:
+    >
+    > - **Fiscal document provider configuration file:** RetailSdk\\SampleExtensions\\CommerceRuntime\\Extensions.DocumentProvider.EFRSample\\Configuration\\DocumentProviderFiscalEFRSampleCzech.xml
+    > - **Fiscal connector configuration file:** RetailSdk\\SampleExtensions\\HardwareStation\\Extension.EFRSample\\Configuration\\ConnectorEFRSample.xml
+
+1. Go to **Retail and Commerce \> Headquarters setup \> Parameters \> Commerce shared parameters**. On the **General** tab, set the **Enable fiscal integration** option to **Yes**.
+1. Go to **Retail and Commerce \> Channel setup \> Fiscal integration \> Fiscal document providers**, and load the fiscal document provider configuration file that you downloaded earlier.
+1. Go to **Retail and Commerce \> Channel setup \> Fiscal integration \> Fiscal connectors**, and load the fiscal connector configuration file that you downloaded earlier.
+1. Go to **Retail and Commerce \> Channel setup \> Fiscal integration \> Connector functional profiles**. Create a new connector functional profile. Select the document provider and the connector that you loaded earlier. Update the [data mapping settings](#default-data-mapping) as required.
+1. Go to **Retail and Commerce \> Channel setup \> Fiscal integration \> Connector technical profiles**. Create a new connector technical profile, and select the fiscal connector that you loaded earlier. Update the [connector settings](#fiscal-connector-settings) as required.
+1. Go to **Retail and Commerce \> Channel setup \> Fiscal integration \> Fiscal connector groups**. Create a new fiscal connector group for the connector functional profile that you created earlier.
+1. Go to **Retail and Commerce \> Channel setup \> Fiscal integration \> Fiscal registration processes**. Create a new fiscal registration process and a fiscal registration process step, and select the fiscal connector group that you created earlier.
+1. Go to **Retail and Commerce \> Channel setup \> POS setup \> POS profiles \> Functionality profiles**. Select a functionality profile that is linked to the store where the registration process should be activated. On the **Fiscal registration process** FastTab, select the fiscal registration process that you created earlier.
+1. Go to **Retail and Commerce \> Channel setup \> POS setup \> POS profiles \> Hardware profiles**. Select a hardware profile that is linked to the Hardware station that the fiscal registration service connects to. On the **Fiscal peripherals** FastTab, select the connector technical profile that you created earlier.
+1. Open the distribution schedule (**Retail and Commerce \> Retail and Commerce IT \> Distribution schedule**), and select jobs **1070** and **1090** to transfer data to the channel database.
+
+#### Default data mapping
+
+The fiscal document provider configuration includes the following default data mapping as part of the fiscal integration sample:
+
+- **Value-added tax (VAT) rates mapping** – The mapping of tax percentage values that are set up for the sales tax codes to values of the **TaxG** (tax group) attribute in requests that are sent to the fiscal service. Here's the default mapping:
+
+    ```
+    A: 21.00; B: 15.00; C: 10.00; Z: 0.00
+    ```
+
+    The first component in each pair represents a VAT tax group that the EFR fiscal registration service supports. The second component represents the corresponding VAT rate. For more information about VAT tax groups that EFR supports for the Czech Republic, see the [EFR reference](https://public.efsta.net/efr/).
+
+- **Default VAT group mapping** – Any VAT amounts that can't be mapped to one of the predetermined VAT groups are attributed to the default (basic) VAT group. Here's the default mapping:
+
+    ```
+    A
+    ```
+
+- **Deposit VAT group mapping** – Customer deposit amounts and customer order deposit amounts are attributed to the deposit VAT group. Here's the default mapping:
+
+    ```
+    Z
+    ```
+
+#### Fiscal connector settings
+
+The fiscal connector configuration includes the following settings as part of the fiscal integration sample:
+
+- **Endpoint address** – The URL of the fiscal registration service.
+- **Timeout** – The amount of time, in milliseconds, that the fiscal connector waits for a response from the fiscal registration service.
+
+### Configure channel components
+
+> [!NOTE]
+> - The fiscal registration service integration sample for the Czech Republic is available in the Commerce SDK as of Commerce version 10.0.29. In Commerce version 10.0.28 or earlier, you must use the previous version of the Retail SDK on a developer VM in LCS. For more information, see [Deployment guidelines for the fiscal integration sample for the Czech Republic (legacy)](emea-cze-fi-sample-sdk.md).
+> - Commerce samples that are deployed in your environment aren't automatically updated when you apply service or quality updates to Commerce components. You must manually update the required samples.
+
+#### Set up the development environment
+
+To set up a development environment to test and extend the sample, follow these steps:
+
+1. Clone or download the [Dynamics 365 Commerce Solutions](https://github.com/microsoft/Dynamics365Commerce.Solutions) repository. Select the correct release branch version according to your SDK or application version. For more information, see [Download Commerce SDK samples and reference packages from GitHub and NuGet](../../dev-itpro/retail-sdk/sdk-github.md).
+1. Open the EFR solution at **Dynamics365Commerce.Solutions\\FiscalIntegration\\Efr\\EFR.sln**, and build it.
+1. Install CRT extensions:
+
+    1. Find the CRT extension installer:
+
+        - **Commerce Scale Unit:** In the **Efr\\ScaleUnit\\ScaleUnit.EFR.Installer\\bin\\Debug\\net461** folder, find the **ScaleUnit.EFR.Installer** installer.
+        - **Local CRT on Modern POS:** In the **Efr\\ModernPOS\\ModernPOS.EFR.Installer\\bin\\Debug\\net461** folder, find the **ModernPOS.EFR.Installer** installer.
+
+    1. Start the CRT extension installer from the command line:
+
+        - **Commerce Scale Unit:**
+
+            ```Console
+            ScaleUnit.EFR.Installer.exe install --verbosity 0
+            ```
+
+        - **Local CRT on Modern POS:**
+
+            ```Console
+            ModernPOS.EFR.Installer.exe install --verbosity 0
+            ```
+
+1. Install fiscal connector extensions:
+
+    You can install fiscal connector extensions on the [Hardware station](fiscal-integration-for-retail-channel.md#fiscal-registration-is-done-via-a-device-connected-to-the-hardware-station) or the [POS register](fiscal-integration-for-retail-channel.md#fiscal-registration-is-done-via-a-device-or-service-in-the-local-network).
+
+    1. Install Hardware station extensions:
+
+        1. In the **Efr\\HardwareStation\\HardwareStation.EFR.Installer\\bin\\Debug\\net461** folder, find the **HardwareStation.EFR.Installer** installer.
+        1. Start the extension installer from the command line by running the following command.
+
+            ```Console
+            HardwareStation.EFR.Installer.exe install --verbosity 0
+            ```
+
+    1. Install POS extensions:
+
+        1. Open the POS fiscal connector sample solution at **Dynamics365Commerce.Solutions\\FiscalIntegration\\PosFiscalConnectorSample\\Contoso.PosFiscalConnectorSample.sln**, and build it.
+        1. In the **PosFiscalConnectorSample\\StoreCommerce.Installer\\bin\\Debug\\net461** folder, find the **Contoso.PosFiscalConnectorSample.StoreCommerce.Installer** installer.
+        1. Start the extension installer from the command line by running the following command.
+
+            ```Console
+            Contoso.PosFiscalConnectorSample.StoreCommerce.Installer.exe install --verbosity 0
+            ```
+
+#### Production environment
+
+Follow the steps in [Set up a build pipeline for a fiscal integration sample](../global/fiscal-integration-sample-build-pipeline.md) to generate and release the Cloud Scale Unit and self-service deployable packages for the fiscal integration sample. The **EFR build-pipeline.yml** template YAML file can be found in the **Pipeline\\YAML_Files** folder of the [Dynamics 365 Commerce Solutions](https://github.com/microsoft/Dynamics365Commerce.Solutions) repository.
+
+## Design of extensions
+
+The fiscal registration service integration sample for the Czech Republic is based on the [fiscal integration functionality](fiscal-integration-for-retail-channel.md) and is part of the Commerce SDK. The sample is located in the **src\\FiscalIntegration\\Efr** folder of the [Dynamics 365 Commerce Solutions](https://github.com/microsoft/Dynamics365Commerce.Solutions/) repository. The [sample](fiscal-integration-for-retail-channel.md#fiscal-registration-process-and-fiscal-integration-samples-for-fiscal-devices-and-services) consists of a fiscal document provider, which is an extension of CRT, and a fiscal connector, which is an extension of Commerce Hardware Station. For more information about how to use the Commerce SDK, see [Download Commerce SDK samples and reference packages from GitHub and NuGet](../../dev-itpro/retail-sdk/retail-sdk-overview.md) and [Set up a build pipeline for the independent-packaging SDK](../../dev-itpro/build-pipeline.md).
+
+> [!NOTE]
+> The fiscal registration service integration sample for the Czech Republic is available in the Commerce SDK as of Commerce version 10.0.29. In Commerce version 10.0.28 or earlier, you must use the previous version of the Retail SDK on a developer VM in LCS. For more information, see [Deployment guidelines for the fiscal integration sample for the Czech Republic (legacy)](emea-cze-fi-sample-sdk.md).
+
+### Commerce runtime extension design
+
+The purpose of the extension that is a fiscal document provider is to generate service-specific documents and handle responses from the fiscal registration service.
+
+#### Request handler
+
+There's a single **DocumentProviderEFRFiscalCZE** request handler for document provider, which is used to generate fiscal documents for the fiscal registration service.
+
+This handler is inherited from the **INamedRequestHandler** interface. The **HandlerName** method is responsible for returning the name of the handler. The handler name should match the connector document provider name that is specified in Commerce headquarters.
+
+The connector supports the following requests.
+
+- **GetFiscalDocumentDocumentProviderRequest** – This request contains information about what document should be generated. It returns a service-specific document that should be registered in the fiscal registration service.
+- **GetSupportedRegistrableEventsDocumentProviderRequest** – This request returns the list of events to subscribe to. Currently, the following events are supported: sales, customer account deposits and customer order deposits.
+- **GetFiscalRegisterResponseToSaveDocumentProviderRequest** – This request returns the response from the fiscal registration service. This response is serialized to form a string so that it's ready to be saved.
+
+#### Configuration
+
+The configuration file for the fiscal document provider is located at **src\\FiscalIntegration\\Efr\\Configurations\\DocumentProviders\\DocumentProviderFiscalEFRSampleCzech.xml** in the [Dynamics 365 Commerce Solutions](https://github.com/microsoft/Dynamics365Commerce.Solutions/) repository. The purpose of the file is to enable settings of the fiscal document provider to be configured from Commerce headquarters. The file format is aligned with the requirements for fiscal integration configuration.
+
+### Hardware station extension design
+
+The fiscal connector extension communicates with the fiscal registration service. The Hardware station extension uses the HTTP protocol to submit documents that the CRT extension generates to the fiscal registration service. It also handles the responses that it receives from the fiscal registration service.
+
+#### Request handler
+
+The **EFRHandler** request handler is the entry point for handling requests to the fiscal registration service.
+
+The handler inherits from the **INamedRequestHandler** interface. The **HandlerName** method returns the name of the handler. The handler name matches the fiscal connector name that you specify in Commerce headquarters.
+
+The connector supports the following requests.
+
+- **SubmitDocumentFiscalDeviceRequest** – This request sends documents to the fiscal registration service and returns a response from it.
+- **IsReadyFiscalDeviceRequest** – This request is used for a health check of the fiscal registration service.
+- **InitializeFiscalDeviceRequest** – This request is used to initialize the fiscal registration service.
+
+#### Configuration
+
+The configuration file for the fiscal connector is located at **src\\FiscalIntegration\\Efr\\Configurations\\Connectors\\ConnectorEFRSample.xml** in the [Dynamics 365 Commerce Solutions](https://github.com/microsoft/Dynamics365Commerce.Solutions/) repository. The purpose of the file is to enable settings of the fiscal connector to be configured from Commerce headquarters. The file format aligns with the requirements for fiscal integration configuration.
+
+### POS fiscal connector extension design
+
+The POS fiscal connector extension communicates with the fiscal registration service from POS. It uses the HTTPS protocol for communication.
+
+#### Fiscal connector factory
+
+The fiscal connector factory maps the connector name to the fiscal connector implementation. You can find it in the **Pos.Extension\\Connectors\\FiscalConnectorFactory.ts** file. The connector name should match the fiscal connector name that you specify in Commerce headquarters.
+
+#### EFR fiscal connector
+
+The EFR fiscal connector is in the **Pos.Extension\\Connectors\\Efr\\EfrFiscalConnector.ts** file. It implements the **IFiscalConnector** interface that supports the following requests:
+
+- **FiscalRegisterSubmitDocumentClientRequest** – This request sends documents to the fiscal registration service and returns a response from it.
+- **FiscalRegisterIsReadyClientRequest** – This request is used for a health check of the fiscal registration service.
+- **FiscalRegisterInitializeClientRequest** – This request is used to initialize the fiscal registration service.
+
+#### Configuration
+
+The configuration file is in the **src\\FiscalIntegration\\Efr\\Configurations\\Connectors** folder of the [Dynamics 365 Commerce Solutions](https://github.com/microsoft/Dynamics365Commerce.Solutions/) repository. The file enables you to configure settings for the fiscal connector from Commerce headquarters. The file format aligns with the requirements for fiscal integration configuration. Add the following settings:
+
+- **Endpoint address** – The URL of the fiscal registration service.
+- **Timeout** – The amount of time, in milliseconds, that the connector waits for a response from the fiscal registration service.
+
+[!INCLUDE[footer-include](../../../includes/footer-banner.md)]

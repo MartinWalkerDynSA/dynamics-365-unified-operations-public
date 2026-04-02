@@ -1,32 +1,13 @@
 ---
-# required metadata
-
 title: Partial shipment of a transport load
-description: This topic explains how you can partially ship a load and postpone the planning of capacity for the load.
+description: Learn how you can partially ship a load and postpone the planning of capacity for the load with an outline on setting up transport loads for partial shipment.
 author: Mirzaab
-manager: AnnBe
-ms.date: 03/15/2017
-ms.topic: article
-ms.prod: 
-ms.service: dynamics-ax-applications
-ms.technology: 
-
-# optional metadata
-
-ms.search.form: WHSTransportLoad
-# ROBOTS: 
-audience: Application User
-# ms.devlang: 
-ms.reviewer: josaw
-ms.search.scope: Core, Operations
-# ms.tgt_pltfrm: 
-ms.custom: 1705903
-ms.assetid: 427e01b3-4968-4cff-9b85-1717530f72e4
-ms.search.region: Global
-# ms.search.industry: 
 ms.author: mirzaab
-ms.search.validFrom: 2016-02-28
-ms.dyn365.ops.version: AX 8.0.0
+ms.topic: article
+ms.date: 03/15/2017
+ms.reviewer: kamaybac
+ms.search.form: WHSTransportLoad
+ms.assetid: 427e01b3-4968-4cff-9b85-1717530f72e4
 ---
 
 # Partial shipment of a transport load
@@ -70,3 +51,6 @@ This setup lets you confirm a transport load that includes a full load or a part
 
 1. Select **Warehouse management** \> **Loads** \> **Transport loads**.
 2. On the Action Pane, on the **Ship and receive** tab, in the **Confirm** group, select **Transport**.
+
+
+[!INCLUDE[footer-include](../../includes/footer-banner.md)]

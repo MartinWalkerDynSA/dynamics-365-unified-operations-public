@@ -1,33 +1,13 @@
 ---
-# required metadata
-
 title: Consolidated batch orders
-description: This article describes the concept of consolidated batch orders.
-author: ShylaThompson
-manager: AnnBe
-ms.date: 06/20/2017
+description: Learn about the concept of consolidated batch orders, including an outline on consolidated batch order combination orders.
+author: johanhoffmann
+ms.author: johanho
 ms.topic: article
-ms.prod: 
-ms.service: dynamics-ax-applications
-ms.technology: 
-
-# optional metadata
-
+ms.date: 06/20/2017
+ms.reviewer: kamaybac
 ms.search.form: PmfAddToConsOrder, PmfBulkItemConv, PmfBulkPackOnHand, PmfConsOrderListPage
-# ROBOTS: 
-audience: Application User
-# ms.devlang: 
-ms.reviewer: josaw
-ms.search.scope: Core, Operations
-# ms.tgt_pltfrm: 
-ms.custom: 19291
 ms.assetid: e97f1d3d-1306-4c42-b2bc-d1755fe574d5
-ms.search.region: Global
-ms.search.industry: Manufacturing
-ms.author: shylaw
-ms.search.validFrom: 2016-02-28
-ms.dyn365.ops.version: AX 7.0.0
-
 ---
 
 # Consolidated batch orders
@@ -50,3 +30,6 @@ A consolidated batch order can contain any combination of the following orders:
 
 
 
+
+
+[!INCLUDE[footer-include](../../includes/footer-banner.md)]

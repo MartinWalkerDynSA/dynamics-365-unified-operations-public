@@ -1,34 +1,18 @@
 --- 
-# required metadata 
- 
 title: Define lean schedule groups
-description: Lean schedule groups are defined to group and distinguish products in kanban scheduling. 
-author: cvocph
-manager: AnnBe 
+description: Lean schedule groups are defined to group and distinguish products in kanban scheduling. Learn about defining lean scheduling groups.
+author: johanhoffmann
+ms.author: johanho
+ms.topic: how-to
 ms.date: 08/29/2018
-ms.topic: business-process 
-ms.prod:  
-ms.service: dynamics-ax-applications 
-ms.technology:  
- 
-# optional metadata 
- 
-ms.search.form: LeanScheduleGroup, GanttColorTableLookup   
-audience: Application User 
-# ms.devlang:  
-ms.reviewer: shylaw
-ms.search.scope: Core, Operations 
-# ms.tgt_pltfrm:  
-# ms.custom:  
-ms.search.region: Global
-ms.search.industry: Manufacturing
-ms.author: conradv
-ms.search.validFrom: 2016-06-30 
-ms.dyn365.ops.version: Version 7.0.0 
+ms.custom:
+ms.reviewer: kamaybac    
+ms.search.form: LeanScheduleGroup, GanttColorTableLookup
 ---
+
 # Define lean schedule groups
 
-[!include [task guide banner](../../includes/task-guide-banner.md)]
+[!include [banner](../../includes/banner.md)]
 
 Lean schedule groups are defined to group and distinguish products in kanban scheduling. The grouping can be done as generic association per company or specific to a work cell. Each group has a color code assigned for visual indication in the kanban scheduling listpage. The demo data company used to create this procedure is USMF.
 
@@ -49,7 +33,7 @@ Lean schedule groups are defined to group and distinguish products in kanban sch
 2. In the Item relation type field, select Item
 3. In the Item number field, type a value.
 4. In the Throughput ratio field, enter a number.
-    * The default Throughput ratio is 1, which means that the related products consume exactly the capacity specified in the process activites of the production flows. Throughput ratio > 1 defines a higher resource consumption, Throughput ratio < 1 defines a lower resource consumption. The ratio is used in the cost calculation and in the calculation of the kanban job consumption.  
+    * The default Throughput ratio is 1, which means that the related products consume exactly the capacity specified in the process activities of the production flows. Throughput ratio > 1 defines a higher resource consumption, Throughput ratio < 1 defines a lower resource consumption. The ratio is used in the cost calculation and in the calculation of the kanban job consumption.  
 
 ## Associate item allocation key
 1. Associate an item allocation key
@@ -58,3 +42,6 @@ Lean schedule groups are defined to group and distinguish products in kanban sch
 3. In the Item allocation key field, click the drop-down button to open the lookup.
 4. In the list, click the link in the selected row.
 
+
+
+[!INCLUDE[footer-include](../../../includes/footer-banner.md)]

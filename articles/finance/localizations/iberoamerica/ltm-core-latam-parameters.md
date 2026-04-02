@@ -1,0 +1,64 @@
+---
+title: Latin America parameters 
+description: Learn about the parameter configuration for Latin America, including prerequisites and a step-by-step process on setting up previous LATAM configurations.
+author: Fhernandez0088
+ms.author: v-federicohe 
+ms.topic: how-to
+ms.date: 01/05/2026
+ms.custom: bap-template
+ms.reviewer: johnmichalak	
+---
+
+# Latin America parameters
+
+[!include [banner](../../includes/banner.md)]
+
+[!include [does not apply to](includes/does-not-apply-to.md)]
+
+This article provides a description of the Latin America (LATAM) parameter configuration. Use these parameters to incorporate the general parameter setup into the local parameters before you start the corresponding configurations.
+
+## Prerequisites
+
+- The Global LATAM taxes feature must be enabled.
+- The company must be in a country/region that supports the LATAM localization.
+
+## Set up previous LATAM configurations
+
+1. Go to **Organization administration > Setup > LATAM > LATAM parameters**.
+1. On the **General** tab, enter the character length for the prefix field for **Document class types** and **Document class letters**.
+1. On the **Functionalities** tab, activate the following options as required.
+
+    | Option                        | Description |
+    |-------------------------------|-------------|
+    | Enable additional authorization code   | Activate an additional field in the **Sales CA** form. | 
+    | Enable sales return account   | Activate the alternative ledger account for return sales orders. |
+    | Enable project return account | Activate the alternative ledger account for return project sales. |
+
+1. On the **Mandatory document class in journal** tab, activate the options for each group as required. When you activate an option, the **Document class** field in the LATAM extended information from journal entries becomes mandatory.
+1. On the **Value** tab, update the following fields to configure how payment methods behave with transactions.
+
+    | Field                                               | Description |
+    |-----------------------------------------------------|-------------|
+    | Save record of bank documents                       | Save information about bank type values. |
+    | Save record of cash transactions                    | Save information about movements of cash type values. |
+    | Save record of withholding taxes performed          | Save information about the values of withholding taxes that are performed. |
+    | Save record of withholding taxes suffered           | Save information about the values of withholding taxes that are suffered. |
+    | Save record of other movements                      | Save information about others value types. |
+    | Update "Status" field for checks in possession      | Use different statuses for payment method documents, including third-party checks. |
+    | Update "Reason" status for conciliated transactions | Use the reason that's selected in the **Reason code for Conciliated Status** field in bank reconciliations. |
+    | Reason code for Conciliated Status                  | Select a reason that's configured in **Master of Financial Reasons** for the lines of the **Bank account** type. |
+    | Remove IBAN field validation                        | Don't use the native validation of the **IBAN** field in the bank account master. |
+    | Show payment transactions                           | Set this slider to yes to show payment transactions and transactions without LATAM information. |
+
+1. On the **Dimension allocations** tab, enable the addition of third-party information as a dimension in transactions.
+
+    | Field                                                         | Description |
+    |---------------------------------------------------------------|-------------|
+    | Enable value creation in third-party dimension                | Automatically create a third-party dimension code of the country/region tax ID number for the client or vendor that's assigned in a transaction. |
+    | Name                                                          | Select the dimension that's used to replicate the third-party country/region tax ID number. |
+    | Enable allocation of third-party dimension in customer/vendor | When the vendor or customer LATAM information is completed, the country/region tax ID number is assigned in the selected third-party dimension. |
+    | Inherit dimension to journal lines                            | Replicate the third-party dimension information of the client or vendor on the voucher header on the other lines of the journal. Include values, if they're blank. |
+
+1. On the **Concepts and Notes** tab, enter information together with the labels that are required in the following master records: vendors, legal entities, bank groups, contacts, and employees.
+
+[!INCLUDE[footer-include](../../../includes/footer-banner.md)]

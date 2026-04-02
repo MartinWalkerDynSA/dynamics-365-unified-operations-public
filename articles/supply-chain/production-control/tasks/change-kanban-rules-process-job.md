@@ -1,34 +1,18 @@
 --- 
-# required metadata 
- 
 title: Change kanban rules for a process job
-description: This procedure focuses on changing the used kanban rule for a given kanban. 
-author: ChristianRytt
-manager: AnnBe 
+description: Learn about changing the used kanban rule for a given kanban, including step-by-step processes for copy and changing kanban rules.
+author: johanhoffmann
+ms.author: johanho
+ms.topic: how-to
 ms.date: 08/29/2018
-ms.topic: business-process 
-ms.prod:  
-ms.service: dynamics-ax-applications 
-ms.technology:  
- 
-# optional metadata 
- 
-ms.search.form: KanbanRules, KanbanRuleDuplicate, KanbanJobSchedulingListPage, LeanRuleReassignmentWizard, KanbanReassignRuleLookup   
-audience: Application User 
-# ms.devlang:  
-ms.reviewer: shylaw
-ms.search.scope: Core, Operations 
-# ms.tgt_pltfrm:  
-# ms.custom:  
-ms.search.region: Global
-# ms.search.industry: 
-ms.author: crytt
-ms.search.validFrom: 2016-06-30 
-ms.dyn365.ops.version: Version 7.0.0 
+ms.custom:
+ms.reviewer: kamaybac   
+ms.search.form: KanbanRules, KanbanRuleDuplicate, KanbanJobSchedulingListPage, LeanRuleReassignmentWizard, KanbanReassignRuleLookup  
 ---
+
 # Change kanban rules for a process job
 
-[!include [task guide banner](../../includes/task-guide-banner.md)]
+[!include [banner](../../includes/banner.md)]
 
 This procedure focuses on changing the used kanban rule for a given kanban. This is useful to level load resources or in case of breakdown. The demo data company used to create this procedure is USMF. This procedure is intended for the planner, working at a lean manufacturing company, responsible for the value stream.
 
@@ -52,3 +36,6 @@ This procedure focuses on changing the used kanban rule for a given kanban. This
 7. Click Finish.
     * Now the kanban job is using an another kanban rule. This can be useful to level load work cells.  
 
+
+
+[!INCLUDE[footer-include](../../../includes/footer-banner.md)]

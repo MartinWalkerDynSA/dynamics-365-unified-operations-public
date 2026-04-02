@@ -1,33 +1,15 @@
 ---
-# required metadata
-
 title: Product configuration models overview
-description: This article defines terms and concepts that are relevant to product configuration models. Product configuration models let you build a generic product structure that can be used to configure many product variants for a single product.
-author: cvocph
-manager: AnnBe
+description: Product configuration models let you build a generic product structure that can be used to configure many product variants for a single product.
+author: sgmsft
+ms.author: shwgarg
+ms.topic: overview
 ms.date: 06/20/2017
-ms.topic: article
-ms.prod: 
-ms.service: dynamics-ax-applications
-ms.technology: 
-
-# optional metadata
-
-ms.search.form: PCProductConfigurationModelDetails, PCProductConfigurationModelListPage
-# ROBOTS: 
-audience: Application User
-# ms.devlang: 
-ms.reviewer: josaw
-ms.search.scope: Core, Operations
-# ms.tgt_pltfrm: 
-ms.custom: 4031
+ms.custom:
+ms.reviewer: kamaybac
+ms.collection: get-started
+ms.search.form: PCProductConfigurationModelDetails, PCProductConfigurationModelListPage, PCModalWaitDialog, PCTemplateConfigurationManager, PCConfigurationUIGrouping
 ms.assetid: 70b968e8-e550-4731-823d-d713b8910f7b
-ms.search.region: Global
-# ms.search.industry: 
-ms.author: conradv
-ms.search.validFrom: 2016-02-28
-ms.dyn365.ops.version: AX 7.0.0
-
 ---
 
 # Product configuration models overview
@@ -81,7 +63,7 @@ If the attribute type is <strong>Boolean</strong>, <strong>Integer</strong> with
 <td>Constraints</td>
 <td>Constraints describe the restrictions of the product model configuration. Constraints are used to guarantee that only valid values are selected when a product is being configured. Constraints can be either expression constraints or table constraints:
 <ul>
-<li>Expression constraints can be used only for the component that they are tied to. The expression constraints for a component can reference attributes of the component&#39;s subcomponents. The Product configuration solver is used to solve the constraints, and you must use the solver syntax when you write the constraints. For more information, see the topic link about expression constraints and table constraints.</li>
+<li>Expression constraints can be used only for the component that they are tied to. The expression constraints for a component can reference attributes of the component&#39;s subcomponents. The Product configuration solver is used to solve the constraints, and you must use the solver syntax when you write the constraints. For more information, see the article link about expression constraints and table constraints.</li>
 <li>Table constraints must be defined before they can be applied to a component in a product configuration model. Table constraints can be either user-defined or system-defined. A user-defined table constraint is a type of matrix that can be used to describe the set of combinations for the attribute values that are defined by attribute types. For example, if speakers are produced, the matrix for a user-defined table constraint might have columns for the speaker finish and grill.</li>
 </ul>
 <strong>Example</strong> Speakers are available in four finishes: Black, Oak, Rosewood, and White. The speakers can have one of three front grills: Black, Metal, or White. The Black finish is available for all grills, but the other finishes are limited to specific grills. The following table shows an example of the information that is displayed on the <strong>Allowed combinations</strong> tab on the <strong>Edit table constraint</strong> page.
@@ -123,7 +105,7 @@ If the attribute type is <strong>Boolean</strong>, <strong>Integer</strong> with
 </tr>
 </tbody>
 </table>
-A system-defined table constraint represents a mapping between an attribute type and a field in a Finance and Operations table. A system-defined table constraint dynamically links the attribute type to the field. The link enables the attribute in a product configuration model to reflect the data of the field in the Finance and Operations table.</td>
+A system-defined table constraint represents a mapping between an attribute type and a field in a Supply Chain Management table. A system-defined table constraint dynamically links the attribute type to the field. The link enables the attribute in a product configuration model to reflect the data of the field in the Supply Chain Management table.</td>
 </tr>
 <tr class="odd">
 <td>Calculations</td>
@@ -158,3 +140,6 @@ You can view whether a released product can be used as a component or subcompone
 
 
 
+
+
+[!INCLUDE[footer-include](../../includes/footer-banner.md)]

@@ -38,22 +38,24 @@
     "overwrite": [],
     "externalReference": [],
     "globalMetadata": {
-      "feedback_system": "GitHub",
-      "feedback_github_repo": "MicrosoftDocs/dynamics-365-unified-operations-public",
+      "feedback_system": "Standard",
       "feedback_product_url": "https://ideas.dynamics.com",
       "contributors_to_exclude": [
-        "OpenLocalizationService"
+        "OpenLocalizationService",
+        "buck1ey",
+        "bishalgoswami",
+        "kimberleybrown",
+        "nathlaroche"
       ],
       "layout": "Conceptual",
       "searchScope": [
+        "dynamics365-finops",
         "Dynamics 365",
         "Unified Operations"
       ],
-      "extendBreadcrumb": "true",
-      "breadcrumb_path": "/dynamics365/unified-operations/breadcrumb/toc.json",
+      "breadcrumb_path": "/dynamics365/ops-bc/toc.json",
       "uhfHeaderId": "MSDocsHeader-Dynamics365",
       "brand": "dyn-ops",
-      "titleSuffix": "Finance & Operations | Dynamics 365 | #MSDyn365FO",
       "_op_documentIdPathDepotMapping": {
         "dev-itpro/": {
           "folder_relative_path_in_docset": ".",
@@ -75,13 +77,63 @@
           "folder_relative_path_in_docset": ".",
           "depot_name": "MSDN.d365OpsSCM"
         },
-        "talent/": {
+        "human-resources/": {
           "folder_relative_path_in_docset": ".",
           "depot_name": "MSDN.d365OpsHR"
         }
-      }
+      },
+      "recommendations": "true"
     },
     "fileMetadata": {
+      "audience": {
+        "supply-chain/**/**.md": [
+          "Application User"
+        ]
+      },
+      "ms.search.region": {
+        "supply-chain/**/**.md": [
+          "Global"
+        ]
+      },
+      "uhfHeaderId":{
+        "finance/**/*.md": "MSDocsHeader-Dynamics365-Finance",
+        "finance/**/index.yml": "MSDocsHeader-Dynamics365-Finance",
+        "supply-chain/**/*.md": "MSDocsHeader-Dynamics365-SupplyChainManagement",
+        "supply-chain/**/index.yml": "MSDocsHeader-Dynamics365-SupplyChainManagement",
+        "commerce/**/*.md": "MSDocsHeader-Dynamics365-Commerce",
+        "commerce/**/index.yml": "MSDocsHeader-Dynamics365-Commerce",
+        "human-resources/**/*.md":"MSDocsHeader-Dynamics365-human-resources",
+        "human-resources/**/index.yml":"MSDocsHeader-Dynamics365-human-resources",
+        "fin-ops-core/**/*.md": "MSDocsHeader-Dynamics365",
+        "fin-ops-core/**/index.yml": "MSDocsHeader-Dynamics365"
+      },
+      "search.app": {
+        "finance/**/*.md": [
+          "FinanceAndOperations",
+          "financeandoperations-docs"
+        ],
+        "supply-chain/**/*.md": [
+          "FinanceAndOperations",
+          "supplychainmanagement-docs",
+          "supplychaincenter-docs"
+        ],
+        "commerce/**/*.md": [
+          "Commerce",
+          "commerce-docs"
+        ],
+        "human-resources/**/*.md": [
+          "HumanResources",
+          "humanresources-docs"
+        ],
+        "talent/**/*.md": [
+          "HumanResources",
+          "humanresources-docs"
+        ],
+        "fin-ops-core/**/*.md": [
+          "FinanceAndOperations",
+          "financeandoperations-docs"
+        ]
+      },
       "featureFlags": {
         "dev-itpro/**/*.md": [
           "show_learn_banner"
@@ -110,28 +162,144 @@
           "dynamics-finance-operations"
         ]
       },
-        "feedback_product_url": {
-          "retail/**/*.md": "https://ideas.dynamics.com"
-        },
-       "searchScope": {
-          "talent/**.md": [
-            "Dynamics 365",
-            "Unified Operations",
-            "Talent"
+      "feedback_product_url": {
+        "retail/**/*.md": "https://ideas.dynamics.com"
+      },
+      "searchScope": {
+        "talent/**.md": [
+          "dynamics365-talent",
+          "Dynamics 365",
+          "Unified Operations",
+          "Talent"
         ],
-          "retail/**/**.md": [
-            "Dynamics 365",
-            "Unified Operations",
-            "Retail"
+        "commerce/**/**.md": [
+          "dynamics365-commerce",
+          "Dynamics 365",
+          "Unified Operations",
+          "Retail"
+        ],
+        "human-resources/**/**.md": [
+          "dynamics365-hr",
+          "Dynamics 365",
+          "Unified Operations",
+          "Human Resources"
+        ],
+        "finance/**/**.md": [
+          "dynamics365-finance",
+          "Dynamics 365",
+          "Unified Operations",
+          "Finance"
+        ],
+        "supply-chain/**/**.md": [
+          "dynamics365-supplychain",
+          "Dynamics 365",
+          "Unified Operations",
+          "Supply Chain"
         ]
-       },
+      },
       "titleSuffix": {
-        "dev-itpro/lifecycle-services/ax-2012/**/*.md": "AX 2012",
-        "talent/**.md": "Talent | Dynamics 365",
-        "retail/**.md": "Retail | Dynamics 365"
+        "commerce/**.md": "Commerce | Dynamics 365",
+        "fin-ops-core/**.md": "Finance & Operations | Dynamics 365",
+        "fin-ops-core/fin-ops/hr/**.md": "Human Resources | Dynamics 365",
+        "finance/**.md": "Finance | Dynamics 365",
+        "human-resources/**.md": "Human Resources | Dynamics 365",
+        "supply-chain/**.md": "Supply Chain Management | Dynamics 365",
+        "talent/**.md": "Talent | Dynamics 365"
       },
       "breadcrumb_path": {
-        "dev-itpro/lifecycle-services/ax-2012/**/*.md": "/dynamics365/unified-operations/breadcrumb/toc.json"}
+        "commerce/**/*.md": "/dynamics365/commerce-bc/toc.json",
+        "supply-chain/**/*.md": "/dynamics365/supply-chain-bc/toc.json",
+        "human-resources/**/*.md": "/dynamics365/human-resources-bc/toc.json",
+        "fin-ops-core/**/*.md": "/dynamics365/ops-bc/toc.json",
+        "finance/**/*.md": "/dynamics365/finance-bc/toc.json",
+        "dev-itpro/lifecycle-services/ax-2012/**/*.md": "/dynamics365/ops-bc/toc.json"
+      },
+      "ms.service": {
+        "commerce/**/**.*": "dynamics-365-commerce",
+        "finance/**/**.*": "dynamics-365-finance",
+        "fin-ops-core/**/**.*": "dynamics-365-cross-app",
+        "fin-ops-core/dev-itpro/lifecycle-services/ax-2012/**/**.*": "",
+        "human-resources/**/**.*": "dynamics-365-human-resources",
+        "supply-chain/**/**.*": "dynamics-365-supply-chain",
+        "talent/**/**.*": "dynamics-365-talent"
+      },
+      "ms.reviewer": {
+        "human-resources/**/**.md": "twheeloc",
+        "talent/**/**.md": "twheeloc"
+      },
+      "ms.topic": {
+        "fin-ops-core/dev-itpro/mobile-apps/platform/client-apis/**/**.md": "reference",
+        "fin-ops-core/dev-itpro/dev-ref/**/**.md": "reference",
+        "fin-ops-core/dev-itpro/analytics/er-formula**.md": "reference",
+        "fin-ops-core/dev-itpro/analytics/er-functions**.md": "reference"
+      },
+      "ms.search.scope": {
+        "commerce/**/**.md": "Core, Operations, Retail",
+        "commerce/dev-itpro/**/**.md": "Operations, Retail",
+        "commerce/dev-itpro/retail-sdk/**/**.md": "Operations, Retail",
+        "commerce/e-commerce-extensibility/**/**.md": "Operations, Retail",
+        "commerce/get-started/**/**.md": "Operations, Retail",
+        "commerce/localizations/**/**.md": "Operations, Retail",
+        "commerce/tasks/**/**.md": "Core, Operations, Retail",
+        "finance/**/**.md": "Core, Operations",
+        "finance/localizations/**/**.md": "Core, Operations",
+        "finance/localizations/tasks/**/**.md": "Core, Operations",
+        "fin-ops-core/dev-itpro/**/**.md": "Operations, Core",
+        "fin-ops-core/dev-itpro/analytics/**/**.md": "Core, Operations",
+        "fin-ops-core/dev-itpro/analytics/tasks/**/**.md": "Core, Operations",
+        "fin-ops-core/dev-itpro/business-events/**/**.md": "Core, Operations",
+        "fin-ops-core/dev-itpro/business-events/how-to/**/**.md": "Core, Operations",
+        "fin-ops-core/dev-itpro/database/**/**.md": "Operations, Core",
+        "fin-ops-core/dev-itpro/database/api/**/**.md": "Operations, Core",
+        "fin-ops-core/dev-itpro/database/api/v1/**/**.md": "Operations, Core",
+        "fin-ops-core/dev-itpro/data-entities/**/**.md": "Operations, Core",
+        "fin-ops-core/dev-itpro/data-entities/dual-write/**/**.md": "Core, Operations",
+        "fin-ops-core/dev-itpro/data-entities/tasks/**/**.md": "Core, Operations",
+        "fin-ops-core/dev-itpro/deployment/**/**.md": "Operations, Core",
+        "fin-ops-core/dev-itpro/dev-ref/**/**.md": "Operations",
+        "fin-ops-core/dev-itpro/dev-ref/system-classes/**/**.md": "Operations",
+        "fin-ops-core/dev-itpro/dev-ref/xpp-data/**/**.md": "Operations",
+        "fin-ops-core/dev-itpro/dev-tools/**/**.md": "Operations",
+        "fin-ops-core/dev-itpro/extensibility/**/**.md": "Operations",
+        "fin-ops-core/dev-itpro/financial/**/**.md": "Operations",
+        "fin-ops-core/dev-itpro/gdpr/**/**.md": "Operations, Core",
+        "fin-ops-core/dev-itpro/get-started/**/**.md": "Operations",
+        "fin-ops-core/dev-itpro/help/**/**.md": "Core, Operations",
+        "fin-ops-core/dev-itpro/lcs-solutions/**/**.md": "Core",
+        "fin-ops-core/dev-itpro/lifecycle-services/**/**.md": "Core",
+        "fin-ops-core/dev-itpro/lifecycle-services/ax-2012/**/**.md": "Core",
+        "fin-ops-core/dev-itpro/migration-upgrade/**/**.md": "Operations, Core",
+        "fin-ops-core/dev-itpro/mobile-apps/**/**.md": "Core, Operations",
+        "fin-ops-core/dev-itpro/mobile-apps/platform/**/**.md": "Operations, Core",
+        "fin-ops-core/dev-itpro/mobile-apps/platform/client-apis/**/**.md": "Operations",
+        "fin-ops-core/dev-itpro/mobile-apps/platform/client-apis/enums/**/**.md": "Operations",
+        "fin-ops-core/dev-itpro/mobile-apps/platform/client-apis/interfaces/**/**.md": "Operations",
+        "fin-ops-core/dev-itpro/mobile-apps/platform/client-apis/modules/**/**.md": "Operations",
+        "fin-ops-core/dev-itpro/mobile-apps/platform/scenarios/**/**.md": "Operations, Core",
+        "fin-ops-core/dev-itpro/office-integration/**/**.md": "Operations, Core",
+        "fin-ops-core/dev-itpro/perf-test/**/**.md": "Operations, Core",
+        "fin-ops-core/dev-itpro/perf-test/rsat/**/**.md": "Operations, Core",
+        "fin-ops-core/dev-itpro/process-automation/**/**.md": "Operations",
+        "fin-ops-core/dev-itpro/power-platform/**/**.md": "Operations, Core",
+        "fin-ops-core/dev-itpro/sysadmin/**/**.md": "Core, Operations",
+        "fin-ops-core/dev-itpro/sysadmin/tasks/**/**.md": "Core, Operations",
+        "fin-ops-core/dev-itpro/user-interface/**/**.md": "Operations, Core",
+        "fin-ops-core/fin-ops/**/**.md": "Core, Operations",
+        "fin-ops-core/fin-ops/get-started/**/**.md": "Operations, Core",
+        "fin-ops-core/fin-ops/get-started/feature-management/**/**.md": "Core, Operations",
+        "fin-ops-core/fin-ops/get-started/tasks/**/**.md": "Core, Operations",
+        "fin-ops-core/fin-ops/hr/**/**.md": "Core, Operations, Human Resources",
+        "fin-ops-core/fin-ops/hr/localizations/**/**.md": "Operations, Core, Human Resources",
+        "fin-ops-core/fin-ops/hr/localizations/tasks/**/**.md": "Core, Operations, Human Resources",
+        "fin-ops-core/fin-ops/hr/tasks/**/**.md": "Core, Operations, Human Resources",
+        "fin-ops-core/fin-ops/imp-lifecycle/**/**.md": "Operations, Core",
+        "fin-ops-core/fin-ops/organization-administration/**/**.md": "Core, Operations",
+        "fin-ops-core/fin-ops/organization-administration/tasks/**/**.md": "Core, Operations",
+        "supply-chain/**/**.md": "Core, Operations",
+        "supply-chain/localizations/**/**.md": "Core, Operations",
+        "talent/**/**.md": "Human Resources",
+        "human-resources/**/**.md": "Human Resources"
+      }
     },
     "template": [],
     "dest": "d365F-O",

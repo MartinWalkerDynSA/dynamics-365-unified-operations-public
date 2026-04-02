@@ -1,0 +1,311 @@
+---
+title: Configure module properties to be shown based on context
+description: Learn how to configure module properties in Microsoft Dynamics 365 Commerce so that they're shown or hidden based on the contextual values of other configuration properties.
+author: samjarawan
+ms.date: 02/20/2026
+ms.topic: how-to
+ms.reviewer: v-griffinc
+ms.search.region: Global
+ms.author: asharchw
+ms.search.validFrom: 2019-10-31
+ms.custom: 
+  - bap-template
+---
+# Configure module properties to be shown based on context
+
+[!include [banner](../includes/banner.md)]
+
+This article describes how to configure module properties in Microsoft Dynamics 365 Commerce so that they appear or are hidden based on the contextual values of other configuration properties.
+
+You can define multiple module configuration properties in a module's definition file. However, some property fields might only be relevant depending on the values that you set for other property fields of the module. Hide property fields that aren't relevant to minimize the number of fields that a page editor sees when configuring the module. This behavior helps reduce complexity and the possibility of confusion.
+
+A module can use a conditional schema to define the rules that the module properties pane in Commerce site builder should follow to show or hide property fields based on the values of other property fields. For example, a module has a **layout** property that allows for two layouts, one of which has plain text, and the other of which has rich text and an image. In this case, the module designer might want to ensure that only property fields that are appropriate to the context (that is, the layout) are shown in site builder when a page editor configures the module.
+
+The ability to show or hide property fields based on context is supported in module definition and module definition extension files that use the **dependentSchemas** property for conditional schemas. Two types of conditional schema are supported: *schema dependencies* and *property dependencies*.
+
+## Schema dependencies
+
+Use schema dependencies to declare that the schema should change when a specific value is selected for a configuration property. Use the **[oneOf](https://react-jsonschema-form.readthedocs.io/en/docs/usage/oneof/)** property with the **dependentSchemas** property to declare the list of configuration properties that are applicable to a specific configuration value.
+
+### Schema dependencies example
+
+As the following example of a module definition file shows, when the **layout** property is set to **plainTextOnly**, the **featureText** property appears. Alternatively, when the **layout** property is set to **richTextWithImage**, the **featureRichText**, **featureImage**, and **imageAlignment** properties appear (but the **featureText** property doesn't appear).
+
+```json
+{
+    "$type": "contentModule",
+    "friendlyName": "Configuration visibility",
+    "name": "config-visibility",
+    "description": "Configuration visibility test module",
+    "categories": ["config-visibility"],
+    "tags": [""],
+    "dataActions": {        
+    },    
+    "config": {
+        "productTitle": {
+            "friendlyName": "Product title",
+            "description": "Product title.",
+            "type": "string"
+        }
+    },
+    "dependentSchemas": {
+        "productTitle": {
+            "properties": {
+                "subTitle" : {
+                    "type": "string",
+                    "friendlyName": "Product sub title",
+                    "description":  "Product sub title."
+                }
+            },
+            "required": ["productTitle"]
+        }
+    }
+}
+```
+
+## Property dependencies
+
+Use property dependencies to declare that specific configuration properties must be present if the value of another configuration property is present.
+
+### Property dependencies example
+
+In the following example, the **dependentSchemas** property specifies that whenever the **productTitle** value is entered, the **subTitle** configuration property appears in site builder.
+
+```json
+{
+    "$type": "contentModule",
+    "friendlyName": "Product Feature",
+    "name": "product-feature",
+    "description": "Feature module used to highlight a product.",
+    "config": {
+        "productTitle": {
+            "type": "string",
+            "friendlyName": "Product Title",
+            "description": "Product title."
+        }
+    },
+    "dependentSchemas": {
+        "productTitle": {
+            "properties": {
+                "subTitle" : {
+                    "type": "string",
+                    "friendlyName": "Product Sub Title",
+                    "description":  "Product sub title."
+                }
+            },
+            "required": ["productTitle"]
+        }
+    }
+}
+```
+
+## Handling property override conflicts
+
+Both module definition files and module definition extension files support the **dependentSchemas** property. Because of this support, conflicts can occur between these two types of files. To override specific configuration properties, set the Boolean **override** property to **true** in the module definition extension file.
+
+The following examples show a module definition file and a module definition extension file that uses the **override** property.
+
+### Module definition file example
+
+```json
+{
+    "$type": "contentModule",
+    "friendlyName": "Product Feature",
+    "name": "product-feature",
+    "description": "Feature module used to highlight a product.",
+    "config": {
+        "layout": {
+            "friendlyName": "Text Layout",
+            "description": "Sets the desired text output to be plain text or rich text with images.",
+            "type": "string",
+            "enum": {
+                "plainTextOnly": "Plain Text Only",
+                "richTextWithImage": "Rich Text With Image"
+            },
+            "default": "plainTextOnly",
+            "scope": "module",
+            "group": "Layout Properties"
+        }
+    }   
+}
+
+
+{
+    "$type": "contentModule",
+    "friendlyName": "Configuration visibility",
+    "name": "config-visibility",
+    "description": "Configuration visibility test module",
+    "categories": ["config-visibility"],
+    "tags": [""],
+    "dataActions": {        
+    },    
+    "config": {
+        "layout": {
+            "friendlyName": "Text Layout",
+            "description": "Sets the desired text output to be plain text or rich text with images.",
+            "type": "string",
+            "enum": {
+                "plainTextOnly": "Plain Text Only",
+                "richTextOnly": "Rich Text Only",
+                "richTextWithImage": "Rich Text With Image"
+            },
+            "default": "plainTextOnly",
+            "override": true
+        }
+    }
+}
+```
+
+### Module definition extension file example
+
+```json
+{
+    "$type": "contentModule",
+    "friendlyName": "Configuration visibility",
+    "name": "config-visibility",
+    "description": "Configuration visibility test module",
+    "categories": ["config-visibility"],
+    "tags": [""],
+    "dataActions": {        
+    },    
+    "config": {
+        "productTitle": {
+            "friendlyName": "Product Title",
+            "description": "Product title.",
+            "type": "string"
+        },
+        "layout": {
+            "friendlyName": "Text Layout",
+            "description": "Sets the desired text output to be plain text or rich text with images.",
+            "type": "string",
+            "enum": {
+                "plainTextOnly": "Plain Text Only",
+                "richTextOnly": "Rich Text Only",
+                "richTextWithImage": "Rich Text With Image"
+            },
+            "default": "plainTextOnly",
+            "override": true
+        }
+    },
+    "dependentSchemas": {
+        "productTitle": {
+            "properties": {
+                "subTitle" : {
+                    "type": "string",
+                    "friendlyName": "Product Sub Title",
+                    "description":  "Product sub title."
+                }
+            },
+            "required": ["productTitle"]
+        },
+        "layout": {
+            "oneOf": [
+                {
+                    "properties": {
+                        "layout": {
+                            "enum" : {
+                                "plainTextOnly": "plainTextOnly"
+                            }
+                        },
+                        "featureText" : {
+                            "type": "string",
+                            "friendlyName": "Feature Text",
+                            "description":  "Main text title to show in module."
+                        }
+                    }
+                },
+                {
+                    "properties": {
+                        "layout": {
+                            "enum" : {
+                                "richTextOnly": "richTextOnly"
+                            }
+                        },
+                        "featureRichText" : {
+                            "type": "richText",
+                            "friendlyName": "Feature Text",
+                            "description":  "Main rich text to show in module."
+                        }
+                    }
+                },
+                {
+                    "properties": {
+                        "layout": {
+                            "enum" : {
+                                "richTextWithImage": "richTextWithImage"
+                            }
+                        },
+                        "featureRichText" : {
+                            "type": "richText",
+                            "friendlyName": "Feature Text",
+                            "description":  "Main rich text to show in module."
+                        },
+                        "featureImage" : {
+                            "type": "image",
+                            "friendlyName": "Feature Title",
+                            "description":  "Image to show in module."
+                        },
+                        "imageAlignment": {
+                            "friendlyName": "Image Alignment",
+                            "description": "Sets the desired alignment of the image, either left or right on the text.",
+                            "type": "string",
+                            "enum": {
+                                "left": "Left",
+                                "right": "Right"
+                            },
+                            "default": "left"
+                        }
+                    }
+                }
+            ]       
+        }
+    }
+}
+```
+
+## Conflict resolution scenarios
+
+The following tables list possible scenarios and expected outcomes when schema dependencies are used with module definition and module definition extension files.
+
+### Regular scenarios
+
+| Scenario | Expected outcome |
+|----------|------------------|
+| You use a schema dependency only in the module definition file. No conflicts exist between properties in the schema dependency and the module definition extension file. | The system applies the schema dependency. |
+| You use a schema dependency only in the module definition extension file. No conflicts exist between properties in the schema dependency and the module definition extension file. | The system applies the schema dependency. |
+| You use a schema dependency only in the module definition file. A conflict exists between properties in the schema dependency and the module definition extension file. For example, property A is declared both in the schema dependency of the module definition file and in the module definition extension file, which doesn't have a schema dependency. | A build error occurs. |
+| You use a schema dependency on the same property both in the module definition file and in the module definition extension file. | The module definition file takes precedence. |
+| You define the same property both in the module definition file and in the module definition extension file. | The module definition file takes precedence. |
+
+### Override scenarios
+
+| Scenario | Expected outcome |
+|----------|------------------|
+| The same property is defined both in the module definition file and in the module definition extension file. Either no **override** property is set for the property in the module definition extension file, or the **override** property is set to **false**. | The module definition file takes precedence. |
+| A schema dependency on the same property is used both in the module definition file and in the module definition extension file. The **override** property is set to **true** for the property in the module definition extension file. | The module definition extension file takes precedence. |
+| A schema dependency on the same property is used both in the module definition file and in the module definition extension file. Either no **override** property is set for the property in the module definition extension file, or the **override** property is set to **false**. | The module definition file takes precedence. | 
+| The same property is defined both in the module definition file and in the schema dependency of the module definition extension file. The **override** property is set to **true** for the property in the module definition extension file. | The module definition extension file takes precedence. |
+| The same property is defined both in the module definition file and in the schema dependency of the module definition extension file. Either no **override** property is set for the property in the module definition extension file, or the **override** property is set to **false**. | The module definition file takes precedence. |
+| The same property is defined both in the module definition file and in the module definition extension file. The **override** property is set to **true** for the property in the module definition extension file. | The module definition extension file takes precedence. |
+
+## Additional resources
+
+[Request properties object](request-properties-object.md)
+
+[App settings](app-settings.md)
+
+[Platform settings file](platform-settings.md)
+
+[Module definition file](module-definition-file.md)
+
+[Extend a module definition file](extend-module-definition.md)
+
+[Cookie API overview](cookie-api-overview.md)
+
+[Interactive components overview](interactive-components.md)
+
+[Add module configuration fields](add-module-config-fields.md)
+
+[Extend a theme to add module extensions](theme-module-extensions.md)
+
+[!INCLUDE[footer-include](../../includes/footer-banner.md)]

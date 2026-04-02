@@ -1,34 +1,18 @@
 --- 
-# required metadata 
- 
 title: Prepare a process kanban job when materials are not available for the work cell
-description: This procedure focuses on preparing a process kanban job when some materials are not available for the work cell, therefore it's necessary to pick materials from the warehouse. 
-author: ChristianRytt
-manager: AnnBe 
+description: Learn about preparing a process kanban job when some materials are not available for the work cell, therefore it's necessary to pick materials from the warehouse.
+author: johanhoffmann
+ms.author: johanho
+ms.topic: how-to
 ms.date: 08/29/2018
-ms.topic: business-process 
-ms.prod:  
-ms.service: dynamics-ax-applications 
-ms.technology:  
- 
-# optional metadata 
- 
-ms.search.form: KanbanBoardWorkCell   
-audience: Application User 
-# ms.devlang:  
-ms.reviewer: shylaw
-ms.search.scope: Core, Operations 
-# ms.tgt_pltfrm:  
-# ms.custom:  
-ms.search.region: Global
-ms.search.industry: Manufacturing
-ms.author: crytt
-ms.search.validFrom: 2016-06-30 
-ms.dyn365.ops.version: Version 7.0.0 
+ms.custom:
+ms.reviewer: kamaybac
+ms.search.form: KanbanBoardWorkCell
 ---
+
 # Prepare a process kanban job when materials are not available for the work cell
 
-[!include [task guide banner](../../includes/task-guide-banner.md)]
+[!include [banner](../../includes/banner.md)]
 
 This procedure focuses on preparing a process kanban job when some materials are not available for the work cell, therefore it's necessary to pick materials from the warehouse. The procedure "Prepare a process kanban job when materials are available" is a prerequisite for creating this procedure. This procedure is intended for the machine operator. The demo data company used to create this procedure is USMF.
 
@@ -54,3 +38,6 @@ This procedure focuses on preparing a process kanban job when some materials are
 6. Click Prepare.
     * Notice that an icon in the Job status indicates that the job is now ready.  
 
+
+
+[!INCLUDE[footer-include](../../../includes/footer-banner.md)]

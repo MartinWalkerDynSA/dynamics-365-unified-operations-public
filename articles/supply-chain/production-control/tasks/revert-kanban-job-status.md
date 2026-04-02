@@ -1,34 +1,18 @@
 --- 
-# required metadata 
- 
 title: Revert kanban job status
-description: This procedure focuses on reverting an incorrect kanban job status. 
-author: ShylaThompson
-manager: AnnBe 
+description: Learn about reverting an incorrect kanban job status, including a step-by-step process for opening process boards for work cells. 
+author: johanhoffmann
+ms.author: johanho
+ms.topic: how-to
 ms.date: 08/29/2018
-ms.topic: business-process 
-ms.prod:  
-ms.service: dynamics-ax-applications 
-ms.technology:  
- 
-# optional metadata 
- 
-ms.search.form: KanbanBoardWorkCell, KanbanJobStatusUpdate   
-audience: Application User 
-# ms.devlang:  
-ms.reviewer: shylaw
-ms.search.scope: Core, Operations 
-# ms.tgt_pltfrm:  
-# ms.custom:  
-ms.search.region: Global
-ms.search.industry: Manufacturing
-ms.author: shylaw
-ms.search.validFrom: 2016-06-30 
-ms.dyn365.ops.version: Version 7.0.0 
+ms.custom:
+ms.reviewer: kamaybac   
+ms.search.form: KanbanBoardWorkCell, KanbanJobStatusUpdate 
 ---
+
 # Revert kanban job status
 
-[!include [task guide banner](../../includes/task-guide-banner.md)]
+[!include [banner](../../includes/banner.md)]
 
 This procedure focuses on reverting an incorrect kanban job status. This is useful in case the machine operator updates the wrong job, or sets the wrong status by mistake. In this procedure, a kanban job is registered as prepared by mistake, and the status is reverted. The demo data company used to create this procedure is USMF. This procedure is intended for the shop supervisor or machine operator working in a lean manufacturing company.
 
@@ -57,3 +41,6 @@ This procedure focuses on reverting an incorrect kanban job status. This is usef
     * Select the same job.  
     * Notice that the job status for the kanban job is reverted to Planned, which is indicated by an empty kanban icon.  
 
+
+
+[!INCLUDE[footer-include](../../../includes/footer-banner.md)]

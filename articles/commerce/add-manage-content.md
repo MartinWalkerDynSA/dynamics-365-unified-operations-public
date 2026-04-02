@@ -1,0 +1,53 @@
+---
+
+title: Ways to add content
+description: This article provides an overview of how to manage content by using Microsoft Dynamics 365 Commerce site builder.
+author: phinneyridge
+ms.date: 01/14/2026
+ms.topic: overview
+ms.reviewer: v-griffinc
+ms.search.region: Global
+ms.author: asharchw
+ms.search.validFrom: 2019-10-31
+ms.custom: 
+  - bap-template
+---
+
+# Ways to add content
+
+[!include [banner](includes/banner.md)]
+
+This article provides an overview of how to manage content by using Microsoft Dynamics 365 Commerce site builder.
+
+You can change the look, feel, and content of your site in many ways. Depending on the required level of customization, nondevelopers can implement many of these changes within site builder, the web authoring toolset included with Dynamics 365 Commerce. Site builder enables you to build templates, select themes, and select and configure modules without writing any code. By contrast, development skills are required to create a new theme or module, because you must use the Commerce software development kit (SDK) and the Microsoft Dynamics Lifecycle Services (LCS) deployment workflow.
+
+The following video provides an overview of site builder content management. 
+
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=e6193c35-fc6f-454e-b5b3-b66eb7649c93]
+
+The following articles are good jumping off points to start understanding how to add and manage site content. Most of the articles focus on areas of your site that don't require a developer. Some address basic content editing, while others focus on site administrator tasks. Each article denotes specific tasks that might require SDK work. Each article assumes that you already provisioned a site and were granted access to the site builder toolset for your site.
+
+Select one of the following articles to get started.
+
+- To familiarize yourself with the content management terminology used in site builder and within this documentation, see [Page model glossary](page-elements-overview.md).
+- To understand how modules work within content management workflows, see [Work with modules](work-with-modules.md).
+- To change the text, images, or video on an existing site page, see [Work with modules](work-with-modules.md).
+- To see how fragments can make content management more efficient and flexible, see [Work with fragments](work-with-fragments.md).
+- To help ensure a successful on-brand authoring experience for web content authors, see [Templates and layouts overview](templates-layouts-overview.md) and [Work with templates](work-with-templates.md).
+- To rearrange sections on a site page, see [Work with layouts](work-with-layouts.md).
+- To change the fonts, colors, and general look of site pages, see [Select a site theme](select-site-theme.md) or [Work with CSS override files](css-override-files.md).
+- To rearrange or add new navigation options, see [Customize site navigation](customize-site-navigation.md).
+- To learn how to stage, preview, and publish a broad set of concurrent web content changes, see [Work with publish groups](publish-groups.md).
+
+## Additional resources
+
+[Authoring page overview](authoring-home-overview.md)
+
+[Page model glossary](page-elements-overview.md)
+
+[Document states and lifecycle](document-states-overview.md)
+
+[Enable and use cross-channel sharing](cross-channel-sharing.md)
+
+
+[!INCLUDE[footer-include](../includes/footer-banner.md)]

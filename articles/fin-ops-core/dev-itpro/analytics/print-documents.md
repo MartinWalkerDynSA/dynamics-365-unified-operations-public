@@ -1,0 +1,73 @@
+---
+title: Document printing overview
+description: Learn about how you can print documents by using either a local printer or a network-connected device. This article provides an overview of how documents are printed.
+author: johnmichalak
+ms.author: johnmichalak
+ms.topic: overview
+ms.date: 10/27/2025
+ms.reviewer: johnmichalak
+ms.collection: get-started
+audience: IT Pro
+ms.search.region: Global
+ms.search.validFrom: 2016-02-28
+ms.dyn365.ops.version: AX 7.0.0
+ms.assetid: 7815bddd-c4f4-4bc3-a29b-315458065374
+---
+
+# Document printing overview
+
+[!include [banner](../includes/banner.md)]
+
+You can print documents by using either a local printer or a network-connected device. This article provides an overview of how documents are printed.
+
+## Printing overview
+
+The application provides integrated services and client applications that make it easy to generate, store, and distribute documents that support business activity. You can print documents by using either a local printer or a network-connected device. In addition, you can export pages and reports directly from the client as PDF files or Microsoft Office documents. Finally, the distributed workload lets you print business documents directly from a mobile device by using network resources. Although printing requirements might vary, all industries typically must create hard copies of business documents by using the application. Printing documents on network devices from hosted applications presents a unique set of challenges. Here are some examples:
+
+- Print drivers might not be available on the user's device.
+- The user's device might not be connected to the corporate network.
+
+By using a dedicated host and following a few easy steps, system administrators can configure deployments so that users can print directly from business applications on network devices.
+
+### Application printing scenarios
+
+The following table describes the three primary printing scenarios.
+
+| Scenario                        | Goal                                                      | Solution |
+|---------------------------------|-----------------------------------------------------------|----------|
+| 1. Printing what you see        | Print what is currently shown in the browser.             | Generate a "print-friendly" version of the webpage for the browser. |
+| 2. Interactive printing         | Print a precision document on a locally connected device. | Export a PDF version of the report and download it to the browser. |
+| 3. Printing on a network device | Send a precision document to a domain printer device.     | Send a precision document to a client application that runs on a server that is hosted in the customer's domain. |
+
+Because the solution varies depending on the scenario, applications provide built-in services and tooling to help users accomplish their goals:
+
+- **Scenario 1** is supported by the browser's rendering of the HTML5 client.
+- **Scenario 2** uses client applications and Microsoft 365 services.
+- **Scenario 3** requires support from client applications and from services that are hosted in Microsoft Azure.
+
+In addition to the platform that you deploy to the Azure subscription, finance and operations applications provide customers with an integrated, first-party Azure application that helps them more easily use domain-hosted devices to print documents.
+
+> [!NOTE]
+> When using the Document Routing Agent to print a report that includes barcodes on a network printer, some printouts might show plain text (for example, *LoadNumber*) instead of the barcodes. This issue can occur because the required font isn't available to Microsoft SQL Server Reporting Services (SSRS). To work around this issue, print the report to the screen and then print the preview document.
+
+## Service overview
+
+While documents that the hosted applications produce wait to be printed on a network-connected device, the service stores them in Azure blob storage. The [Install the Document Routing Agent to enable network printing](install-document-routing-agent.md) uses Azure authentication to establish a secure channel to the Azure services.
+
+Here's the execution sequence:
+
+1. Microsoft SQL Server Reporting Services (SSRS) generates the report and stores it in Azure blob storage. The service stores the attached printer settings with the document.
+1. The Document Routing Agent queries the Azure Service Bus queue for active jobs.
+1. The Document Routing Agent downloads the document and spools it to the network printer.
+
+This client-based solution lets customers manage the scale of their printing needs. Customers who have heavy-volume printing workloads can install many Document Routing Agents to increase the number of concurrent printing operations. Alternatively, some customers require very few installations of the Document Routing Agent to handle their anticipated printing needs.
+
+### Service components for network printing
+
+The following diagram shows the basic components that help support network printing operations.
+
+:::image type="content" source="./media/service-components-for-network-printing_2016.png" alt-text="Screenshot of service components for network printing showing the basic components that support network printing operations.":::
+
+A single printer can be registered with multiple Document Routing Agents. To resolve the printer preferences, the hosted service uses the network path that uniquely identifies every network printer. As a result, even when multiple clients register a printer, it appears as a single selection in the list of printers available in applications.
+
+[!INCLUDE[footer-include](../../../includes/footer-banner.md)]

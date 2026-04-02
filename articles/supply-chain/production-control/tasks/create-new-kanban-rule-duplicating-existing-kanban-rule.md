@@ -1,34 +1,18 @@
 --- 
-# required metadata 
- 
 title: Create a new kanban rule by duplicating an existing kanban rule
-description: This procedure focuses on creating a duplicate of an existing kanban rule. 
-author: ChristianRytt
-manager: AnnBe 
+description: Learn about creating a duplicate of an existing kanban rule, including step-by-step processes for selecting and duplicating kanban rules. 
+author: johanhoffmann
+ms.author: johanho
+ms.topic: how-to
 ms.date: 08/29/2018
-ms.topic: business-process 
-ms.prod:  
-ms.service: dynamics-ax-applications 
-ms.technology:  
- 
-# optional metadata 
- 
-ms.search.form: KanbanRules, KanbanRuleDuplicate, InventItemIdLookupSimple   
-audience: Application User 
-# ms.devlang:  
-ms.reviewer: shylaw
-ms.search.scope: Core, Operations 
-# ms.tgt_pltfrm:  
-# ms.custom:  
-ms.search.region: Global
-ms.search.industry: Manufacturing
-ms.author: crytt
-ms.search.validFrom: 2016-06-30 
-ms.dyn365.ops.version: Version 7.0.0 
+ms.custom:
+ms.reviewer: kamaybac  
+ms.search.form: KanbanRules, KanbanRuleDuplicate, InventItemIdLookupSimple  
 ---
+
 # Create a new kanban rule by duplicating an existing kanban rule
 
-[!include [task guide banner](../../includes/task-guide-banner.md)]
+[!include [banner](../../includes/banner.md)]
 
 This procedure focuses on creating a duplicate of an existing kanban rule. This is useful if you want to create new kanban rules based on existing kanban rules. The demo data company used to create this procedure is USMF. This procedure is intended for the process engineer or the value stream manager as they prepare production for a changed production flow or a new replenishment rule.
 
@@ -46,3 +30,6 @@ This procedure focuses on creating a duplicate of an existing kanban rule. This 
 3. Click OK.
     * Note that a duplicate of kanban rule 000017 is created.    
 
+
+
+[!INCLUDE[footer-include](../../../includes/footer-banner.md)]

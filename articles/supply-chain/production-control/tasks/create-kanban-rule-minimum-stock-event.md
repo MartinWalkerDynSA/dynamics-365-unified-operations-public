@@ -1,34 +1,18 @@
 --- 
-# required metadata 
- 
 title: Create a kanban rule using a minimum stock event
-description: This procedure focuses on the setup needed to create a kanban rule using a minimum stock event to ensure that a specific product is always available at a specific location. 
-author: ChristianRytt
-manager: AnnBe 
+description: Learn about the setup needed to create a kanban rule using a minimum stock event to ensure that a specific product is always available at a specific location.
+author: johanhoffmann
+ms.author: johanho
+ms.topic: how-to
 ms.date: 08/29/2018
-ms.topic: business-process 
-ms.prod:  
-ms.service: dynamics-ax-applications 
-ms.technology:  
- 
-# optional metadata 
- 
-ms.search.form: KanbanRules, LeanProductionFlowActivityLookup, InventItemIdLookupSimple, EcoResProductInformationDialog, EcoResProductDetailsExtended, ReqItemTable, InventLocationIdLookup   
-audience: Application User 
-# ms.devlang:  
-ms.reviewer: shylaw
-ms.search.scope: Core, Operations 
-# ms.tgt_pltfrm:  
-# ms.custom:  
-ms.search.region: Global
-ms.search.industry: Manufacturing
-ms.author: crytt
-ms.search.validFrom: 2016-06-30 
-ms.dyn365.ops.version: Version 7.0.0 
+ms.custom:
+ms.reviewer: kamaybac   
+ms.search.form: KanbanRules, LeanProductionFlowActivityLookup, InventItemIdLookupSimple, EcoResProductInformationDialog, EcoResProductDetailsExtended, ReqItemTable, InventLocationIdLookup
 ---
+
 # Create a kanban rule using a minimum stock event
 
-[!include [task guide banner](../../includes/task-guide-banner.md)]
+[!include [banner](../../includes/banner.md)]
 
 This procedure focuses on the setup needed to create a kanban rule using a minimum stock event to ensure that a specific product is always available at a specific location. A kanban rule is created to transfer material to the location when the inventory level drops below 200 pieces. By running the Pegging event processing, the needed kanbans are created. The demo data company used to create this task is USMF. This task is intended for the process engineer or the value stream manager, as they prepare production of a new or modified product in a lean environment.
 
@@ -70,3 +54,6 @@ This procedure focuses on the setup needed to create a kanban rule using a minim
 5. Expand the Kanbans section.
     * Notice that a kanban was created to transfer the needed material to warehouse 12.  
 
+
+
+[!INCLUDE[footer-include](../../../includes/footer-banner.md)]

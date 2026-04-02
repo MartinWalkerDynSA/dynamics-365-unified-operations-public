@@ -1,34 +1,18 @@
 --- 
-# required metadata 
- 
 title: Create project purchase order
-description: This procedure shows you how to create a project purchase order. 
-author: mkirknel
-manager: AnnBe 
+description: Learn how to create a project purchase order, including a step-by-step process for the task that uses the USSI data set.
+author: ShriramSivasankaran
+ms.author: shriramsiv
+ms.topic: how-to
 ms.date: 08/29/2018
-ms.topic: business-process 
-ms.prod:  
-ms.service: dynamics-ax-applications 
-ms.technology:  
- 
-# optional metadata 
- 
-ms.search.form: ProjProjectsListPage, ProjTable, PurchCreateOrder, PurchTable, InventItemIdLookupPurchase   
-audience: Application User 
-# ms.devlang:  
-ms.reviewer: shylaw
-ms.search.scope: Core, Operations 
-# ms.tgt_pltfrm:  
-# ms.custom:  
-ms.search.region: Global
-ms.search.industry: Service industries
-ms.author: mkirknel
-ms.search.validFrom: 2016-06-30 
-ms.dyn365.ops.version: Version 7.0.0 
+ms.custom:
+ms.reviewer: kamaybac 
+ms.search.form: ProjProjectsListPage, ProjTable, PurchCreateOrder, PurchTable, PurchTablePart, InventItemIdLookupPurchase 
 ---
+
 # Create project purchase order
 
-[!include [task guide banner](../../includes/task-guide-banner.md)]
+[!include [banner](../../includes/banner.md)]
 
 This procedure shows you how to create a project purchase order. This task uses the USSI data set.
 
@@ -50,3 +34,6 @@ This procedure shows you how to create a project purchase order. This task uses 
     * Verify that the sales and cost prices are available. If they are not available but needed, enter the information.  
 14. Click Save.
 
+
+
+[!INCLUDE[footer-include](../../../includes/footer-banner.md)]

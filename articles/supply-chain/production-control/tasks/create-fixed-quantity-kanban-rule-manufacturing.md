@@ -1,34 +1,18 @@
 --- 
-# required metadata 
- 
 title: Create a fixed quantity kanban rule for manufacturing
-description: This procedure focuses on the setup needed to create a fixed manufacturing kanban rule for triggering transforming activities, at a work cell, in a lean environment. 
-author: ChristianRytt
-manager: AnnBe 
+description: Learn about the setup needed to create a fixed manufacturing kanban rule for triggering transforming activities, at a work cell, in a lean environment.
+author: johanhoffmann
+ms.author: johanho
+ms.topic: how-to
 ms.date: 08/29/2018
-ms.topic: business-process 
-ms.prod:  
-ms.service: dynamics-ax-applications 
-ms.technology:  
- 
-# optional metadata 
- 
-ms.search.form: KanbanRules, LeanProductionFlowActivityLookup, InventItemIdLookupSimple, UnitOfMeasureLookup, KanbanCreate   
-audience: Application User 
-# ms.devlang:  
-ms.reviewer: shylaw
-ms.search.scope: Core, Operations 
-# ms.tgt_pltfrm:  
-# ms.custom:  
-ms.search.region: Global
-ms.search.industry: Manufacturing
-ms.author: crytt
-ms.search.validFrom: 2016-06-30 
-ms.dyn365.ops.version: Version 7.0.0 
+ms.custom:
+ms.reviewer: kamaybac   
+ms.search.form: KanbanRules, LeanProductionFlowActivityLookup, InventItemIdLookupSimple, UnitOfMeasureLookup, KanbanCreate 
 ---
+
 # Create a fixed quantity kanban rule for manufacturing
 
-[!include [task guide banner](../../includes/task-guide-banner.md)]
+[!include [banner](../../includes/banner.md)]
 
 This procedure focuses on the setup needed to create a fixed manufacturing kanban rule for triggering transforming activities, at a work cell, in a lean environment. The demo data company used to create this procedure is USMF. This procedure is intended for the Process Engineer or the Value Stream Manager, as they prepare production of a new or modified product.
 
@@ -76,3 +60,6 @@ This procedure focuses on the setup needed to create a fixed manufacturing kanba
     * This will create 5 kanbans.  
     * Note that 5 kanbans, for 10 each, was created for this manufacturing kanban rule. This is the last step in this procedure.  
 
+
+
+[!INCLUDE[footer-include](../../../includes/footer-banner.md)]

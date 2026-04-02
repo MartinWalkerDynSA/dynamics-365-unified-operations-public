@@ -1,0 +1,57 @@
+---
+title: Dynamics 365 Finance, Supply Chain Management, and Commerce operated by 21Vianet in China 
+description: Learn about Microsoft Dynamics 365 Finance, Supply Chain Management, and Commerce that are operated by 21Vianet in China.
+author: kfend
+ms.author: johnmichalak
+ms.topic: article
+ms.date: 03/10/2026
+ms.custom:
+ms.reviewer: johnmichalak
+audience: Application User
+ms.search.region: China (PRC)
+ms.search.validFrom: 2019-04-01
+ms.search.form: 
+ms.dyn365.ops.version:  
+---
+
+# Dynamics 365 Finance, Supply Chain Management, and Commerce operated by 21Vianet in China
+
+[!include [banner](../../../finance/includes/banner.md)]
+
+Microsoft Dynamics 365 online services that 21Vianet operates are designed to comply with regulatory requirements in China. They provide a physically separated instance of cloud services that a local operator, Shanghai Blue Cloud Technology Co., Ltd ("21Vianet"), operates and transacts. This operator is a wholly owned subsidiary of Beijing 21Vianet Broadband Data Center Co., Ltd., which is located in China. This deployment option meets the demands of customers who prefer to use online services that a local company provides and stores their data inside China. These services are subject to Chinese laws.
+
+## Data residency
+
+Finance and operations apps that 21Vianet operates support data residency in China. This deployment option serves customers in regulated industries and commercial organizations that do business with entities in China that require local data residency. The corresponding data centers of the geography deploy all required services and related data. These services and data include Microsoft Dynamics Lifecycle Services, telemetry, databases, and environments. Customer data doesn't leave the geographic boundary.
+
+## Compliance
+
+Customers in China can choose 21Vianet's sovereign cloud deployment offering, but they can also deploy to the public cloud offering that Microsoft manages. The Microsoft-managed public cloud offering is globally connected over the public internet and has data centers outside China. One advantage of choosing this public cloud offering is that if the customer purchases Azure, Dynamics 365, and Microsoft 365, these products and services can coexist on the same Microsoft Entra tenant.
+
+The final choice of a deployment option depends on the customer's assessment of how it should operate to meet regulatory requirements in China. Customers who are wondering how to be compliant should ask their internal compliance team to review the regulatory requirements for the industry that they belong to and the mode of operation in China. In this way, they can determine whether they must deploy a separate instance through 21Vianet or whether they can use a global cloud deployment option.
+
+## Licensing
+
+Customers can't acquire licenses for Dynamics 365 online services that 21Vianet operates directly from Microsoft, because Microsoft doesn't manage and deliver the services.
+
+## Feature availability
+
+Microsoft strives to maintain functional parity between our commercially available service and finance and operations apps that 21Vianet operates in China. However, notable exceptions to functional parity exist. The availability of dependent services or partner solutions, market priorities, or compliance regulations affect these exceptions.
+
+Some features aren't available for Dynamics 365 online services that 21Vianet operates in China. For detailed information about feature availability, see the "China (21-V)" column in [Microsoft Business Application Feature Availability - APAC](https://aka.ms/bapfunctionalparityapac).
+
+## Additional resources
+
+- [Dynamics 365 support site for 21Vianet (Chinese)](https://www.21vbluecloud.com/Dynamics365/)
+- [Support for Dynamics 365 finance and operations apps operated by 21Vianet in China](../lcs/21vianet-support.md)
+- [Model-driven apps in Dynamics 365 - operated by 21Vianet in China](/dynamics365/customer-engagement/admin/datacenter/about-microsoft-cloud-china)
+- [Dynamics 365 Privacy statement (Dynamics 365 隐私声明)](https://www.21vbluecloud.com/Dynamics365/d365-privacy/)
+- [Dynamics 365 Service Level agreement (世纪互联在线服务的服务级别协议)](https://www.21vbluecloud.com/Dynamics365/d365-sla/)
+- [Dynamics 365 Legal information (Dynamics 365 法律信息)](https://www.21vbluecloud.com/Dynamics365/dynamics365-legal/)
+- [Service terms for Dynamics 365 Lifecycle Services](https://www.21vbluecloud.com/dynamics365/d365-lcs/)
+- [OSPT of Dynamics 365 (世纪互联在线服务的服务级别协议)](https://www.21vbluecloud.com/ostpt/)
+- [Azure Docs (in Chinese)](https://docs.azure.cn/zh-cn/)
+- [Azure operated by 21Vianet](/azure/china/china-welcome)
+- [Business applications availability in China – operated by 21Vianet in China](/power-platform/admin/business-applications-availability-china)
+
+[!INCLUDE[footer-include](../../../includes/footer-banner.md)]

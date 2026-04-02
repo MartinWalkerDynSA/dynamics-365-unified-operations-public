@@ -1,34 +1,18 @@
 --- 
-# required metadata 
- 
 title: Define resource capabilities
-description: Resource capabilities describe what operations resources can do. 
-author: sorenva
-manager: AnnBe 
+description: Learn how to define resource capabilities, including step-by-step processes for creating resource capabilities and assigning capacilities to resources.
+author: johanhoffmann
+ms.author: johanho
+ms.topic: how-to
 ms.date: 08/29/2018
-ms.topic: business-process 
-ms.prod:  
-ms.service: dynamics-ax-applications 
-ms.technology:  
- 
-# optional metadata 
- 
-ms.search.form: WrkCtrCapability   
-audience: Application User 
-# ms.devlang:  
-ms.reviewer: shylaw
-ms.search.scope: Core, Operations 
-# ms.tgt_pltfrm:  
-# ms.custom:  
-ms.search.region: Global
-ms.search.industry: Manufacturing
-ms.author: sorenand
-ms.search.validFrom: 2016-06-30 
-ms.dyn365.ops.version: Version 7.0.0 
+ms.custom:
+ms.reviewer: kamaybac 
+ms.search.form: WrkCtrCapability
 ---
+
 # Define resource capabilities
 
-[!include [task guide banner](../../includes/task-guide-banner.md)]
+[!include [banner](../../includes/banner.md)]
 
 Resource capabilities describe what operations resources can do. During scheduling, the requirements of each job and operation are matched against the capabilities of the available resources. This task guide will help you create a resource capability and assign it to a resource. The demo data company used to create this task is USMF.
 
@@ -51,3 +35,6 @@ Resource capabilities describe what operations resources can do. During scheduli
 5. In the Level field, enter a number.
     * When you specify that a job or operation requires a particular capability, you can also specify the minimum level that is required. Use the capability level to differentiate resources that can perform the same job, but at different speeds, strengths, sizes, and so on.  
 
+
+
+[!INCLUDE[footer-include](../../../includes/footer-banner.md)]

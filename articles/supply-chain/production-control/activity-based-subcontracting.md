@@ -1,42 +1,22 @@
 ---
-# required metadata
-
 title: Activity-based subcontracting
-description: This topic describes, in detail, how to use subcontracted activities in a production flow for lean manufacturing.
-author: cvocph
-manager: AnnBe
-ms.date: 06/20/2017
+description: Learn how to use subcontracted activities in a production flow for lean manufacturing with an outline on production flows that involve subcontractors.
+author: johanhoffmann
+ms.author: johanho
 ms.topic: article
-ms.prod: 
-ms.service: dynamics-ax-applications
-ms.technology: 
-
-# optional metadata
-
-ms.search.form: KanbanJobSchedulingListPage, LeanRuleReassignmentWizard, PlanActivity, ReqSupplyDemandSchedule
-# ROBOTS: 
-audience: Application User
-# ms.devlang: 
-ms.reviewer: josaw
-ms.search.scope: Core, Operations
-# ms.tgt_pltfrm: 
-ms.custom: 267034
+ms.date: 06/20/2017
+ms.reviewer: kamaybac
+ms.search.form: KanbanJobSchedulingListPage, LeanRuleReassignmentWizard, PlanActivity, ReqSupplyDemandSchedule, PlanActivityServiceDetails, PlanActivityServiceWizard
 ms.assetid: 15c76a51-fa6d-42d2-994a-c67df6bae6a9
-ms.search.region: Global
-ms.search.industry: Manufacturing
-ms.author: conradv
-ms.search.validFrom: 2016-02-28
-ms.dyn365.ops.version: AX 7.0.0
-
 ---
 
 # Activity-based subcontracting
 
 [!include [banner](../includes/banner.md)]
 
-This topic describes, in detail, how to use subcontracted activities in a production flow for lean manufacturing.
+This article describes, in detail, how to use subcontracted activities in a production flow for lean manufacturing.
 
-In Microsoft Dynamics 365 for Finance and Operations, there are two approaches for subcontracting: production orders and lean manufacturing. In the lean manufacturing approach, the subcontracting work is modeled as a service that is related to an activity of a production flow. A special type of cost group type that is named **Direct outsourcing** has been introduced, and the subcontracting services are no longer part of a bill of materials (BOM). The cost accounting of subcontracted work is fully integrated into the costing solution for lean manufacturing.
+In Microsoft Dynamics 365 Supply Chain Management, there are two approaches for subcontracting: production orders and lean manufacturing. In the lean manufacturing approach, the subcontracting work is modeled as a service that is related to an activity of a production flow. A special type of cost group type that is named **Direct outsourcing** has been introduced, and the subcontracting services are no longer part of a bill of materials (BOM). The cost accounting of subcontracted work is fully integrated into the costing solution for lean manufacturing.
 
 ## Production flows that involve subcontractors
 The basic principle of a production flow doesn't change when activities are subcontracted. Material still flows between locations, process activities convert material to products, and transfer activities move material or products from one location to another. You can model locations and work cells as vendor-managed by assigning the vendor account to a warehouse or to a resource of a resource group.  
@@ -75,7 +55,7 @@ This requirement enforces the use of the first in, first out (FIFO) inventory mo
 
 ### Subcontracted process activities
 
-To configure a process activity as a subcontracted activity, follow these steps.
+To configure a process activity as a subcontracted activity, follow these steps:
 
 1.  Configure a subcontracted work cell. To configure a work cell as subcontracted, you must create a resource of the **Vendor** type and associate it with the work cell (resource group). A runtime cost category of the **Direct outsourcing** cost group type should be assigned to the work cell. The cost categories for setup and quantity aren't required.
 2.  After a process activity is created and related to a subcontracted work cell, you must configure a service for the activity before the production flow version can be activated. You complete this step on the **Activity** **details** page. For activities that are associated with a subcontracted work cell, the **Service terms** FastTab is shown. On this FastTab, add a default service that is valid for all output items. If specific output items require different services or different service calculation parameters (for example, a different service ratio), you can add other services to the activity.
@@ -106,7 +86,10 @@ People often consider transport nonproductive and think that it adds no value. H
 
 Activity-based subcontracting in lean manufacturing lets you integrate carriers and transport vendors that move material and products between the locations of a production flow. By modeling a transfer activity, you can assign a carrier or vendor. The transfer activities/job is based on a service and purchase agreement, and you can create purchase orders and receipt advisories, based on the actual transfer jobs. This functionality is the same as the functionality for subcontracted process activities.  
 
-Therefore, Finance and Operations now supports BOM calculation that includes transport services, the creation of related purchase orders, integrated receipt registration, and the integration of transport service costs into the production flow costing.
+Supply Chain Management now supports BOM calculation that includes transport services, the creation of related purchase orders, integrated receipt registration, and the integration of transport service costs into the production flow costing.
 
 
 
+
+
+[!INCLUDE[footer-include](../../includes/footer-banner.md)]

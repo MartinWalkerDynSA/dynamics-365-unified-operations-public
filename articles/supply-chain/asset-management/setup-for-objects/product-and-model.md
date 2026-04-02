@@ -1,42 +1,22 @@
 ---
-# required metadata
-
 title: Asset manufacturers and models
-description: This topic explains how to set up asset manufacturers and related models in Asset Management.
-author: josaw1
-manager: AnnBe
-ms.date: 06/26/2019
+description: Learn how to set up asset manufacturers and related models in Asset Management, including a process for setting up product-model relations.
+author: jodahlMSFT
+ms.author: jodahl
 ms.topic: article
-ms.prod: 
-ms.service: dynamics-ax-applications
-ms.technology: 
-
-# optional metadata
-
-ms.search.form: CatProcureCatalogEdit, CatProcureCatalogListPage
-# ROBOTS: 
-audience: Application User
-# ms.devlang: 
-ms.reviewer: josaw
-ms.search.scope: Core, Operations
-# ms.tgt_pltfrm: 
-ms.custom: 2214
+ms.date: 06/26/2019
+ms.reviewer: kamaybac
+ms.search.form: EntAssetProductLookup, EntAssetModelLookup, EntAssetProduct
 ms.assetid: 2f3e0441-414d-402b-b28b-7ab0d650d658
-ms.search.region: Global
-# ms.search.industry: 
-ms.author: mkirknel
-ms.search.validFrom: 2016-02-28
-ms.dyn365.ops.version: AX 7.0.0
-
 ---
 
 # Asset manufacturers and models
 
 [!include [banner](../../includes/banner.md)]
 
-[!include [banner](../../includes/preview-banner.md)]
+ 
 
-This topic explains how to set up asset manufacturers and related models in Asset Management. Models can be related to asset types.
+This article explains how to set up asset manufacturers and related models in Asset Management. Models can be related to asset types.
 
 ## Set up product-model relations
 
@@ -50,7 +30,7 @@ This topic explains how to set up asset manufacturers and related models in Asse
 8. In the **Asset type** field, select the asset type that the manufacturer model should be related to.
 
     > [!NOTE]
-    > You can also set up relations for asset types, manufacturers, and models in the **Asset types** lookup. For more information, see [Create asset type](../setup-for-objects/object-types.md).
+    > You can also set up relations for asset types, manufacturers, and models in the **Asset types** lookup. Learn more in [Asset types](../setup-for-objects/object-types.md).
 
     In the **Details** FastTab, the **Models** field shows the number of asset models that are set up on the selected asset manufacturer. The **Assets** field shows the number of assets that are using the selected manufacturer.
     
@@ -61,7 +41,10 @@ This topic explains how to set up asset manufacturers and related models in Asse
 
 ## Select a manufacturer and model on an object
 
-1. Select **Asset management** \> **Common** \> **Assets** \> **All assets**.
+1. Select **Asset management** \> ***Assets** \> **All assets**.
 2. In the **Asset** column, select the link for the asset. The **Details** page appears.
 3. Select **Edit**.
 4. On the **General** FastTab, select values in the **Manufacturer** and **Model** fields.
+
+
+[!INCLUDE[footer-include](../../../includes/footer-banner.md)]

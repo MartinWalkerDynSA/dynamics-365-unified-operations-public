@@ -1,34 +1,18 @@
 --- 
-# required metadata 
- 
 title: Deactivate a production flow version
-description: When an active production flow version is no longer needed, it can be deactivated. 
-author: cvocph
-manager: AnnBe 
+description: When an active production flow version is no longer needed, it can be deactivated. Learn about deactivating a production flow version.
+author: johanhoffmann
+ms.author: johanho
+ms.topic: how-to
 ms.date: 08/29/2018
-ms.topic: business-process 
-ms.prod:  
-ms.service: dynamics-ax-applications 
-ms.technology:  
- 
-# optional metadata 
- 
-ms.search.form: LeanProductionFlow   
-audience: Application User 
-# ms.devlang:  
-ms.reviewer: shylaw
-ms.search.scope: Core, Operations 
-# ms.tgt_pltfrm:  
-# ms.custom:  
-ms.search.region: Global
-ms.search.industry: Manufacturing
-ms.author: conradv
-ms.search.validFrom: 2016-06-30 
-ms.dyn365.ops.version: Version 7.0.0 
+ms.custom:
+ms.reviewer: kamaybac     
+ms.search.form: LeanProductionFlow
 ---
+
 # Deactivate a production flow version
 
-[!include [task guide banner](../../includes/task-guide-banner.md)]
+[!include [banner](../../includes/banner.md)]
 
 When an active production flow version is no longer needed, it can be deactivated. You should only use this option if all kanban rules and activities have ended and will not be activated again. Note that the expiry date of all kanban rules related to this production flow version will be updated with the current date and time. 
 
@@ -48,3 +32,6 @@ For this procedure you need a production flow with a version that can be deactiv
     * Do not proceed if you are not 100% positive that this production flow version is obsolete. Clicking Ok will expire all active kanban rules and put an immediate stop to all production and replenishment activities of this production flow version.  
 6. Click OK.
 
+
+
+[!INCLUDE[footer-include](../../../includes/footer-banner.md)]

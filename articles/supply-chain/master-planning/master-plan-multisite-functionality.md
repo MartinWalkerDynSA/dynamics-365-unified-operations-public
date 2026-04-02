@@ -1,36 +1,18 @@
 ---
-# required metadata
-
-title: Master planning and multisite functionality
-description: Master planning takes the settings of the site and warehouse inventory dimensions into account. 
-author: roxanadiaconu
-manager: AnnBe
-ms.date: 06/20/2017
-ms.topic: article
-ms.prod: 
-ms.service: dynamics-ax-applications
-ms.technology: 
-
-# optional metadata
-
+title: Master planning and multisite functionality overview
+description: Learn about master planning and multisite functionality, which take the settings of the site and warehouse inventory dimensions into account. 
+author: Henrikan
+ms.author: henrikan
+ms.topic: overview
+ms.date: 07/25/2019
+ms.custom:
+ms.reviewer: kamaybac
+ms.collection: get-started
 ms.search.form: InventLocation, InventSite
-# ROBOTS: 
-audience: Application User
-# ms.devlang: 
-ms.reviewer: josaw
-ms.search.scope: Core, Operations
-# ms.tgt_pltfrm: 
-ms.custom: 2434
 ms.assetid: 7f05c031-a446-4168-8cce-03a6305f5c4d
-ms.search.region: Global
-ms.search.industry: Manufacturing
-ms.author: roxanad
-ms.search.validFrom: 2016-02-28
-ms.dyn365.ops.version: AX 7.0.0
-
 ---
 
-# Master planning and multisite functionality
+# Master planning and multisite functionality overview
 
 [!include [banner](../includes/banner.md)]
 
@@ -42,17 +24,20 @@ When a dimension is mandatory, a dimension value must be entered on all inventor
 
 When the warehouse is not set to mandatory, it may not be known from the initial demand. The planning engine must determine which warehouse to use based on the settings that are defined for the item, individual warehouses, and the details of the order line.
 
-The following topics describe how the planning engine works, when different settings are defined, to determine the warehouse to use.
+The following articles describe how the planning engine works, when different settings are defined, to determine the warehouse to use.
 
-[Master planning - site and warehouse coverage, warehouse mandatory](master-plan-site-warehouse-coverage-warehouse-mandatory.md)
+[Master planning for site and warehouse coverage, warehouse mandatory](master-plan-site-warehouse-coverage-warehouse-mandatory.md)
 
-[Master planning - site coverage, warehouse mandatory](master-plan-site-coverage-warehouse-mandatory.md)
+[Master planning for site coverage, mandatory warehouse](master-plan-site-coverage-warehouse-mandatory.md)
 
-[Master planning - site and warehouse coverage, warehouse not mandatory](master-plan-site-warehouse-coverage-warehouse-not-mandatory.md)
+[Master planning for site and warehouse coverage, warehouse not mandatory](master-plan-site-warehouse-coverage-warehouse-not-mandatory.md)
 
-[Master planning - site coverage, warehouse not mandatory](master-plan-site-coverage-warehouse-not-mandatory.md)
+[Master planning for site coverage, warehouse not mandatory](master-plan-site-coverage-warehouse-not-mandatory.md)
 
-[Master planning - How the BOM version is determined](master-plan-bom-version-determined.md)
+[Determine the BOM version](master-plan-bom-version-determined.md)
 
 
 
+
+
+[!INCLUDE[footer-include](../../includes/footer-banner.md)]

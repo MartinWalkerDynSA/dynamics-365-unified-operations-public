@@ -1,34 +1,18 @@
 --- 
-# required metadata 
- 
 title: Schedule a production order
-description: This procedure shows how to schedule a production order. 
+description: Learn how to schedule a production order, including a step-by-step process for scheduling production orders using the USMF demo data company. 
 author: johanhoffmann
-manager: AnnBe 
-ms.date: 08/29/2018
-ms.topic: business-process 
-ms.prod:  
-ms.service: dynamics-ax-applications 
-ms.technology:  
- 
-# optional metadata 
- 
-ms.search.form: ProdTableListPage, ProdSchedule, ProdRouteJob, WrkCtrCapResSum   
-audience: Application User 
-# ms.devlang:  
-ms.reviewer: shylaw
-ms.search.scope: Core, Operations 
-# ms.tgt_pltfrm:  
-# ms.custom:  
-ms.search.region: Global
-ms.search.industry: Manufacturing
 ms.author: johanho
-ms.search.validFrom: 2016-06-30 
-ms.dyn365.ops.version: Version 7.0.0 
+ms.topic: how-to
+ms.date: 08/29/2018
+ms.custom:
+ms.reviewer: kamaybac
+ms.search.form: ProdTableListPage, ProdSchedule, ProdRouteJob, WrkCtrCapResSum, ProdRouteJobSched, ProductionOrderScheduleDetails
 ---
+
 # Schedule a production order
 
-[!include [task guide banner](../../includes/task-guide-banner.md)]
+[!include [banner](../../includes/banner.md)]
 
 This procedure shows how to schedule a production order. The demo data company used to create this procedure is USMF. This is the third procedure out of seven which explains the production order lifecycle.
 
@@ -57,3 +41,6 @@ This procedure shows how to schedule a production order. The demo data company u
 6. Close the page.
 7. Close the page.
 
+
+
+[!INCLUDE[footer-include](../../../includes/footer-banner.md)]

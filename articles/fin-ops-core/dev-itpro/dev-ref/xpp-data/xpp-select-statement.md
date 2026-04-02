@@ -1,0 +1,769 @@
+---
+title: Select statement
+description: Learn about select statements in the X++ language, including examples for select, insert, update, and delete statements, including a syntax table.
+author: pvillads
+ms.author: pvillads
+ms.topic: how-to
+ms.date: 03/05/2026
+ms.reviewer: johnmichalak
+audience: Developer
+ms.search.region: Global
+ms.search.validFrom: 2016-02-28
+ms.dyn365.ops.version: AX 7.0.0
+---
+
+# Select statement
+
+[!include [banner](../../includes/banner.md)]
+
+The **select** statement fetches data from the database.
+
+- All **select** statements use a table variable to fetch records. The type of this variable is a Table that is defined in the Application Object Tree. You must declare this variable before running a **select** statement.
+- The **select** statement fetches only one record or field. To fetch or traverse multiple records, use the **next** statement or the **[while select](xpp-while-select.md)** statement.
+
+  - The **next** statement fetches the next record in the table. If no **select** statement precedes the **next** statement, an error occurs. If you use a **next** statement, don't use the **firstOnly** find option.
+  - It's more appropriate to use a **while select** statement to traverse multiple records.
+
+- A **select** statement returns its results in a table buffer variable.
+- If you use a field list in the **select** statement, only those fields are available in the table variable. All other fields have their default values.
+- Each table has a set of predefined fields. One of these fields, the RecId field, contains a value that's unique to each record in that table. If this value is **0**, no record was selected from the database.
+
+## Select example
+
+The following example fetches all the columns in a record from the CustTable table and prints the value in the **AccountNum** column of that row. The record fetched is unpredictable, since no **order by** clause was provided.
+
+```xpp
+CustTable custTable;
+select * from custTable;
+info("AccountNum: " + custTable.AccountNum);
+```
+
+For more examples of data selection, see [Select data](xpp-select.md).
+
+## Insert example
+
+The following example inserts a new record into the CustTable table. The **AccountNum** column of the new record is set to **2000**, and the **CustGroup** column is set to **1**.
+
+```xpp
+ttsBegin;
+    CustTable custTable;
+
+    custTable.AccountNum = '2000';
+    custTable.CustGroup = '1';
+
+    custTable.insert();
+ttsCommit;
+```
+
+For more examples of data insertion, see [Insert data](xpp-insert.md).
+
+## Update example
+
+The following example selects the `CustTable` table for update. It updates only the record where the value of the **AccountNum** field equals `2000`. Because there's no call to `next` and this example doesn't use a `select while` statement, the code updates only one record. The code changes the value of the **CreditMax** field to `5000` if it finds a `CustTable` instance with the `AccountNum` equal to `2000`.
+
+```xpp
+ttsBegin;
+    CustTable custTable;
+    select forUpdate custTable
+        where custTable.AccountNum == '2000';
+
+    if (custTable)
+    {
+        custTable.CreditMax = 5000;
+        custTable.update();
+    }
+ttsCommit;
+```
+
+For more examples of data updates, see [Update data](xpp-update.md).
+
+## Delete example
+
+In the following example, the code deletes all records in the `CustTable` table where the **AccountNum** field equals `2000`. The code deletes one record at a time.
+
+```xpp
+ttsBegin;
+    CustTable custTable;
+    while select forUpdate CustTable
+        where custTable.AccountNum == '2000'
+    {
+        custTable.delete();
+    }
+ttsCommit;
+```
+
+For more examples of data deletion, see [Delete data](xpp-select.md).
+
+## Syntax of the select statement
+
+The syntax uses the following symbols:
+
+- **\[\]** – Brackets enclose an optional element.
+- **{}** – Braces enclose an element that you can include zero or more times.
+- **\+** – A plus sign indicates an element that you can include one or more times.
+- **|** – A bar indicates options.
+
+| Symbol                | &nbsp;  | Expression |
+|-----------------------|---|------------|
+| *SelectStatement*     | = | **select** *Parameters* |
+| *Parameters*          | = | { *FindOption* } \[ *FieldList* **from** \] *TableBufferVariable* \[ *IndexClause* \] \[ *Options* \] \[ *WhereClause* \] \[ *JoinClause* \] |
+| *FindOption*          | = | **crossCompany** \[**:** *ContainerVariable*\] \| **reverse** \| **firstFast** \| *FirstOption* \| **forUpdate** \| **noFetch** \| *ForceOption* \| **forceSelectOrder** \| **forceNestedLoop** \| *LockOption* \| **repeatableRead** \| **validTimeState** |
+| *FirstOption*         | = | **firstOnly** \| **firstOnly10** \| **firstOnly100** \| **firstOnly1000** |
+| *LockOption*          | = | **optimisticLock** \| **pessimisticLock** |
+| *ForceOption*         | = | **forcePlaceholders** \| **forceLiterals** |
+| *FieldList*           | = | { *Field* } \| **\*** |
+| *Field*               | = | *Aggregate* **(** *FieldIdentifier* **)** \| *FieldIdentifier* |
+| *Aggregate*           | = | **sum** \| **avg** \| **minof** \| **maxof** \| **count** |
+| *Options*             | = | *OrderClause* \| *IndexClause* |
+| *OrderClause*         | = | \[*OrderBy* \[*GroupBy*\]\] \| \[*GroupBy* \[*OrderBy*\]\] |
+| *OrderBy*             | = | **order** \[**by**\] *FieldOrder* {**,** *FieldOrder* } |
+| *GroupBy*             | = | **group** \[**by**\] *FieldOrder* {**,** *FieldOrder* } |
+| *FieldOrder*          | = | *FieldIdentifier* \[ **asc** \| **desc** \] |
+| *IndexClause*         | = | **index** *IndexName* \| **index hint** *IndexName* |
+| *WhereClause*         | = | **where** *Expression* *InClause* |
+| *InClause*            | = | **in** *List* |
+| *JoinClause*          | = | \[**exists** \| **notexists** \| **outer** \] **join** *Parameters* |
+| *ContainerVariable*   | = | A container. |
+| *Expression*          | = | An expression. |
+| *TableBufferVariable* | = | The variable name for the results. |
+| *FieldIdentifier*     | = | The name of a field in the table. |
+| *IndexName*           | = | The name of an index for a table. |
+| *List*                | = | An array of values. |
+
+## Aggregate functions
+
+The aggregate functions perform calculations on a single field over a group of records.
+
+- The result is returned in the field that you perform the aggregate function over.
+- The fields in the results are the aggregate values and the fields in the **group by** clause.
+- You can count, average, or sum only integer and real fields.
+- In cases where the **sum** function returns **null**, no rows are returned.
+
+### Differences between X++ and SQL
+
+In industry-standard SQL, a database query can contain aggregate functions. Examples include **count(RecID)** and **sum(columnA)**. When you use an aggregate function but no rows match the **where** clause, the query returns a row to hold the result of the aggregates. The returned row shows the value **0** (zero) for the **count** function and **null** for the **sum** function. X++ doesn't support the concept of **null** values for the database. Therefore, in cases where the **sum** function returns **null**, the query returns no row. Additionally, every data type has a specific value that is treated as a **null** value in some circumstances.
+
+## Grouping and ordering the query results
+
+A query can have multiple **group by** clauses, but the fields can be qualified by a table name in only one **group by** clause. Use table name qualifiers. The **order by** clause follows the same syntax patterns as **group by**. Both clauses, if they are provided, must appear after the **join** (or **from**) clause, and both must appear before any **where** clause that exists on the same **join** clause. Make all **group by**, **order by**, and **where** clauses appear immediately after the last **join** clause. The following example shows a **group by** clause where a field is qualified by a table name.
+
+```xpp
+CustTable custTable;
+CustGroup custGroup;
+struct groupSummary = new struct("int CustomerCount; str CustGroup");
+
+while select count(CreditMax) from custTable
+    join custGroup
+    order by custGroup.Name
+    group by custGroup.CustGroup
+    where custTable.CustGroup == custGroup.CustGroup
+        && custGroup.Name like "*Days*"
+{
+
+    groupSummary.value("CustomerCount", custTable.CreditMax);
+    groupSummary.value("CustGroup", custGroup.CustGroup);
+    info(groupSummary.toString());
+}
+
+// Example output:
+// (CustomerCount:1; CustGroup:"1")
+// (CustomerCount:3; CustGroup:"2")
+```
+
+## Join tables
+
+The following example shows how to perform an inner join as part of a **select** statement. The example also shows an **order by** clause where each field is qualified by a table name. Therefore, you can use just one **order by** clause to control how the retrieved records are sorted.
+
+```xpp
+CustTable custTable;
+CustGroup custGroup;
+struct output = new struct("int AccountNum; str CustGroup");
+
+while select AccountNum from custTable
+    join Name from custGroup
+    order by custGroup.Name, custTable.AccountNum
+    where custTable.CustGroup == custGroup.CustGroup
+{
+    info(custGroup.Name + ': ' + custTable.AccountNum);
+}
+
+// Example output:
+// Days1: 6000
+// Days1: 6001
+// Days2: 5000
+```
+
+## Using where, order by, and index hint together in a query
+
+Use the **order by** keyword in **select** statements to order the data that the query returns. Use the **index hint** keyword to specify the index that the query should use. The query sorts the selected records in the order defined by the index. Indexes optimize how the query selects records. To select records in a specific order, combine the **index hint** keyword with an **order by** expression. To sort the output in reverse order, use the **reverse** keyword. If you disable a table index by setting the index's **Enabled** property to **No**, the **select** statement that references the index remains valid. However, the database can't use the index as a hint to sort the data because the index doesn't exist in the database. The following table shows how to use the **index hint** and **order by** keywords in **select** statements.
+
+| Task | select statement |
+|------|-----|
+| Select records when the order isn't significant. | select .. where ... |
+| Select records when the order is significant. | select .. order by ... where ... |
+| Select records, and force a specific index to be used. | select .. index hint ... where ... |
+| Select records when the order is significant, and force a specific index to be used. | select .. index hint ... order by ... where ... |
+
+The following example shows how to select transactions from the SalesTable table, based on a range of customers and due dates.
+
+```xpp
+SalesTable salesTable;
+select salesTable
+    index hint CustIdx
+    order by CustAccount
+    where
+        salesTable.CustAccount >= '3000'
+        && salesTable.CustAccount <= '4000'
+        && salesTable.FixedDueDate >= 12\12\2004
+        && salesTable.FixedDueDate <= 05\05\2009;
+```
+
+## asc keyword
+
+The **asc** keyword is an option on the **order by** or **group by** clause. It specifies an ascending sort order. If you don't specify **asc** or **desc**, the sort is ascending by default.
+
+```xpp
+CustTable custTable;
+select * from custTable
+    order by CredMax asc;
+```
+
+## avg keyword
+
+The **avg** keyword returns the average of the fields.
+
+```xpp
+CustTable custTable;
+select avg(CreditMax) from custTable;
+info(strFmt('%1', custTable.CreditMax));
+```
+
+## count keyword
+
+The **count** keyword returns the number of records.
+
+```xpp
+CustTable custTable;
+int64 iCountRows;
+select count(RecID) from custTable;
+iCountRows = custTable.RecID;
+info('Rows: ' + int642Str(iCountRows));
+```
+
+## crossCompany keyword
+
+The **crossCompany** keyword returns data for all companies that the user is authorized to read from. You can add a container to reduce the number of companies that are involved. The following example returns data for companies that the user is authorized to read from. Results are limited to the **dat** and **dmo** companies.
+
+```xpp
+CustTable custTable;
+container conCompanies = ['dat','dmo'];
+select crossCompany :conCompanies
+    * from custTable;
+```
+
+### crossCompany clause can contain arbitrary expressions
+
+Use the **crossCompany** clause on **select** statements to indicate the companies that the search statement should take into account. The syntax supports arbitrary expressions of type container instead of a single identifier.
+
+This code example creates a container with the companies.
+
+```xpp
+private void SampleMethod()
+{
+    MyTable t;
+    container mycompanies = ['dat', 'dmo'];
+    select crosscompany: mycompanies t;
+}
+```
+
+This code uses an expression instead of the variable.
+
+```xpp
+private void SampleMethod()
+{
+    MyTable t;
+    container mycompanies = ['dat', 'dmo'];
+    select crosscompany: (['dat'] + ['dmo']) t;
+}
+```
+
+## desc keyword
+
+Use the **desc** keyword as an option on the **order by** or **group by** clause. It specifies a descending sort order. If you don't specify **asc** or **desc**, the sort is ascending.
+
+```xpp
+CustTable custTable;
+select * from custTable
+    order by AccountNum desc;
+```
+
+## exists keyword
+
+The **exists** keyword is a method that returns a Boolean value and a **join** clause.
+
+```xpp
+CtrTable ctrTable;
+CustTable custTable;
+while select AccountNum, Value from custTable
+    order by AccountNum
+    exists join * from ctrTable
+    where (ctrTable.AccountNum == custTable.AccountNum)
+{
+}
+```
+
+## firstFast keyword
+
+The **firstFast** keyword is a priority hint. The first row appears more quickly, but the total return time for this option might be slower. The **firstFast** hint automatically comes from all pages.
+
+The following code example quickly returns the first row.
+
+```xpp
+CustTable custTable;
+select firstFast custTable
+    order by AccountNum;
+```
+
+## firstOnly, firstOnly10, firstOnly100, and firstOnly1000 keywords
+
+The **firstOnly** keywords speed up the fetch by returning a limited number of rows. When you include **firstOnly** in your query, the runtime returns a table buffer. When you omit **firstOnly**, the runtime allocates an object that can iterate over records. From a performance perspective, use **firstOnly** only when you intend to fetch the first record.
+
+| Keyword       | Description                |
+|---------------|----------------------------|
+| firstOnly     | Return only the first row. |
+| firstOnly10   | Return 10 rows.            |
+| firstOnly100  | Return 100 rows.           |
+| firstOnly1000 | Return 1,000 rows.         |
+
+The following code example returns only the first row of the results.
+
+```xpp
+CustTable custTable;
+select firstOnly custTable
+    index hint AccountIdx
+    where custTable.AccountNum == '5000';
+```
+
+## forceLiterals keyword
+
+The **forceLiterals** keyword instructs the kernel to reveal the actual values that it uses in **where** clauses to the Microsoft SQL Server database at the time of optimization. The **forceLiterals** and **forcePlaceholders** keywords are mutually exclusive. For more information, see the [forcePlaceholders keyword](#forceplaceholders-keyword) section.
+
+> [!WARNING]
+> Don't use the **forceLiterals** keyword in **select** statements, because it can expose your code to an SQL injection security threat.
+
+## forceNestedLoop keyword
+
+The **forceNestedLoop** keyword forces the SQL Server database to use a nested-loop algorithm to process a particular SQL statement that contains a join algorithm. Therefore, the database fetches a record from the first table before it fetches any records from the second table. Typically, the database considers other join algorithms, such as hash joins and merge joins. Combine this keyword with the **forceSelectOrder** keyword.
+
+```xpp
+CustGroup custGroup;
+CustTable custTable;
+
+while select forceNestedLoop custGroup
+    join custTable
+    where custGroup.CustGroup == custTable.CustGroup
+{
+    Info(custTable.CustGroup);
+}
+```
+
+## forcePlaceholders keyword
+
+The **forcePlaceholders** keyword instructs the kernel **not** to reveal the actual values that it uses in **where** clauses to the SQL Server database at the time of optimization. By default, the kernel uses this behavior in all statements that aren't **join** statements. The advantage of using this keyword is that the kernel can reuse the access plan for similar statements that have other search values. The disadvantage is that, although the access plan is computed, it doesn't consider that data distribution might be uneven. The access plan is an on-average access plan. The **forcePlaceholders** and **forceLiterals** keywords are mutually exclusive.
+
+The following example iterates through the **CustGroup** table that the kernel joins with the **CustTable** table.
+
+```xpp
+CustGroup custGroup;
+CustTable custTable;
+
+while select forcePlaceholders custGroup
+    join custTable
+    where custGroup.CustGroup == custTable.CustGroup
+{
+    Info(custTable.CustGroup);
+}
+```
+
+## forceSelectOrder keyword
+
+The **forceSelectOrder** keyword forces the SQL Server database to access the tables in a join in the specified order. If two tables are joined, the database always accesses the first table in the statement first. Combine this keyword with the **forceNestedLoop** keyword.
+
+The following example joins the CustGroup and CustTable tables on the **CustGroup** field.
+
+```xpp
+CustGroup custGroup;
+CustTable custTable;
+
+while select forceSelectOrder custGroup
+    join custTable
+    where custGroup.CustGroup == custTable.CustGroup
+{
+    Info(custTable.CustGroup);
+}
+```
+
+## forUpdate keyword
+
+The **forUpdate** keyword selects records for update only. Depending on the underlying database, the database might lock the records for other users. The following example selects the **CreditMax** column in the CustTable table for update, for the record where the **AccountNum** value is **2000**.
+
+```xpp
+ttsBegin;
+    CustTable custTable;
+
+    select forUpdate custTable
+        where custTable.AccountNum == '2000';
+    
+    custTable.CreditMax = 5000;
+    custTable.update();
+ttsCommit;
+```
+
+## group by keyword
+
+The **group by** keyword instructs the database to group selected records by fields.
+
+```xpp
+CustTable custTable;
+while select sum(CreditMax) from custTable
+    group by CustGroup
+{
+    info(custTable.CustGroup + ' ' + int642Str(custTable.CreditMax));
+}
+```
+
+## in keyword
+
+The **in** keyword filters rows where a value is in a list.
+
+If you don't use the **in** keyword, your code looks like the following example.
+
+```X++
+// This code doesn't use the in keyword.
+private CostAmountStdAdjustment calcCostAmountStdAdjustment()
+{
+    InventSettlement inventSettlement;
+
+    select sum(CostAmountAdjustment) from inventSettlement
+        where inventSettlement.TransRecId == this.RecId
+            && inventSettlement.Cancelled == NoYes::No
+            && (inventSettlement.OperationsPosting == LedgerpostingType::purchStdProfit
+                || inventSettlement.OperationsPosting == LedgerpostingType::purchStdLoss
+                || inventSettlement.OperationsPosting == LedgerpostingType::InventStdProfit
+                || inventSettlement.OperationsPosting == LedgerpostingType::InventStdLoss);
+
+    return inventSettlement.CostAmountAdjustment;
+}
+```
+
+If you use the **in** keyword, your code looks like the following example.
+
+```X++
+// This code uses the in keyword.
+private CostAmountStdAdjustment calcCostAmountStdAdjustment()
+{
+    InventSettlement inventSettlement;
+    container ledgerPostingTypes = this.ledgerPostingTypesForCostAmountStdAdjustmentCalculation();
+
+    select sum(CostAmountAdjustment) from inventSettlement
+        where inventSettlement.TransRecId == this.RecId
+            && inventSettlement.Cancelled == NoYes::No
+            && inventSettlement.OperationsPosting in ledgerPostingTypes;
+
+    return inventSettlement.CostAmountAdjustment;
+}
+
+protected container ledgerPostingTypesForCostAmountStdAdjustmentCalculation()
+{
+return [
+    LedgerPostingType::purchStdProfit,
+    LedgerPostingType::PurchStdLoss,
+    LedgerPostingType::InventStdProfit,
+    LedgerPostingType::InventStdLoss];
+}
+```
+
+## index keyword
+
+The **index** keyword tells the database to sort the selected records as specified by the index.
+
+```xpp
+CustTable custTable;
+while select AccountNum, Value from custTable
+    index AccountIdx
+{
+    Info(custTable.AccountNum +  ": " + int642Str(custTable.RecID));
+}
+```
+
+## index hint keyword
+
+The **index hint** keyword forces SQL Server to use a specific index. When you use the **index hint** keyword, you remove the control of which index to use from the Query Optimizer. An incorrect index hint can greatly affect performance. Apply index hints only to SQL statements that don't have dynamic **where** clauses or **order by** clauses, and where you can verify the effect of the hint.
+
+Before you can use **index hint** in queries, you must call **allowIndexHint(true)** on the table. The default behavior for **index hint** is **false**, and the hint is ignored.
+
+> [!WARNING]
+> Use **index hint** sparingly and with caution, and only when you're sure that it improves performance. The **index hint** keyword and API let you pass the correct hints when they're required. If you're in doubt, avoid using **index hint**.
+
+In the following example, the **AccountIdx** index sorts the records in the query on the CustTable table.
+
+```xpp
+str accountNum = '111';
+CustTable custTable;
+custTable.allowIndexHint(true);
+
+while select forUpdate custTable
+    index hint AccountIdx
+    where custTable.AccountNum == accountNum
+{
+}
+```
+
+## join keyword
+
+Use the **join** keyword to join tables on a column that both tables share. Specify the join criteria in a **where** clause because there's no **on** keyword like in SQL. This keyword reduces the number of SQL statements you need if you want to loop through a table and update transactions in a related table. For example, you process 500 records in a table and want to update related records in another table. If you use a nested **while select**, you make 501 trips to the database. However, if you use a **join**, you make just one trip to the database.
+
+```xpp
+CustTable custTable;
+CustGroup custGroup;
+int totalCredit;
+
+while select custGroup
+    join custTable
+    where custGroup.CustGroup == custTable.CustGroup
+{
+    totalCredit += custTable.CreditMax;
+}
+```
+
+## maxof keyword
+
+The **maxof** keyword returns the maximum value of the fields.
+
+```xpp
+CustTable custTable;
+select maxof(CreditMax) from custTable;
+info(strFmt('%1', custTable.CreditMax));
+```
+
+## minof keyword
+
+The **minof** keyword returns the minimum value of the fields.
+
+```xpp
+CustTable custTable;
+select minof(CreditMax) from custTable;
+info(strFmt('%1', custTable.CreditMax));
+```
+
+## noFetch keyword
+
+The **noFetch** keyword indicates that the query shouldn't fetch any records now. Typically, use this keyword when you want to pass the result of the **select** statement to another application object, such as a query that performs the actual fetch.
+
+The following example creates a query variable but doesn't fetch the records.
+
+```xpp
+CustTable custTable;
+select noFetch custTable
+    order by AccountNum;
+```
+
+The matching record is fetched when the first call to **next** is executed. This behavior is useful for limiting lock contention with tables that have many rows.
+
+## notExists keyword
+
+The **notExists** keyword checks for the absence of related records in the joined table. If a match exists, the record is excluded from the results. If no match is found, the record is included in the results.
+
+``` xpp
+CustTable custTable;
+CtrTable ctrTable;
+
+while select AccountNum, Value from custTable
+    order by AccountNum
+    notExists join * from ctrTable
+    where (ctrTable.AccountNum == custTable.AccountNum)
+{
+}
+```
+
+## optimisticLock keyword
+
+The **optimisticLock** keyword runs a statement by using optimistic concurrency control, even if the statement sets a different value on the table.
+
+```xpp
+CustTable custTable;
+select optimisticLock custTable
+    where custTable.AccountNum > '1000';
+```
+
+## order by keyword
+
+The **order by** keyword sorts the selected records by the fields in the **order by** list. The **by** keyword is optional.
+
+```xpp
+CustTable custTable;
+select * from custTable
+    order by accountNum desc
+    where custTable.AccountNum > '100';
+info("AccountNum: " + custTable.AccountNum);
+```
+
+The following example prints the highest **AccountNum** value in the `CustTable` table.
+
+```xpp
+CustTable custTable;
+select reverse custTable
+    order by accountNum;
+info("AccountNum: " + custTable.AccountNum);
+```
+
+## outer keyword
+
+The **outer** keyword returns all rows from the first table, even rows that don't have a match in the second table. This join is a left outer join. Default values fill in for any data that can't be obtained from a matching row in the other joined table.
+
+There's no **left** keyword, and there's no right outer join.
+
+For an inner join, filtering on an **on** clause works the same as filtering on a **where** clause.
+
+```xpp
+CustTable custTable;
+CustGroup custGroupTable;
+
+while select CustGroup from custGroupTable
+    order by CustGroup
+    outer join * from custGroupTable
+    where custTable.CustGroup == custGroupTable.CustGroup
+{
+    Info(custTable.CustGroup + ', ' + custGroupTable.Name);
+}
+```
+
+The following example uses two tables. It includes the field types and example data. The SalesOrder parent table and the SalesOrderLine child table have a one-to-many relationship. For each row in the SalesOrder table, there are zero or more rows in the SalesOrderLine table. The SalesOrder table has two rows.
+
+| SalesOrderID (integer, primary key) | DateAdded (date) |
+|-------------------------------------|------------------|
+| 1                                   | 2010-01-01       |
+| 2                                   | 2010-02-02       |
+
+The SalesOrderLine table has a foreign key field named **SalesOrderID**. This field references the primary key column of the SalesOrder table. The **SalesOrderID** value of **2** doesn't appear in the data for the SalesOrderLine table.
+
+| SalesOrderLineID (string, primary key) | Quantity (integer) | SalesOrderID (integer, foreign key) |
+|----------------------------------------|--------------------|-------------------------------------|
+| AA                                     | 32                 | 1                                   |
+| BB                                     | 67                 | 1                                   |
+| CC                                     | 66                 | 1                                   |
+
+The following code has a **select** statement that reads the two tables. The **select** statement includes a left **outer join** clause. Both the join criteria and the data filter are on the **where** clause. The output from the code is also shown. The second record in the output has a **SalesOrderID** value of **2**. However, that value isn't present in the SalesOrderLine table. Therefore, some of the fields in the second record have default values: **0** for an integer and a zero-length string for a string.
+
+```xpp
+SalesOrder recSalesOrder;
+SalesOrderLine recSalesOrderLine;
+struct struct4 = new struct
+    ("int SalesOrderID;"
+    + "date DateAdded;"
+    + "str SalesOrderLineID;"
+    + "int Quantity"
+    );
+while select *
+    from
+        recSalesOrder
+        outer join recSalesOrderLine
+    where
+        recSalesOrder.SalesOrderID == recSalesOrderLine.SalesOrderID
+        && recSalesOrderLine.Quantity == 66
+{
+    struct4.value("SalesOrderID", recSalesOrder.SalesOrderID);
+    struct4.value("DateAdded", recSalesOrder.DateAdded);
+    struct4.value("SalesOrderLineID", recSalesOrderLine.SalesOrderLineID);
+    struct4.value("Quantity", recSalesOrderLine.Quantity);
+    info(struct4.toString());
+}
+
+// Example output:
+// (SalesOrderID:1; DateAdded:2010/1/1; SalesOrderLineID:"CC"; Quantity:66)
+// (SalesOrderID:2; DateAdded:2010/2/2; SalesOrderLineID:""; Quantity:0)
+```
+
+## pessimisticLock keyword
+
+The **pessimisticLock** keyword forces a statement to run by using pessimistic concurrency control, even if the table uses a different value.
+
+```xpp
+CustTable custTable;
+select pessimisticLock custTable
+    where custTable.AccountNum > '1000';
+```
+
+## repeatableRead keyword
+
+The **repeatableRead** keyword specifies that the current transaction must be completed before other transactions can modify data that the current transaction's logic reads. An explicit transaction completes at either **ttsAbort** or the outermost **ttsCommit**. For a standalone **select** statement, the transaction duration is the duration of the **select** command. However, the database sometimes enforces the equivalent of **repeatableRead** in individual **select** statements, even if this keyword doesn't appear in your code. This behavior depends on the method that the database uses to determine whether it should scan the tables. For more information, see the documentation for the underlying relational database product.
+
+## reverse keyword
+
+The **reverse** keyword returns records in reverse order.
+
+```xpp
+CustTable custTable;
+select reverse custTable
+    order by AccountNum;
+```
+
+## sum keyword
+
+The **sum** keyword returns the sum of the fields. Use it to sum all accounts, order lines, and so on.
+
+```xpp
+CustTable custTable;
+select sum(CreditMax) from custTable;
+info(strFmt('%1', custTable.CreditMax));
+```
+
+## validTimeState keyword
+
+The **validTimeState** keyword selects rows from a table where the **ValidTimeStateFieldType** property has a value other than **None**.
+
+```xpp
+CustPackingSlipTransHistory history;
+utcDateTime dateFrom, dateTo = DateTimeUtil::utcNow();
+anytype recid = -1;
+
+select validTimeState(dateFrom, dateTo) * from history;
+recid = history.RecId;
+
+info('RecId:' + int642Str(recid));
+```
+
+## where keyword
+
+The **where** keyword filters rows from a table where the expression is **true**.
+
+The following example finds a customer that has an **AccountNum** value that's greater than 100.
+
+```xpp
+CustTable custTable;
+select * from custTable
+    where custTable.AccountNum > '100';
+info("AccountNum: " + custTable.AccountNum);
+```
+
+The following example prints the lowest **AccountNum** value that's greater than 100.
+
+```xpp
+CustTable custTable;
+select * from custTable
+    order by accountNum
+    where custTable.AccountNum > '100';
+info("AccountNum: " + custTable.AccountNum);
+```
+
+The following example prints the highest **AccountNum** value that's greater than 100.
+
+```xpp
+CustTable custTable;
+select * from custTable
+    order by accountNum desc
+    where custTable.accountNum > "100";
+info("AccountNum: " + custTable.AccountNum);
+```
+
+[!INCLUDE[footer-include](../../../../includes/footer-banner.md)]
